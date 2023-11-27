@@ -524,11 +524,11 @@ export function initConfig() {
             get icon() {
                 switch (this.type) {
                     case "spell":
-                        return "modules/enhancedcombathud-dnd5e/icons/spell-book.svg";
+                        return "modules/enhancedcombathud/icons/spell-book.svg";
                     case "feat":
-                        return "modules/enhancedcombathud-dnd5e/icons/mighty-force.svg";
+                        return "modules/enhancedcombathud/icons/mighty-force.svg";
                     case "consumable":
-                        return "modules/enhancedcombathud-dnd5e/icons/drink-me.svg";
+                        return "modules/enhancedcombathud/icons/drink-me.svg";
                 }
             }
 
@@ -754,7 +754,7 @@ function registerItems() {
                     startTime: null,
                     turns: 1,
                 },
-                icon: "modules/enhancedcombathud-dnd5e/icons/journey.svg",
+                icon: "modules/enhancedcombathud/icons/journey.svg",
                 label: "Disengage",
                 origin: "Item.wyQkeuZkttllAFB1",
                 transfer: false,
@@ -851,7 +851,7 @@ function registerItems() {
                     startTime: null,
                     rounds: 1,
                 },
-                icon: "modules/enhancedcombathud-dnd5e/icons/armor-upgrade.svg",
+                icon: "modules/enhancedcombathud/icons/armor-upgrade.svg",
                 label: "Dodge",
                 origin: "Item.pakEYcgLYxtKGv7J",
                 transfer: false,
@@ -945,7 +945,7 @@ function registerItems() {
                     startTime: null,
                     turns: 1,
                 },
-                icon: "modules/enhancedcombathud-dnd5e/icons/clockwork.svg",
+                icon: "modules/enhancedcombathud/icons/clockwork.svg",
                 label: "Ready",
                 transfer: false,
                 flags: {
@@ -1042,7 +1042,7 @@ function registerItems() {
                     startTime: null,
                     turns: 10,
                 },
-                icon: "modules/enhancedcombathud-dnd5e/icons/cloak-dagger.svg",
+                icon: "modules/enhancedcombathud/icons/cloak-dagger.svg",
                 label: "Hide",
                 transfer: false,
                 flags: {
@@ -1134,7 +1134,7 @@ function registerItems() {
                     startTime: null,
                     rounds: 1,
                 },
-                icon: "modules/enhancedcombathud-dnd5e/icons/walking-boot.svg",
+                icon: "modules/enhancedcombathud/icons/walking-boot.svg",
                 label: "Dash",
                 transfer: false,
                 flags: {
