@@ -14,7 +14,6 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "init": "npm install && node init-project.js && npx webpack --config webpack.config.js --watch",
     "create-release": "node create-release.js"
   }
 }

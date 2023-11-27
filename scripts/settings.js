@@ -1,7 +1,35 @@
 import { MODULE_ID } from "./main.js";
 
 export function registerSettings() {
-    const settings = {};
+    const settings = {
+        showWeaponsItems: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.showWeaponsItems.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.showWeaponsItems.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: false,
+            onChange: () => ui.ARGON.refresh(),
+        },
+        switchEquip: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: () => ui.ARGON.refresh(),
+        },
+        noAA: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: false,
+            onChange: () => ui.ARGON.refresh(),
+        },
+    };
 
     registerSettingsArray(settings);
 }

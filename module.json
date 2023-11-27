@@ -1,7 +1,7 @@
 {
-    "title": "module-name",
+    "title": "Argon - Combat HUD (DND5E)",
     "description": "desc",
-    "id": "module-id",
+    "id": "enhancedcombathud-dnd5e",
     "version": "1.0",
     "authors": [
       {
@@ -12,24 +12,14 @@
     ],
     "languages": [
       {
-        "lang": "en",
-        "name": "English",
-        "path": "languages/en.json"
-      },
-      {
-        "lang": "ja",
-        "name": "日本語",
-        "path": "languages/ja.json"
-      },
-      {
         "lang": "de",
         "name": "Deutsch",
         "path": "languages/de.json"
       },
       {
-        "lang": "fr",
-        "name": "Français",
-        "path": "languages/fr.json"
+        "lang": "en",
+        "name": "English",
+        "path": "languages/en.json"
       },
       {
         "lang": "es",
@@ -37,14 +27,39 @@
         "path": "languages/es.json"
       },
       {
-        "lang": "pt-br",
-        "name": "Português (Brasil)",
-        "path": "languages/pt-br.json"
+        "lang": "fr",
+        "name": "Français",
+        "path": "languages/fr.json"
       },
       {
         "lang": "it",
         "name": "Italiano",
         "path": "languages/it.json"
+      },
+      {
+        "lang": "ja",
+        "name": "日本語",
+        "path": "languages/ja.json"
+      },
+      {
+        "lang": "pt-br",
+        "name": "Português (Brasil)",
+        "path": "languages/pt-br.json"
+      },
+      {
+        "lang": "ru",
+        "name": "Русский",
+        "path": "languages/ru.json"
+      },
+      {
+        "lang": "ko",
+        "name": "한국어",
+        "path": "languages/ko.json"
+      },
+      {
+        "lang": "cn",
+        "name": "中文",
+        "path": "languages/cn.json"
       }
     ],
     "scripts": [
