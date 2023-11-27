@@ -28,11 +28,11 @@ export function initConfig() {
             let materialComponents = "";
 
             if (type == "skill") {
-                title = CONFIG.DND5E.skills[item];
-                description = this.hudData.skills[item].tooltip;
+                title = CONFIG.DND5E.skills[item].label;
+                description = game.i18n.localize(`enhancedcombathud-dnd5e.skills.${item}.tooltip`);
             } else if (type == "save") {
-                title = CONFIG.DND5E.abilities[item];
-                description = this.hudData.saves[item].tooltip;
+                title = CONFIG.DND5E.abilities[item].label;
+                description = game.i18n.localize(`enhancedcombathud-dnd5e.abilities.${item}.tooltip`);
             } else {
                 if (!item || !item.system) return;
 
@@ -198,6 +198,27 @@ export function initConfig() {
             }
         }
 
+        class DND5eDrawerButton extends ARGON.DRAWER.DrawerButton {
+            constructor (buttons, item, type) {
+                super(buttons);
+                this.item = item;
+                this.type = type;
+            }
+
+            get hasTooltip() {
+                return true;
+            }
+
+            get tooltipOrientation(){
+                return TooltipManager.TOOLTIP_DIRECTIONS.RIGHT;
+            }
+
+            async getTooltipData() {
+                const tooltipData = await getTooltipDetails(this.item, this.type);
+                return tooltipData;
+            }
+        }
+
         class DND5eDrawerPanel extends ARGON.DRAWER.DrawerPanel {
             constructor(...args) {
                 super(...args);
@@ -215,7 +236,7 @@ export function initConfig() {
 
                 const abilitiesButtons = Object.keys(abilities).map((ability) => {
                     const abilityData = abilities[ability];
-                    return new ARGON.DRAWER.DrawerButton([
+                    return new DND5eDrawerButton([
                         {
                             label: CONFIG.DND5E.abilities[ability].label,
                             onClick: (event) => this.actor.rollAbility(ability, { event }),
@@ -228,12 +249,12 @@ export function initConfig() {
                             label: addSign(abilityData.save),
                             onClick: (event) => this.actor.rollAbilitySave(ability, { event }),
                         },
-                    ]);
+                    ], ability , "save");
                 });
 
                 const skillsButtons = Object.keys(skills).map((skill) => {
                     const skillData = skills[skill];
-                    return new ARGON.DRAWER.DrawerButton([
+                    return new DND5eDrawerButton([
                         {
                             label: CONFIG.DND5E.skills[skill].label,
                             onClick: (event) => this.actor.rollSkill(skill, { event }),
@@ -242,11 +263,11 @@ export function initConfig() {
                             label: `${addSign(skillData.mod)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
                             style: "display: flex; justify-content: flex-end;",
                         },
-                    ]);
+                    ], skill , "skill");
                 });
 
                 const toolButtons = tools.map((tool) => {
-                    return new ARGON.DRAWER.DrawerButton([
+                    return new DND5eDrawerButton([
                         {
                             label: tool.name,
                             onClick: (event) => tool.rollToolCheck({ event }),
@@ -254,7 +275,7 @@ export function initConfig() {
                         {
                             label: addSign(abilities[tool.abilityMod].mod + tool.system.proficiencyMultiplier * this.actor.system.attributes.prof),
                         },
-                    ]);
+                    ], tool);
                 });
 
                 return [
