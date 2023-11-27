@@ -98,6 +98,14 @@ export function initConfig() {
             return { title, description, subtitle, details, properties: tooltipProperties, footerText: materialComponents };
         }
 
+        function getProficiencyIcon(proficiency) {
+            if (proficiency == 0) return '<i style="margin-right: 1ch; pointer-events: none" class="far fa-circle"> </i>';
+            else if (proficiency == 1) return '<i style="margin-right: 1ch; pointer-events: none" class="fas fa-check"> </i>';
+            else if (proficiency == 2) return '<i style="margin-right: 1ch; pointer-events: none" class="fas fa-check-double"> </i>';
+            else if (proficiency == 0.5) return '<i style="margin-right: 1ch; pointer-events: none" class="fas fa-adjust"> </i>';
+            else return '<i style="margin-right: 1ch; pointer-events: none" class="far fa-circle"> </i>';
+        }
+
         class DND5ePortraitPanel extends ARGON.PORTRAIT.PortraitPanel {
             constructor(...args) {
                 super(...args);
@@ -256,7 +264,7 @@ export function initConfig() {
                     const skillData = skills[skill];
                     return new DND5eDrawerButton([
                         {
-                            label: CONFIG.DND5E.skills[skill].label,
+                            label: getProficiencyIcon(skillData.proficient) + CONFIG.DND5E.skills[skill].label,
                             onClick: (event) => this.actor.rollSkill(skill, { event }),
                         },
                         {
@@ -269,7 +277,7 @@ export function initConfig() {
                 const toolButtons = tools.map((tool) => {
                     return new DND5eDrawerButton([
                         {
-                            label: tool.name,
+                            label: getProficiencyIcon(tool.system.proficient) + tool.name,
                             onClick: (event) => tool.rollToolCheck({ event }),
                         },
                         {
