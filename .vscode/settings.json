@@ -1,0 +1,12 @@
+{
+	"i18n-ally.localesPaths": [
+		"languages"
+	],
+	"liveSassCompile.settings.formats": [
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "/styles"
+		}
+	]
+}
