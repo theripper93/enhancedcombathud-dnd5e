@@ -598,6 +598,10 @@ export function initConfig() {
                 }
             }
 
+            async _onRightClick(event) {
+                this.item?.sheet?.render(true);
+            }
+
             static consumeActionEconomy(item) {
                 const activationType = item.system.activation?.type;
                 let actionType = null;
