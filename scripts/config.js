@@ -641,6 +641,8 @@ export function initConfig() {
                     return getProperty(this.actor.system, this.item.system.consume.target);
                 } else if (showQuantityItemTypes.includes(this.item.type)) {
                     return this.item.system.uses?.value ?? this.item.system.quantity;
+                } else if (this.item.system.uses.value !== null) {
+                    return this.item.system.uses.value;
                 }
                 return null;
             }
