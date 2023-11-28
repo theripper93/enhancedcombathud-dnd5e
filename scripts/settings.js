@@ -37,6 +37,15 @@ export function registerSettings() {
             default: true,
             onChange: () => ui.ARGON.refresh(),
         },
+        showSpecialActions: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.showSpecialActions.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.showSpecialActions.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: () => ui.ARGON.refresh(),
+        },
         noAA: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.name"),
             hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.hint"),
