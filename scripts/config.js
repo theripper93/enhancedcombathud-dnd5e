@@ -636,9 +636,13 @@ export function initConfig() {
                 if (consumeType === "ammo") {
                     const ammoItem = this.actor.items.get(this.item.system.consume.target);
                     if (!ammoItem) return null;
-                    return ammoItem.system.quantity;
+                    return Math.floor((ammoItem.system.quantity ?? 0) / this.item.system.consume.amount);
                 } else if (consumeType === "attribute") {
                     return getProperty(this.actor.system, this.item.system.consume.target);
+                } else if (consumeType === "charges") { 
+                    const chargesItem = this.actor.items.get(this.item.system.consume.target);
+                    if (!chargesItem) return null;
+                    return Math.floor((chargesItem.system.uses?.value ?? 0) / this.item.system.consume.amount);
                 } else if (showQuantityItemTypes.includes(this.item.type)) {
                     return this.item.system.uses?.value ?? this.item.system.quantity;
                 } else if (this.item.system.uses.value !== null) {
