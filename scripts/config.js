@@ -623,10 +623,8 @@ export function initConfig() {
 
             async render(...args) {
                 await super.render(...args);
-                if (this.item?.system.consumableType === "ammo") {
-                    const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
-                    ui.ARGON.updateItemButtons(weapons);
-                }
+                const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
+                ui.ARGON.updateItemButtons(weapons);
             }
 
             get quantity() {
