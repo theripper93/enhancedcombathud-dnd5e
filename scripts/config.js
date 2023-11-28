@@ -21,7 +21,7 @@ export function initConfig() {
             consumable: ["consumable", "equipment", "loot"],
         };
 
-        const mainBarFeatures = []
+        const mainBarFeatures = [];
 
         if (game.settings.get(MODULE_ID, "showWeaponsItems")) itemTypes.consumable.push("weapon");
         if (game.settings.get(MODULE_ID, "showClassActions")) mainBarFeatures.push("class");
@@ -221,7 +221,7 @@ export function initConfig() {
         }
 
         class DND5eDrawerButton extends ARGON.DRAWER.DrawerButton {
-            constructor (buttons, item, type) {
+            constructor(buttons, item, type) {
                 super(buttons);
                 this.item = item;
                 this.type = type;
@@ -231,7 +231,7 @@ export function initConfig() {
                 return true;
             }
 
-            get tooltipOrientation(){
+            get tooltipOrientation() {
                 return TooltipManager.TOOLTIP_DIRECTIONS.RIGHT;
             }
 
@@ -258,46 +258,57 @@ export function initConfig() {
 
                 const abilitiesButtons = Object.keys(abilities).map((ability) => {
                     const abilityData = abilities[ability];
-                    return new DND5eDrawerButton([
-                        {
-                            label: CONFIG.DND5E.abilities[ability].label,
-                            onClick: (event) => this.actor.rollAbility(ability, { event }),
-                        },
-                        {
-                            label: addSign(abilityData.mod),
-                            onClick: (event) => this.actor.rollAbilityTest(ability, { event }),
-                        },
-                        {
-                            label: addSign(abilityData.save),
-                            onClick: (event) => this.actor.rollAbilitySave(ability, { event }),
-                        },
-                    ], ability , "save");
+                    return new DND5eDrawerButton(
+                        [
+                            {
+                                label: CONFIG.DND5E.abilities[ability].label,
+                                onClick: (event) => this.actor.rollAbility(ability, { event }),
+                            },
+                            {
+                                label: addSign(abilityData.mod),
+                                onClick: (event) => this.actor.rollAbilityTest(ability, { event }),
+                            },
+                            {
+                                label: addSign(abilityData.save),
+                                onClick: (event) => this.actor.rollAbilitySave(ability, { event }),
+                            },
+                        ],
+                        ability,
+                        "save",
+                    );
                 });
 
                 const skillsButtons = Object.keys(skills).map((skill) => {
                     const skillData = skills[skill];
-                    return new DND5eDrawerButton([
-                        {
-                            label: getProficiencyIcon(skillData.proficient) + CONFIG.DND5E.skills[skill].label,
-                            onClick: (event) => this.actor.rollSkill(skill, { event }),
-                        },
-                        {
-                            label: `${addSign(skillData.mod)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
-                            style: "display: flex; justify-content: flex-end;",
-                        },
-                    ], skill , "skill");
+                    return new DND5eDrawerButton(
+                        [
+                            {
+                                label: getProficiencyIcon(skillData.proficient) + CONFIG.DND5E.skills[skill].label,
+                                onClick: (event) => this.actor.rollSkill(skill, { event }),
+                            },
+                            {
+                                label: `${addSign(skillData.mod)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
+                                style: "display: flex; justify-content: flex-end;",
+                            },
+                        ],
+                        skill,
+                        "skill",
+                    );
                 });
 
                 const toolButtons = tools.map((tool) => {
-                    return new DND5eDrawerButton([
-                        {
-                            label: getProficiencyIcon(tool.system.proficient) + tool.name,
-                            onClick: (event) => tool.rollToolCheck({ event }),
-                        },
-                        {
-                            label: addSign(abilities[tool.abilityMod].mod + tool.system.proficiencyMultiplier * this.actor.system.attributes.prof),
-                        },
-                    ], tool);
+                    return new DND5eDrawerButton(
+                        [
+                            {
+                                label: getProficiencyIcon(tool.system.proficient) + tool.name,
+                                onClick: (event) => tool.rollToolCheck({ event }),
+                            },
+                            {
+                                label: addSign(abilities[tool.abilityMod].mod + tool.system.proficiencyMultiplier * this.actor.system.attributes.prof),
+                            },
+                        ],
+                        tool,
+                    );
                 });
 
                 return [
@@ -364,7 +375,7 @@ export function initConfig() {
             get maxActions() {
                 return this.actor.inCombat ? 1 : null;
             }
-              
+
             get currentActions() {
                 return this.isActionUsed ? 0 : 1;
             }
@@ -382,12 +393,12 @@ export function initConfig() {
                 const specialActions = Object.values(ECHItems);
 
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 }), new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
-                
-                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
-                for(const item of barItems) {
+
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
+                for (const item of barItems) {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
-                
+
                 return buttons.filter((button) => button.items == undefined || button.items.length);
             }
         }
@@ -404,7 +415,7 @@ export function initConfig() {
             get maxActions() {
                 return this.actor.inCombat ? 1 : null;
             }
-              
+
             get currentActions() {
                 return this.isActionUsed ? 0 : 1;
             }
@@ -422,8 +433,8 @@ export function initConfig() {
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 1 }));
                 }
 
-                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
-                for(const item of barItems) {
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
+                for (const item of barItems) {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
 
@@ -443,7 +454,7 @@ export function initConfig() {
             get maxActions() {
                 return this.actor.inCombat ? 1 : null;
             }
-              
+
             get currentActions() {
                 return this.isActionUsed ? 0 : 1;
             }
@@ -462,8 +473,8 @@ export function initConfig() {
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 3 }));
                 }
 
-                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
-                for(const item of barItems) {
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
+                for (const item of barItems) {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
 
@@ -483,7 +494,7 @@ export function initConfig() {
             get maxActions() {
                 return this.actor.inCombat ? 1 : null;
             }
-              
+
             get currentActions() {
                 return this.isActionUsed ? 0 : 1;
             }
@@ -502,8 +513,8 @@ export function initConfig() {
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 2 }));
                 }
 
-                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
-                for(const item of barItems) {
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
+                for (const item of barItems) {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
 
@@ -523,7 +534,7 @@ export function initConfig() {
             get maxActions() {
                 return this.actor.inCombat ? this.actor.system.resources?.legact?.max ?? null : null;
             }
-              
+
             get currentActions() {
                 return this.actor.system.resources?.legact?.value ?? null;
             }
@@ -619,7 +630,7 @@ export function initConfig() {
             }
 
             get quantity() {
-                if(!this.item?.system) return null;
+                if (!this.item?.system) return null;
                 const showQuantityItemTypes = ["consumable"];
                 const consumeType = this.item.system.consume?.type;
                 if (consumeType === "ammo") {
@@ -661,11 +672,11 @@ export function initConfig() {
             get icon() {
                 switch (this.type) {
                     case "spell":
-                        return "modules/enhancedcombathud/icons/spell-book.svg";
+                        return "modules/enhancedcombathud/icons/spell-book.webp";
                     case "feat":
-                        return "modules/enhancedcombathud/icons/mighty-force.svg";
+                        return "modules/enhancedcombathud/icons/mighty-force.webp";
                     case "consumable":
-                        return "modules/enhancedcombathud/icons/drink-me.svg";
+                        return "modules/enhancedcombathud/icons/drink-me.webp";
                 }
             }
 
@@ -729,9 +740,11 @@ export function initConfig() {
             constructor(specialItem) {
                 super();
                 const actorItem = this.actor.items.getName(specialItem.name);
-                this.item = actorItem ?? new CONFIG.Item.documentClass(specialItem, {
-                    parent: this.actor,
-                });
+                this.item =
+                    actorItem ??
+                    new CONFIG.Item.documentClass(specialItem, {
+                        parent: this.actor,
+                    });
             }
 
             get label() {
@@ -826,7 +839,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.disengage.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.disengage.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/journey.svg",
+        img: "modules/enhancedcombathud/icons/journey.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.disengage.desc"),
@@ -892,7 +905,7 @@ function registerItems() {
                     startTime: null,
                     turns: 1,
                 },
-                icon: "modules/enhancedcombathud/icons/journey.svg",
+                icon: "modules/enhancedcombathud/icons/journey.webp",
                 label: "Disengage",
                 origin: "Item.wyQkeuZkttllAFB1",
                 transfer: false,
@@ -921,7 +934,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.dodge.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.dodge.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/armor-upgrade.svg",
+        img: "modules/enhancedcombathud/icons/armor-upgrade.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dodge.desc"),
@@ -989,7 +1002,7 @@ function registerItems() {
                     startTime: null,
                     rounds: 1,
                 },
-                icon: "modules/enhancedcombathud/icons/armor-upgrade.svg",
+                icon: "modules/enhancedcombathud/icons/armor-upgrade.webp",
                 label: "Dodge",
                 origin: "Item.pakEYcgLYxtKGv7J",
                 transfer: false,
@@ -1006,7 +1019,6 @@ function registerItems() {
         ],
         sort: 0,
         flags: {
-
             "midi-qol": {
                 onUseMacroName: "",
             },
@@ -1015,7 +1027,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.ready.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.ready.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/clockwork.svg",
+        img: "modules/enhancedcombathud/icons/clockwork.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.ready.desc"),
@@ -1083,7 +1095,7 @@ function registerItems() {
                     startTime: null,
                     turns: 1,
                 },
-                icon: "modules/enhancedcombathud/icons/clockwork.svg",
+                icon: "modules/enhancedcombathud/icons/clockwork.webp",
                 label: "Ready",
                 transfer: false,
                 flags: {
@@ -1099,7 +1111,6 @@ function registerItems() {
         ],
         sort: 0,
         flags: {
-
             "midi-qol": {
                 onUseMacroName: "",
             },
@@ -1108,7 +1119,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.hide.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.hide.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/cloak-dagger.svg",
+        img: "modules/enhancedcombathud/icons/cloak-dagger.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.hide.desc"),
@@ -1180,7 +1191,7 @@ function registerItems() {
                     startTime: null,
                     turns: 10,
                 },
-                icon: "modules/enhancedcombathud/icons/cloak-dagger.svg",
+                icon: "modules/enhancedcombathud/icons/cloak-dagger.webp",
                 label: "Hide",
                 transfer: false,
                 flags: {
@@ -1204,7 +1215,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.dash.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.dash.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/walking-boot.svg",
+        img: "modules/enhancedcombathud/icons/walking-boot.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dash.desc"),
@@ -1272,7 +1283,7 @@ function registerItems() {
                     startTime: null,
                     rounds: 1,
                 },
-                icon: "modules/enhancedcombathud/icons/walking-boot.svg",
+                icon: "modules/enhancedcombathud/icons/walking-boot.webp",
                 label: "Dash",
                 transfer: false,
                 flags: {
@@ -1288,7 +1299,6 @@ function registerItems() {
         ],
         sort: 0,
         flags: {
-
             "midi-qol": {
                 onUseMacroName: "",
             },
@@ -1297,7 +1307,7 @@ function registerItems() {
     ECHItems[game.i18n.localize("enhancedcombathud-dnd5e.items.shove.name")] = {
         name: game.i18n.localize("enhancedcombathud-dnd5e.items.shove.name"),
         type: "feat",
-        img: "modules/enhancedcombathud/icons/shield-bash.svg",
+        img: "modules/enhancedcombathud/icons/shield-bash.webp",
         system: {
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.shove.desc"),
@@ -1359,7 +1369,6 @@ function registerItems() {
         effects: [],
         sort: 0,
         flags: {
-
             "midi-qol": {
                 onUseMacroName: "",
             },
