@@ -9,7 +9,7 @@ export function initConfig() {
         const ARGON = CoreHUD.ARGON;
 
         const actionTypes = {
-            action: ["action", "legendary"],
+            action: ["action"],
             bonus: ["bonus"],
             reaction: ["reaction", "reactiondamage", "reactionmanual"],
             free: ["special"],
@@ -21,11 +21,14 @@ export function initConfig() {
             consumable: ["consumable", "equipment", "loot"],
         };
 
+        const mainBarFeatures = ["class"]
+
         if(game.settings.get(MODULE_ID, "showWeaponsItems")) itemTypes.consumable.push("weapon");
 
         CoreHUD.DND5E = {
             actionTypes,
             itemTypes,
+            mainBarFeatures,
             ECHItems,
         };
 
@@ -369,6 +372,12 @@ export function initConfig() {
                 const specialActions = Object.values(ECHItems);
 
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 }), new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
+                
+                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
+                for(const item of barItems) {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                }
+                
                 return buttons.filter((button) => button.items == undefined || button.items.length);
             }
         }
@@ -393,6 +402,12 @@ export function initConfig() {
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 1 }));
                 }
+
+                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
+                for(const item of barItems) {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                }
+
                 return buttons;
             }
         }
@@ -418,6 +433,12 @@ export function initConfig() {
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 3 }));
                 }
+
+                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
+                for(const item of barItems) {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                }
+
                 return buttons;
             }
         }
@@ -443,6 +464,36 @@ export function initConfig() {
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 2 }));
                 }
+
+                const barItems = this.actor.items.filter((item) => mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
+                for(const item of barItems) {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                }
+
+                return buttons;
+            }
+        }
+
+        class DND5eLegActionPanel extends ARGON.MAIN.ActionPanel {
+            constructor(...args) {
+                super(...args);
+            }
+
+            get label() {
+                return "DND5E.LegendaryActionLabel";
+            }
+
+            get hasAction() {
+                return false;
+            }
+
+            async _getButtons() {
+                const buttons = [];
+                const legendary = this.actor.items.filter((item) => item.system.activation?.type === "legendary");
+                legendary.forEach((item) => {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                });
+
                 return buttons;
             }
         }
@@ -716,7 +767,7 @@ export function initConfig() {
 
         CoreHUD.definePortraitPanel(DND5ePortraitPanel);
         CoreHUD.defineDrawerPanel(DND5eDrawerPanel);
-        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, ARGON.PREFAB.PassTurnPanel]);
+        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, ARGON.PREFAB.PassTurnPanel]);
         CoreHUD.defineMovementHud(DND5eMovementHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);
         CoreHUD.defineSupportedActorTypes(["character", "npc"]);
