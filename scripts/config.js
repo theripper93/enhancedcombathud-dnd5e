@@ -623,8 +623,10 @@ export function initConfig() {
 
             async render(...args) {
                 await super.render(...args);
-                const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
-                ui.ARGON.updateItemButtons(weapons);
+                if (this.item) {                    
+                    const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
+                    ui.ARGON.updateItemButtons(weapons);
+                }
             }
 
             get quantity() {
