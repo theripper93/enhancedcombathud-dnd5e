@@ -360,8 +360,17 @@ export function initConfig() {
                 return "DND5E.Action";
             }
 
-            get hasAction() {
-                return true;
+            get maxActions() {
+                return this.actor.inCombat ? 1 : null;
+            }
+              
+            get currentActions() {
+                return this.isActionUsed ? 0 : 1;
+            }
+
+            _onNewRound(combat) {
+                this.isActionUsed = false;
+                this.updateActionUse();
             }
 
             async _getButtons() {
@@ -391,8 +400,17 @@ export function initConfig() {
                 return "DND5E.BonusAction";
             }
 
-            get hasAction() {
-                return true;
+            get maxActions() {
+                return this.actor.inCombat ? 1 : null;
+            }
+              
+            get currentActions() {
+                return this.isActionUsed ? 0 : 1;
+            }
+
+            _onNewRound(combat) {
+                this.isActionUsed = false;
+                this.updateActionUse();
             }
 
             async _getButtons() {
@@ -421,8 +439,17 @@ export function initConfig() {
                 return "DND5E.Reaction";
             }
 
-            get hasAction() {
-                return true;
+            get maxActions() {
+                return this.actor.inCombat ? 1 : null;
+            }
+              
+            get currentActions() {
+                return this.isActionUsed ? 0 : 1;
+            }
+
+            _onNewRound(combat) {
+                this.isActionUsed = false;
+                this.updateActionUse();
             }
 
             async _getButtons() {
@@ -452,8 +479,17 @@ export function initConfig() {
                 return "DND5E.Special";
             }
 
-            get hasAction() {
-                return true;
+            get maxActions() {
+                return this.actor.inCombat ? 1 : null;
+            }
+              
+            get currentActions() {
+                return this.isActionUsed ? 0 : 1;
+            }
+
+            _onNewRound(combat) {
+                this.isActionUsed = false;
+                this.updateActionUse();
             }
 
             async _getButtons() {
@@ -483,8 +519,12 @@ export function initConfig() {
                 return "DND5E.LegendaryActionLabel";
             }
 
-            get hasAction() {
-                return false;
+            get maxActions() {
+                return this.actor.inCombat ? this.actor.system.resources?.legact?.max ?? null : null;
+            }
+              
+            get currentActions() {
+                return this.actor.system.resources?.legact?.value ?? null;
             }
 
             async _getButtons() {
@@ -493,7 +533,6 @@ export function initConfig() {
                 legendary.forEach((item) => {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 });
-
                 return buttons;
             }
         }
@@ -552,14 +591,21 @@ export function initConfig() {
                     if (types.includes(activationType)) actionType = type;
                 }
                 if (!actionType) return;
+                if (game.combat?.combatant?.actor !== item.parent) actionType = "reaction";
                 if (actionType === "action") {
                     ui.ARGON.components.main[0].isActionUsed = true;
+                    ui.ARGON.components.main[0].updateActionUse();
                 } else if (actionType === "bonus") {
                     ui.ARGON.components.main[1].isActionUsed = true;
+                    ui.ARGON.components.main[1].updateActionUse();
                 } else if (actionType === "reaction") {
                     ui.ARGON.components.main[2].isActionUsed = true;
+                    ui.ARGON.components.main[2].updateActionUse();
                 } else if (actionType === "free") {
                     ui.ARGON.components.main[3].isActionUsed = true;
+                    ui.ARGON.components.main[3].updateActionUse();
+                } else if (actionType === "legendary") {
+                    ui.ARGON.components.main[4].isActionUsed = true;
                 }
             }
 
