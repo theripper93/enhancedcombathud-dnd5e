@@ -92,6 +92,7 @@ export function initConfig() {
 
             if (description) description = await TextEditor.enrichHTML(description);
             let details = [];
+            console.log("target", target, "range", range);
             if (target || range) {
                 details = [
                     {
@@ -104,12 +105,63 @@ export function initConfig() {
                     },
                 ];
             }
+            if (item.labels.toHit) {
+                details.push({
+                    label: "enhancedcombathud-dnd5e.tooltip.toHit.name",
+                    value: item.labels.toHit,
+                });
+            }
+            if (item.labels.derivedDamage?.length) {
+                let dmgString = "";
+                item.labels.derivedDamage.forEach((dDmg) => {
+                    dmgString += dDmg.formula + " " + getDamageTypeIcon(dDmg.damageType) + " ";
+                });
+                details.push({
+                    label: "enhancedcombathud-dnd5e.tooltip.damage.name",
+                    value: dmgString,
+                });
+            }
 
             const tooltipProperties = [];
             if (damageTypes?.length) damageTypes.forEach((d) => tooltipProperties.push({ label: d, primary: true }));
             if (properties?.length) properties.forEach((p) => tooltipProperties.push({ label: p, secondary: true }));
 
             return { title, description, subtitle, details, properties: tooltipProperties, footerText: materialComponents };
+        }
+
+        function getDamageTypeIcon(damageType) {
+            switch (damageType.toLowerCase()) {
+                case "acid":
+                    return '<i class="fas fa-flask"></i>';
+                case "bludgeoning":
+                    return '<i class="fas fa-hammer"></i>';
+                case "cold":
+                    return '<i class="fas fa-snowflake"></i>';
+                case "fire":
+                    return '<i class="fas fa-fire"></i>';
+                case "force":
+                    return '<i class="fas fa-hand-sparkles"></i>';
+                case "lightning":
+                    return '<i class="fas fa-bolt"></i>';
+                case "necrotic":
+                    return '<i class="fas fa-skull"></i>';
+                case "piercing":
+                    return '<i class="fas fa-crosshairs"></i>';
+                case "poison":
+                    return '<i class="fas fa-skull-crossbones"></i>';
+                case "psychic":
+                    return '<i class="fas fa-brain"></i>';
+                case "radiant":
+                    return '<i class="fas fa-sun"></i>';
+                case "slashing":
+                    return '<i class="fas fa-cut"></i>';
+                case "thunder":
+                    return '<i class="fas fa-bell"></i>';
+                case "healing":
+                    return '<i class="fas fa-heart"></i>';
+                default:
+                    return "";
+            }
         }
 
         function getProficiencyIcon(proficiency) {
@@ -401,7 +453,7 @@ export function initConfig() {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
 
-                return buttons.filter((button) => button.items == undefined || button.items.length).filter(button => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
+                return buttons.filter((button) => button.items == undefined || button.items.length).filter((button) => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
             }
         }
 
@@ -629,7 +681,7 @@ export function initConfig() {
 
             async render(...args) {
                 await super.render(...args);
-                if (this.item) {                    
+                if (this.item) {
                     const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
                     ui.ARGON.updateItemButtons(weapons);
                 }
@@ -645,7 +697,7 @@ export function initConfig() {
                     return Math.floor((ammoItem.system.quantity ?? 0) / this.item.system.consume.amount);
                 } else if (consumeType === "attribute") {
                     return getProperty(this.actor.system, this.item.system.consume.target);
-                } else if (consumeType === "charges") { 
+                } else if (consumeType === "charges") {
                     const chargesItem = this.actor.items.get(this.item.system.consume.target);
                     if (!chargesItem) return null;
                     return Math.floor((chargesItem.system.uses?.value ?? 0) / this.item.system.consume.amount);

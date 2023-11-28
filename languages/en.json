@@ -70,5 +70,7 @@
     "enhancedcombathud-dnd5e.abilities.cha.tooltip": "<p>Charisma measures your ability to interact effectively with others. It includes such factors as confidence and eloquence, and it can represent a charming or commanding personality.</p><p><strong>Other Charisma Checks</strong><br/>The DM might call for a Charisma check when you try to accomplish tasks like the following:<ul><li>Find the best person to talk to for news, rumors, and gossip</li><li>Blend into a crowd to get the sense of key topics of conversation</li></ul></p>",
     "enhancedcombathud-dnd5e.tooltip.target.name" : "Target",
     "enhancedcombathud-dnd5e.tooltip.range.name" : "Range",
-    "enhancedcombathud-dnd5e.tooltip.properties.name" : "Properties"
+    "enhancedcombathud-dnd5e.tooltip.properties.name" : "Properties",
+    "enhancedcombathud-dnd5e.tooltip.toHit.name": "To Hit",
+    "enhancedcombathud-dnd5e.tooltip.damage.name": "Damage"
 }
