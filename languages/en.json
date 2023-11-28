@@ -3,6 +3,8 @@
     "enhancedcombathud-dnd5e.settings.switchEquip.hint": "Automatically equip/unequip items when switching sets",
     "enhancedcombathud-dnd5e.settings.showWeaponsItems.name": "Show Weapons in 'Use Item' Section",
     "enhancedcombathud-dnd5e.settings.showWeaponsItems.hint": "Show weapons in the 'Use Item' section. Usefull if your weapon slots are not enough",
+    "enhancedcombathud-dnd5e.settings.showClassActions.name": "Show Class Actions",
+    "enhancedcombathud-dnd5e.settings.showClassActions.hint": "Show class actions in the Main Action bars",
     "enhancedcombathud-dnd5e.settings.noAA.name": "Don't Apply Active Effects",
     "enhancedcombathud-dnd5e.settings.noAA.hint": "Don't apply active effects when using special actions. (requires refresh)",
     "enhancedcombathud-dnd5e.itemconfig.sets.text": "Weapon Sets",

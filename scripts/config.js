@@ -21,9 +21,10 @@ export function initConfig() {
             consumable: ["consumable", "equipment", "loot"],
         };
 
-        const mainBarFeatures = ["class"]
+        const mainBarFeatures = []
 
-        if(game.settings.get(MODULE_ID, "showWeaponsItems")) itemTypes.consumable.push("weapon");
+        if (game.settings.get(MODULE_ID, "showWeaponsItems")) itemTypes.consumable.push("weapon");
+        if (game.settings.get(MODULE_ID, "showClassActions")) mainBarFeatures.push("class");
 
         CoreHUD.DND5E = {
             actionTypes,

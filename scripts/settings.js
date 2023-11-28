@@ -15,6 +15,19 @@ export function registerSettings() {
                 ui.ARGON.refresh()
             },
         },
+        showClassActions: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.showClassActions.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.showClassActions.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: (sett) => {
+                ui.ARGON.constructor.DND5E.mainBarFeatures = ui.ARGON.constructor.DND5E.mainBarFeatures.filter(i => i !== "class");
+                if(sett) ui.ARGON.constructor.DND5E.mainBarFeatures.push("class");
+                ui.ARGON.refresh()
+            },
+        },
         switchEquip: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.name"),
             hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.hint"),
