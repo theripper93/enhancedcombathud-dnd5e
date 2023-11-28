@@ -18,8 +18,18 @@ export function initConfig() {
         const itemTypes = {
             spell: ["spell"],
             feat: ["feat"],
-            consumable: ["consumable", "equipment", "loot", "weapon"],
+            consumable: ["consumable", "equipment", "loot"],
         };
+
+        if(game.settings.get(MODULE_ID, "showWeaponsItems")) itemTypes.consumable.push("weapon");
+
+        CoreHUD.DND5E = {
+            actionTypes,
+            itemTypes,
+            ECHItems,
+        };
+
+        Hooks.callAll("enhanced-combat-hud.dnd5e.initConfig", { actionTypes, itemTypes, ECHItems });
 
         async function getTooltipDetails(item, type) {
             let title, description, itemType, subtitle, target, range, dt;
@@ -352,9 +362,9 @@ export function initConfig() {
             }
 
             async _getButtons() {
-                const spellItems = this.actor.items.filter((item) => item.type === "spell" && actionTypes.action.includes(item.system.activation?.type));
-                const featItems = this.actor.items.filter((item) => item.type === "feat" && actionTypes.action.includes(item.system.activation?.type));
-                const consumableItems = this.actor.items.filter((item) => item.type === "consumable" && actionTypes.action.includes(item.system.activation?.type));
+                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
+                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
+                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
 
                 const specialActions = Object.values(ECHItems);
 
@@ -378,7 +388,6 @@ export function initConfig() {
 
             async _getButtons() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: false })];
-                //buttons.push(new DND5eEquipmentButton({slot: 2}));
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type));
                     if (!items.length) continue;
@@ -620,7 +629,8 @@ export function initConfig() {
         class DND5eSpecialActionButton extends ARGON.MAIN.BUTTONS.ActionButton {
             constructor(specialItem) {
                 super();
-                this.item = new CONFIG.Item.documentClass(specialItem, {
+                const actorItem = this.actor.items.getName(specialItem.name);
+                this.item = actorItem ?? new CONFIG.Item.documentClass(specialItem, {
                     parent: this.actor,
                 });
             }

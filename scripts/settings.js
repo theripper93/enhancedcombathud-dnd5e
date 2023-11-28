@@ -9,7 +9,11 @@ export function registerSettings() {
             config: true,
             type: Boolean,
             default: false,
-            onChange: () => ui.ARGON.refresh(),
+            onChange: (sett) => {
+                ui.ARGON.constructor.DND5E.itemTypes.consumable = ui.ARGON.constructor.DND5E.itemTypes.consumable.filter(i => i !== "weapon");
+                if(sett) ui.ARGON.constructor.DND5E.itemTypes.consumable.push("weapon");
+                ui.ARGON.refresh()
+            },
         },
         switchEquip: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.name"),
