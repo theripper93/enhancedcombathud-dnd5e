@@ -572,6 +572,7 @@ export function initConfig() {
             }
 
             get quantity() {
+                if(!this.item?.system) return null;
                 const showQuantityItemTypes = ["consumable"];
                 const consumeType = this.item.system.consume?.type;
                 if (consumeType === "ammo") {
