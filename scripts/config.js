@@ -438,9 +438,9 @@ export function initConfig() {
             }
 
             async _getButtons() {
-                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
-                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
-                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type));
+                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
 
                 const specialActions = Object.values(ECHItems);
 
@@ -482,7 +482,7 @@ export function initConfig() {
             async _getButtons() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: false })];
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 1 }));
                 }
@@ -522,7 +522,7 @@ export function initConfig() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true })];
                 //buttons.push(new DND5eEquipmentButton({slot: 1}));
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(item.system.activation?.type));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 3 }));
                 }
@@ -562,7 +562,7 @@ export function initConfig() {
                 const buttons = [];
 
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(item.system.activation?.type));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     buttons.push(new DND5eButtonPanelButton({ type, items, color: 2 }));
                 }
@@ -636,6 +636,11 @@ export function initConfig() {
                 return null;
             }
 
+            get visible() {
+                if(!this._isWeaponSet || this._isPrimary) return super.visible;
+                return super.visible && !this.item?.system?.armor?.type === "shield";
+            }
+
             async getTooltipData() {
                 const tooltipData = await getTooltipDetails(this.item);
                 tooltipData.propertiesLabel = "enhancedcombathud-dnd5e.tooltip.properties.name";
@@ -703,7 +708,7 @@ export function initConfig() {
                     return Math.floor((chargesItem.system.uses?.value ?? 0) / this.item.system.consume.amount);
                 } else if (showQuantityItemTypes.includes(this.item.type)) {
                     return this.item.system.uses?.value ?? this.item.system.quantity;
-                } else if (this.item.system.uses.value !== null) {
+                } else if (this.item.system.uses.value !== null && this.item.system.uses.per !== null) {
                     return this.item.system.uses.value;
                 }
                 return null;
@@ -845,8 +850,18 @@ export function initConfig() {
         }
 
         class DND5eMovementHud extends ARGON.MovementHud {
+
+            constructor (...args) {
+                super(...args);
+                this.getMovementMode = game.modules.get('elevation-drag-ruler')?.api?.getMovementMode;
+            }
+
+            get movementMode() {
+                return this.getMovementMode ? this.getMovementMode(this.token) : 'walk';
+            }
+
             get movementMax() {
-                return this.actor.system.attributes.movement.walk / canvas.scene.dimensions.distance;
+                return this.actor.system.attributes.movement[this.movementMode] / canvas.scene.dimensions.distance;
             }
         }
 
