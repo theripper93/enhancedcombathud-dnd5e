@@ -753,6 +753,10 @@ export function initConfig() {
                 return this.color;
             }
 
+            get id() {
+                return `${this.type}-${this.color}`
+            }
+
             get label() {
                 switch (this.type) {
                     case "spell":
@@ -824,9 +828,9 @@ export function initConfig() {
                             uses: this.actor.system.spells[`spell${level}`],
                         });
                     }
-                    return new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanel({ accordionPanelCategories: spells.filter((spell) => spell.buttons.length).map(({ label, buttons, uses }) => new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanelCategory({ label, buttons, uses })) });
+                    return new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanel({ id: this.id, accordionPanelCategories: spells.filter((spell) => spell.buttons.length).map(({ label, buttons, uses }) => new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanelCategory({ label, buttons, uses })) });
                 } else {
-                    return new ARGON.MAIN.BUTTON_PANELS.ButtonPanel({ buttons: this.items.map((item) => new DND5eItemButton({ item })) });
+                    return new ARGON.MAIN.BUTTON_PANELS.ButtonPanel({ id: this.id, buttons: this.items.map((item) => new DND5eItemButton({ item })) });
                 }
             }
         }
