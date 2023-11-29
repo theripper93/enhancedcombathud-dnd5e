@@ -92,7 +92,6 @@ export function initConfig() {
 
             if (description) description = await TextEditor.enrichHTML(description);
             let details = [];
-            console.log("target", target, "range", range);
             if (target || range) {
                 details = [
                     {
@@ -603,6 +602,33 @@ export function initConfig() {
             }
         }
 
+        class DND5eLairActionPanel extends ARGON.MAIN.ActionPanel {
+            constructor(...args) {
+                super(...args);
+            }
+
+            get label() {
+                return "DND5E.LairActionLabel";
+            }
+
+            get maxActions() {
+                return this.actor.inCombat ? 1 : null;
+            }
+
+            get currentActions() {
+                return this.actor.system.resources.lair?.value * 1;
+            }
+
+            async _getButtons() {
+                const buttons = [];
+                const lair = this.actor.items.filter((item) => item.system.activation?.type === "lair");
+                lair.forEach((item) => {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                });
+                return buttons;
+            }
+        }
+
         class DND5eItemButton extends ARGON.MAIN.BUTTONS.ItemButton {
             constructor(...args) {
                 super(...args);
@@ -701,7 +727,7 @@ export function initConfig() {
                     if (!ammoItem) return null;
                     return Math.floor((ammoItem.system.quantity ?? 0) / this.item.system.consume.amount);
                 } else if (consumeType === "attribute") {
-                    return getProperty(this.actor.system, this.item.system.consume.target);
+                    return Math.floor(getProperty(this.actor.system, this.item.system.consume.target) / this.item.system.consume.amount);
                 } else if (consumeType === "charges") {
                     const chargesItem = this.actor.items.get(this.item.system.consume.target);
                     if (!chargesItem) return null;
@@ -760,7 +786,7 @@ export function initConfig() {
                 if (this.type === "spell") {
                     const spellLevels = CONFIG.DND5E.spellLevels;
                     if (this.showPreparedOnly) {
-                        const allowIfNotPrepared = ["atwill", "innate", "pact"];
+                        const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
                         this.items = this.items.filter((item) => {
                             if (allowIfNotPrepared.includes(item.system.preparation.mode)) return true;
                             if (item.system.level == 0) return true;
@@ -790,7 +816,7 @@ export function initConfig() {
                         },
                     ];
                     for (const [level, label] of Object.entries(spellLevels)) {
-                        const levelSpells = this.items.filter((item) => item.system.level == level);
+                        const levelSpells = this.items.filter((item) => item.system.level == level && (item.system.preparation.mode === "prepared" || item.system.preparation.mode === "always"));
                         if (!levelSpells.length || level == 0) continue;
                         spells.push({
                             label,
@@ -907,7 +933,7 @@ export function initConfig() {
 
         CoreHUD.definePortraitPanel(DND5ePortraitPanel);
         CoreHUD.defineDrawerPanel(DND5eDrawerPanel);
-        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, ARGON.PREFAB.PassTurnPanel]);
+        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, ARGON.PREFAB.PassTurnPanel]);
         CoreHUD.defineMovementHud(DND5eMovementHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);
         CoreHUD.defineSupportedActorTypes(["character", "npc"]);
