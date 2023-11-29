@@ -924,7 +924,7 @@ export function initConfig() {
                 const activeSet = sets[active];
                 const activeItems = Object.values(activeSet).filter((item) => item);
                 const inactiveSets = Object.values(sets).filter((set) => set !== activeSet);
-                const inactiveItems = inactiveSets.flatMap((set) => Object.values(set)).filter((item) => item);
+                const inactiveItems = inactiveSets.flatMap((set) => Object.values(set)).filter((item) => item).filter((item) => !activeItems.includes(item));
                 activeItems.forEach((item) => {
                     if (!item.system?.equipped) updates.push({ _id: item.id, "system.equipped": true });
                 });
