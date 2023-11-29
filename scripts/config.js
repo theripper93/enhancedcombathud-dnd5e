@@ -789,6 +789,26 @@ export function initConfig() {
             async _getPanel() {
                 if (this.type === "spell") {
                     const spellLevels = CONFIG.DND5E.spellLevels;
+                    const itemsWithSpells = [];
+                    const itemsToIgnore = [];
+                    if (game.modules.get("items-with-spells-5e")?.active) {
+                        const actionType = this.items[0].system.activation?.type;
+                        console.log("items-with-spells-5e");
+                        const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
+                        for (const item of spellItems) {
+                            const spellData = item.flags["items-with-spells-5e"]["item-spells"];
+                            const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && item.system.activation?.type === actionType);
+                            if(!itemsInSpell.length) continue;
+                            itemsToIgnore.push(...itemsInSpell);
+                            if(item.system.attunement === 1) continue;
+                            itemsWithSpells.push({
+                                label: item.name,
+                                buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
+                                uses: () => {return { max: item.system.uses?.max, value: item.system.uses?.value }},
+                            });
+                        }
+                        this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
+                    }
                     if (this.showPreparedOnly) {
                         const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
                         this.items = this.items.filter((item) => {
@@ -797,7 +817,9 @@ export function initConfig() {
                             return item.system.preparation.prepared;
                         });
                     }
+
                     const spells = [
+                        ...itemsWithSpells,
                         {
                             label: "DND5E.SpellPrepAtWill",
                             buttons: this.items.filter((item) => item.system.preparation.mode === "atwill").map((item) => new DND5eItemButton({ item })),
@@ -816,7 +838,7 @@ export function initConfig() {
                         {
                             label: "DND5E.PactMagic",
                             buttons: this.items.filter((item) => item.system.preparation.mode === "pact").map((item) => new DND5eItemButton({ item })),
-                            uses: this.actor.system.spells.pact,
+                            uses: () => { return this.actor.system.spells.pact }
                         },
                     ];
                     for (const [level, label] of Object.entries(spellLevels)) {
@@ -825,7 +847,7 @@ export function initConfig() {
                         spells.push({
                             label,
                             buttons: levelSpells.map((item) => new DND5eItemButton({ item })),
-                            uses: this.actor.system.spells[`spell${level}`],
+                            uses: () => { return this.actor.system.spells[`spell${level}`] },
                         });
                     }
                     return new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanel({ id: this.id, accordionPanelCategories: spells.filter((spell) => spell.buttons.length).map(({ label, buttons, uses }) => new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanelCategory({ label, buttons, uses })) });
