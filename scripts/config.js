@@ -441,7 +441,7 @@ export function initConfig() {
                 const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
 
-                const spellButton = [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
+                const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
                 const specialActions = Object.values(ECHItems);
 
@@ -798,6 +798,7 @@ export function initConfig() {
 
             prePrepareSpells() {
                 if (this.type !== "spell") return;
+                
                 const spellLevels = CONFIG.DND5E.spellLevels;
                     const itemsWithSpells = [];
                     const itemsToIgnore = [];
