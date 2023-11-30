@@ -440,7 +440,7 @@ export function initConfig() {
                 const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
-
+console.log("spellItems", spellItems);
                 const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
                 const specialActions = Object.values(ECHItems);
@@ -453,8 +453,7 @@ export function initConfig() {
                 for (const item of barItems) {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 }
-
-                return buttons.filter((button) => button.items == undefined || button.items.length).filter((button) => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
+                return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length).filter((button) => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
             }
         }
 
@@ -752,11 +751,12 @@ export function initConfig() {
                 this.type = type;
                 this.items = items;
                 this.color = color;
+                this.itemsWithSpells = [];
                 this._spells = this.prePrepareSpells();
             }
 
             get hasContents() {
-                return this._spells ? !!this._spells.length : !!this.items.length;
+                return this._spells ? !!this._spells.length || !!this.itemsWithSpells.length : !!this.items.length;
             }
 
             get colorScheme() {
@@ -800,7 +800,6 @@ export function initConfig() {
                 if (this.type !== "spell") return;
                 
                 const spellLevels = CONFIG.DND5E.spellLevels;
-                    const itemsWithSpells = [];
                     const itemsToIgnore = [];
                     if (game.modules.get("items-with-spells-5e")?.active) {
                         const actionType = this.items[0].system.activation?.type;
@@ -811,7 +810,7 @@ export function initConfig() {
                             if(!itemsInSpell.length) continue;
                             itemsToIgnore.push(...itemsInSpell);
                             if(item.system.attunement === 1) continue;
-                            itemsWithSpells.push({
+                            this.itemsWithSpells.push({
                                 label: item.name,
                                 buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
                                 uses: () => {return { max: item.system.uses?.max, value: item.system.uses?.value }},
@@ -829,7 +828,7 @@ export function initConfig() {
                     }
 
                     const spells = [
-                        ...itemsWithSpells,
+                        ...this.itemsWithSpells,
                         {
                             label: "DND5E.SpellPrepAtWill",
                             buttons: this.items.filter((item) => item.system.preparation.mode === "atwill").map((item) => new DND5eItemButton({ item })),
