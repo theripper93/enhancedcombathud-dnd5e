@@ -1,0 +1,195 @@
+{
+  "enhancedcombathud-dnd5e": {
+    "settings": {
+      "switchEquip": {
+        "name": "Automatyczne Wyposażenie",
+        "hint": "Automatyczne zakładanie/ściąganie przedmiotów podczas przełączania zestawów"
+      },
+      "showWeaponsItems": {
+        "name": "Pokaż broń w sekcji 'Użyj przedmiotu'",
+        "hint": "Pokazuje broń w sekcji 'Użyj przedmiotu'. Przydatne, jeśli masz za mało slotów na broń"
+      },
+      "showClassActions": {
+        "name": "Pokaż Akcje Klasowe",
+        "hint": "Pokaż akcje klasowe na głównych paskach działań"
+      },
+      "noAA": {
+        "name": "Nie Stosuj Aktywnych Efektów",
+        "hint": "Nie stosuj aktywnych efektów podczas korzystania z akcji specjalnych. (wymaga odświeżenia)"
+      },
+      "showSpecialActions": {
+        "name": "Pokaż Podstawowe Akcje",
+        "hint": "Pokaż podstawowe akcje w sekcji Akcja Główna. (Unik, Sprint, Wycofanie, Ukrycie, Gotowość, Pchnięcie)"
+      }
+    },
+    "hud": {
+      "mainactions": {
+        "name": "Główna Akcja"
+      },
+      "castspell": {
+        "name": "Rzuć Zaklęcie"
+      },
+      "usepower": {
+        "name": "Użyj Funkcji"
+      },
+      "useitem": {
+        "name": "Użyj Przedmiotu"
+      },
+      "bonusaction": {
+        "name": "Akcja Dodatkowa"
+      },
+      "reaction": {
+        "name": "Reakcja"
+      },
+      "specialaction": {
+        "name": "Darmowa"
+      },
+      "pass": {
+        "name": "Zakończ"
+      },
+      "endturn": {
+        "name": "Zakończ Turę"
+      },
+      "hp": {
+        "name": "PŻ"
+      },
+      "ac": {
+        "name": "KP"
+      },
+      "of": {
+        "name": "of"
+      },
+      "inventory": {
+        "name": "Arkusz"
+      },
+      "saves": {
+        "name": "Rzut Obronny"
+      },
+      "skills": {
+        "name": "Biegłości"
+      },
+      "tools": {
+        "name": "Narzędzia"
+      }
+    },
+    "items": {
+      "disengage": {
+        "name": "Wycofanie",
+        "desc": "<p>Akcja Wycofania pozwala uniknąć szansy na atak podczas oddalania się od wroga.</p>"
+      },
+      "hide": {
+        "name": "Ukrycie",
+        "desc": "<p>Gdy podejmujesz akcję Ukrycia, wykonujesz test Zręczności (Skradanie) w próbie ukrycia się, zgodnie z zasadami ukrywania. Jeśli odniesiesz sukces, zdobywasz pewne korzyści.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Bohaterowie w walce często starają się uniknąć zauważenia przez wrogów, ukrywając się, używając zaklęcia&nbsp;niewidzialności&nbsp;, lub czając się w ciemności.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">Dotyczy to zarówno odgadywania lokalizacji celu, jak i celowania w istotę, którą słyszysz, ale nie widzisz. Jeśli cel nie jest tam, gdzie celowałeś, atak automatycznie nie trafia, ale MG zazwyczaj mówi tylko, że atak nie trafił, a nie czy dobrze odgadłeś lokalizację celu.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Gdy istota nie widzi cię, masz przewagę na rzutach ataku przeciwko niej. Jeśli jesteś ukryty—zarówno niewidoczny, jak i niesłyszalny—gdy wykonujesz atak, zdradzasz swoją lokalizację, gdy atak trafia lub nie trafia.</p>\n<p>&nbsp;</p>"
+      },
+      "shove": {
+        "name": "Pchnięcie",
+        "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Gdy chcesz chwycić istotę lub się z nią siłować, możesz użyć akcji Atak, aby wykonać specjalny atak wręcz, czyli chwyt. Jeśli masz możliwość wykonania wielu ataków podczas akcji Atak, ten atak zastępuje jedno z nich.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">el twojego chwytu musi być nie większy niż o jeden rozmiar od ciebie i musi znajdować się w twoim zasięgu. Używając przynajmniej jednej wolnej ręki, próbujesz złapać cel, wykonując sprawdzian chwytu zamiast rzutu ataku: sprawdzian Siły (Atletyki) rywalizujący z Siłą (Atletyki) lub Zręcznością (Akrobatyki) celu (cel wybiera zdolność do użycia). Automatycznie odnosisz sukces, jeśli cel jest&nbsp;unieruchomiony. Jeśli odnosisz sukces, narzucasz celowi&nbsp;stan&nbsp;chwytu. Stan określa, co go kończy, i możesz uwolnić cel, kiedy chcesz (nie wymaga to akcji).</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Uwolnienie się z chwytu.&nbsp;Schwytana&nbsp;istota istota może użyć swojej akcji, aby się uwolnić. Aby to zrobić, musi odnieść sukces w sprawdzianie Siły (Atletyki) lub Zręczności (Akrobatyki) rywalizując z twoim sprawdzianem Siły (Atletyki).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Przemieszczanie chwytanej istoty.&nbsp;Podczas przemieszczania się możesz przeciągać lub nosić&nbsp;chwytaną&nbsp;istotę ze sobą, ale twoja prędkość jest zmniejszona o połowę, chyba że istota jest o dwa lub więcej rozmiary mniejsza niż ty.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Pchnięcie Istoty</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Korzystając z akcji Atak, możesz wykonać specjalny atak wręcz, aby odepchnąć istotę, zarówno by ją&nbsp;przewrócić&nbsp;na ziemię, jak i odepchnąć od siebie. Jeśli masz możliwość wykonania wielu ataków podczas akcji Atak, ten atak zastępuje jedno z nich.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">Cel musi być nie większy niż o jeden rozmiar od ciebie i musi znajdować się w twoim zasięgu. Zamiast wykonywać rzut ataku, wykonujesz sprawdzian Siły (Atletyki) rywalizujący z Siłą (Atletyki) lub Zręcznością (Akrobatyki) celu (cel wybiera zdolność do użycia). Automatycznie odnosisz sukces, jeśli cel jest&nbsp;unieruchomiony. W razie sukcesu, przeciwnik zostaje&nbsp;powalony&nbsp;lub odpychany o 5 stóp od ciebie.</p>"
+      },
+      "dash": {
+        "name": "Sprint",
+        "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">W trakcie Akcji Sprintu zyskujesz dodatkowy ruch w obecnej turze. Wzrost ten jest równy twojej prędkości po uwzględnieniu ewentualnych modyfikatorów. Przy prędkości 30 stóp, na przykład, możesz przemieszczać się dodatkowo o 60 stóp w swojej turze, gdy wykonasz sprint.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Każdy wzrost lub spadek twojej prędkości zmienia dodatkowy ruch o tę samą ilość. Jeśli na przykład twoja prędkość 30 stóp zostanie zredukowana do 15 stóp, możesz przemieścić się o maksymalnie 30 stóp w tej turze, jeśli użyjesz akcji Sprintu.</p>"
+      },
+      "dodge": {
+        "name": "Unik",
+        "desc": "<p>Podczas podejmowania akcji Unik, koncentrujesz się wyłącznie na unikaniu ataków. Do początku twojej następnej tury, każdy rzut atakiu przeciwko tobie odbywa się z utrudnieniem, jeśli widzisz napastnika, a rzuty na zręczność wykonujesz z premią. Tracisz ten przywilej, jeśli jesteś obezwładniony lub twoja prędkość spada do 0.</p>"
+      },
+      "ready": {
+        "name": "Gotowość",
+        "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">Czasami chcesz zaskoczyć przeciwnika lub poczekać na określone okoliczności przed podjęciem działań. Aby to zrobić, możesz podjąć akcję Gotowości w swojej turze, co pozwala ci działać przy użyciu reakcji przed rozpoczęciem swojej następnej tury.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Najpierw ustalasz, jaki zauważalny warunek będzie wywoływał Twoją reakcję. Następnie wybierasz akcję, jaką podejmiesz w odpowiedzi na ten warunek, albo decydujesz się poruszyć na odległość równą Twojej szybkości. Przykłady: \"Jeśli kultysta stanął na pułapce, pociągnę za dźwignię, która ją otworzy,\" oraz \"Jeśli goblin zbliży się do mnie, odsunę się.\"</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">Kiedy pojawia się sygnał, możesz albo zareagować od razu po zakończeniu sygnału, albo zignorować go. Pamiętaj, że masz tylko jedną szansę na reakcję w każdej rundzie.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">Kiedy przygotowujesz zaklęcie, rzucasz je jak zwykle, ale zatrzymujesz jego energię, którą uwalniasz wraz z reakcją, gdy następuje wyzwalacz. Aby przygotować zaklęcie, czas jego rzucenia musi wynosić 1 akcję, a utrzymanie magii zaklęcia wymaga koncentracji. Jeśli koncentracja zostanie przerwana, zaklęcie zniknie bez efektu. Na przykład, jeśli koncentrujesz się na zaklęciu&nbsp;sieci&nbsp; i jesteś gotowy do użycia&nbsp;magicznego pocisku, zaklęcie&nbsp;sieci&nbsp;obiegnie końca, a jeśli otrzymasz obrażenia przed uwolnieniem&nbsp;magicznego pocisku&nbsp;w swojej reakcji, twoja koncentracja może zostać przerwana.</p>"
+      }
+    },
+    "skills": {
+      "acr": {
+        "tooltip": "Twoja Zręczność (Akrobatyka) obejmuje próbę utrzymania się na nogach w trudnej sytuacji, na przykład gdy próbujesz przebiec po tafli lodu, utrzymać równowagę na linie czy pozostać na nogach na kołyszącym się pokładzie statku. Mistrz Gry może również poprosić o Test Zręczności (Akrobatyka), aby sprawdzić, czy możesz wykonać akrobatyczne ewolucje, takie jak skoki, przewroty, salta i fikołki."
+      },
+      "ani": {
+        "tooltip": "W momencie, gdy podejmujesz ryzykowny manewr i chcesz sprawdzić, czy potrafisz utrzymać kontrolę nad swoim wierzchowcem, MG może zażądać rzutu na mądrość (Umięjętność Współdziałania ze Zwierzętami). To również dotyczy próby uspokojenia dzikiego zwierzęcia lub zapobieżenia temu, by wierzchowiec się nie przestraszył."
+      },
+      "arc": {
+        "tooltip": "Twoja Inteligencja (Arcana) ocenia twoją zdolność do przypominania sobie wiedzy na temat zaklęć, magicznych artefaktów, symboli ezoterycznych, tradycji magicznych, płaszczyzn istnienia i istot zamieszkujących te płaszczyzny."
+      },
+      "ath": {
+        "tooltip": "<p>Twój test Siły (Atletyka) obejmuje trudne sytuacje, z jakimi spotykasz się podczas wspinaczki, skakania lub pływania. Przykłady obejmują następujące czynności:</p><ul><li>Próbujesz wspinać się po stromej lub śliskiej skale, unikasz przeszkód podczas wspinaczki po ścianie lub trzymasz się powierzchni, gdy coś próbuje cię zrzucić.</li>↵<li>Starasz się przeskoczyć niezwykle długi dystans lub wykonać wyczyn w trakcie skoku.</li><li>Walczysz o przetrwanie podczas pływania lub utrzymanie się na powierzchni w trudnych prądach, wzburzonych falach lub obszarach gęstych wodorostów, lub inna istota próbuje cię zatopić albo w inny sposób zakłócić twoje pływanie.</li>↵</ul>"
+      },
+      "dec": {
+        "tooltip": "Twoja Charyzma (Oszustwo) decyduje, czy potrafisz przekonująco ukryć prawdę, zarówno werbalnie, jak i poprzez działania. Oszustwo to może obejmować wszystko, począwszy od wprowadzania innych w błąd za pomocą niejednoznaczności aż po opowiadanie otwartych kłamstw. Typowe sytuacje to próba szybkiego przekonania strażnika, oszukania kupca, zarabiania pieniędzy przez hazard, podawania się za kogoś innego w przebraniu, stłumienie czyichś podejrzeń fałszywymi zapewnieniami lub utrzymanie poważnej twarzy podczas opowiadania oczywistego kłamstwa."
+      },
+      "his": {
+        "tooltip": "Twoja Inteligencja (Historia) mierzy Twoją zdolność do przypominania sobie wiedzy dotyczącej historycznych wydarzeń, legendarnych postaci, starożytnych królestw, przeszłych sporów, niedawnych wojen i zaginionych cywilizacji."
+      },
+      "ins": {
+        "tooltip": "Twoja Mądrość (Intuicja) decyduje, czy potrafisz rozpoznać prawdziwe intencje istoty, na przykład podczas wykrywania kłamstwa lub przewidywania następnego ruchu kogoś. Dokonanie tego wiąże się z wyciąganiem wskazówek z mowy ciała, nawyków językowych i zmian w manierach."
+      },
+      "itm": {
+        "tooltip": "Gdy próbujesz wpłynąć na kogoś poprzez jawne groźby, wrogie działania i przemoc fizyczną, MG może poprosić cię o wykonanie testu na Charyzmę (Zastraszanie). Przykłady obejmują próby wydobywania informacji od więźnia, przekonywanie ulicznych bandytów, by się wycofali z konfrontacji, czy też użycie ostrza rozbitej butelki, by przekonać szyderczego wezyra do ponownego rozważenia decyzji."
+      },
+      "inv": {
+        "tooltip": "Kiedy rozejrzysz się za wskazówkami i wyciągniesz wnioski na podstawie tych wskazówek, wykonujesz test Inteligencji (Śledztwo). Możesz wydedukować położenie ukrytego przedmiotu, rozpoznać ze względu na wygląd rany, jakim rodzajem broni została zadana, lub określić najbardziej podatny punkt w tunelu, który mógłby ulec zawaleniu. Przeszukiwanie starożytnych zwojów w poszukiwaniu ukrytego fragmentu wiedzy również może wymagać testu Inteligencji (Śledztwo)."
+      },
+      "med": {
+        "tooltip": "Mądrość (Medycyna) pozwala ci spróbować ustabilizować umierającego towarzysza lub zdiagnozować chorobę."
+      },
+      "nat": {
+        "tooltip": "Twoja Wiedza (Natura) mierzy twoją zdolność do przypomnienia sobie wiedzy o terenie, roślinach i zwierzętach, pogodzie oraz cyklach naturalnych."
+      },
+      "prc": {
+        "tooltip": "Twoja mądrość (Spostrzeżenie) pozwala ci zauważyć, usłyszeć lub w inny sposób wykryć obecność czegoś. Mierzy on twoją ogólną świadomość otoczenia i czujność zmysłów. Na przykład, możesz spróbować usłyszeć rozmowę zza zamkniętych drzwi, podsłuchać spod otwartego okna lub wychwycić odgłosy potworów poruszających się skradającym krokiem w lesie. Albo możesz próbować dostrzec rzeczy, które są ukryte lub łatwe do przeoczenia, czy to orków czyhających w zasadzce na drodze, bandytów chowających się w cieniach alei, czy też światło świecące spod zamkniętych tajnych drzwi."
+      },
+      "prf": {
+        "tooltip": "Twoja Charyzma (Występ) określa, jak dobrze potrafisz zachwycić publiczność muzyką, tańcem, aktorstwem, opowiadaniem historii lub inną formą rozrywki."
+      },
+      "per": {
+        "tooltip": "W momencie, gdy próbujesz wpłynąć na kogoś lub grupę ludzi z troską, społeczną grzecznością lub dobrym usposobieniem, Mistrz Gry może poprosić cię o wykonanie rzutu na Charyzmę (Perswazja). Zazwyczaj stosujesz perswazję, działając w dobrej wierze, aby rozwijać przyjaźnie, prosić o coś grzecznie lub okazywać właściwe zachowanie. Przykłady przekonywania innych obejmują przekonanie szambelana, aby pozwolił twojej drużynie zobaczyć króla, negocjowanie pokoju między walczącymi plemionami lub zainspirowanie tłumu mieszkańców miasta."
+      },
+      "rel": {
+        "tooltip": "Twoja Inteligencja (Religia) mierzy twoją zdolność do przypomnienia sobie wiedzy na temat bogów, obrzędów i modlitw, hierarchii religijnej, świętych symboli oraz praktyk tajnych kultów."
+      },
+      "slt": {
+        "tooltip": "Przy każdej próbie dokonania sztuczki kuglarstwa lub ręcznego podstępu, na przykład podłożenia czegoś komuś innemu lub ukrycia przedmiotu na sobie, wykonaj test Zręczności (Zwinność Rąk). MG może również zażądać testu Zręczności (Zwinność Rąk), aby ustalić, czy możesz podkraść się do kogoś i zabrać mu sakwę lub wyciągnąć coś z kieszeni."
+      },
+      "ste": {
+        "tooltip": "W przypadku próby schowania się przed wrogami, przeciskania się obok strażników, wymykania się niepostrzeżenie lub podkradania się do kogoś bez bycia zauważonym lub słyszanym, musisz wykonać test Zręczności (Skradanie)."
+      },
+      "sur": {
+        "tooltip": "Mistrz Gry może poprosić cię o wykonanie testu Mądrości (Przetrwanie), aby śledzić ślady, polować na dzikie zwierzęta, prowadzić swoją grupę przez zamarznięte pustkowia, zidentyfikować znaki wskazujące na obecność sowogrzywien, przewidzieć pogodę lub unikać błotnistych obszarów i innych naturalnych zagrożeń."
+      }
+    },
+    "abilities": {
+      "str": {
+        "tooltip": "<p>Siła mierzy siłę cielesną, trening sportowy i zakres, w jakim możesz wywierać surową siłę fizyczną.</p><p><strong>Testy Siły</strong><br/>Test Siły może odzwierciedlać każdą próbę podniesienia, pchnięcia, przeciągnięcia lub złamania czegoś, forsowania ciała przez przestrzeń lub w ogóle zastosowania brutalnej siły fizycznej w sytuacji. Umiejętność Atletyki odzwierciedla zdolność w pewnych rodzajach Testów Siły.</p><p><strong>Inne Testy Siły</strong><br/>Mistrz Gry może również wezwać do Testu Siły, gdy próbujesz osiągnąć zadania takie jak:<ul><li>Wymuszenie otwarcia zaciśniętych, zamkniętych lub zamkniętych drzwi</li><li>Wyłamanie się z więzów</li><li>Przebicie się przez tunel, który jest za mały</li><li>Trzymanie się wozu, podczas gdy jesteś ciągnięty za nim</li><li>Przewrócenie statuy</li><li>Zatrzymanie kamienia przed toczeniem się</li></ul></p><p><strong>Podnoszenie i Przenoszenie</strong><br/>Twój wynik Siły określa ilość wagi, którą możesz unieść. Poniższe terminy definiują to, co możesz podnieść lub przenosić.</p><p><strong>Nośność.</strong> Twoja nośność to wynik Siły pomnożony przez 15. To jest waga (w funtach), którą możesz unosić, na tyle wysoka, że większość postaci zazwyczaj nie musi się tym martwić.</p><p><strong>Pchnięcie, Przeciągnięcie lub Podniesienie.</strong> Możesz pchać, ciągnąć lub podnosić wagę w funtach do dwukrotności swojej nośności (lub 30 razy wynik Siły). Podczas pchania lub ciągnięcia wagi przekraczającej Twoją nośność, Twoja prędkość spada do 5 stóp.</p><p><strong>Rozmiar i Siła.</strong> Większe istoty mogą unieść więcej wagi, podczas gdy Maleńkie istoty mogą unieść mniej. Dla każdej kategorii rozmiaru powyżej Średniego, podwój nośność istoty oraz ilość, jaką może pchać, ciągnąć lub podnosić. Dla Maleńkiej istoty te wagi są dzielone przez dwa.</p>"
+      },
+      "dex": {
+        "tooltip": "<p>Zręczność mierzy zwinność, refleksy i równowagę.</p><p><strong>Rzuty Zręcznością</strong><br/>Rzut Zręcznością może odzwierciedlać próbę zręcznego, szybkiego, lub cichego poruszania się, lub unikania upadku na trudnym podłożu. Umiejętności Akrobatyki, Zręcznych Rąk i Skradania się odzwierciedlają zdolności w określonych rodzajach rzutów Zręcznością.</p><p><strong>Inne Rzuty Zręcznością</strong><br/>Mistrz Gry może zażądać rzutu Zręcznością, gdy próbujesz wykonać zadania takie jak:<ul><li>Kontrolowanie ciężko obciążonego wozu podczas stromej zjazdu</li><li>Kierowanie rydwanem podczas ciasnego zakrętu</li><li>Wyważanie zamka</li><li>Unieszkodliwianie pułapki</li><li>Bezpieczne związanie więźnia</li><li>Wymykając się z więzów</li><li>Gra na instrumencie strunowym</li><li>Wytwarzanie małego lub szczegółowego przedmiotu</li></ul></p><p><strong>Klasa Pancerza</strong><br/>W zależności od zbroi, którą nosisz, możesz dodać część lub cały swój modyfikator Zręczności do Klasy Pancerza, jak opisano w rozdziale 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Sprzęt.</a></p><p><strong>Inicjatywa</strong><br/>Na początku każdej walki, rzucając inicjatywę, wykonujesz rzut na Zręczność. Inicjatywa określa kolejność tur istot w walce, jak opisano w rozdziale 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Walka.</p></a>"
+      },
+      "con": {
+        "tooltip": "<p>Konstytucja mierzy zdrowie, wytrzymałość i siłę życiową.</p><p><strong>Rzuty Konstytucji</strong><br/>Rzuty Konstytucji są rzadkie, i żadne umiejętności nie mają zastosowania do rzutów Konstytucją, ponieważ wytrzymałość, którą ta zdolność reprezentuje, jest w dużej mierze bierna, a nie wymaga konkretnej próby ze strony postaci lub potwora. Rzut Konstytucji może modelować twoją próbę przekroczenia normalnych ograniczeń, jednak.</p><p>Mistrz Gry może wezwać do rzutu Konstytucji, gdy próbujesz wykonać zadania takie jak:<ul><li>Zatrzymaj oddech</li><li>Marsz lub praca przez godziny bez odpoczynku</li><li>Bezsenność</li><li>Przeżycie bez jedzenia lub picia</li><li>Wypicie całego kufla piwa za jednym razem</li></ul></p><p><strong>Punkty Życia</strong><br/>Twój modyfikator Konstytucji przyczynia się do twoich punktów życia. Zazwyczaj dodajesz swój modyfikator Konstytucji do każdego rzutu kości życia dla swoich punktów życia.</p><p>Jeśli twój modyfikator Konstytucji zmienia się, maksymalna ilość twoich punktów życia również się zmienia, jak gdybyś od zawsze miał nowy modyfikator od 1. poziomu. Na przykład, jeśli podnosisz swój wynik Konstytucji, osiągając 4. poziom i twój modyfikator Konstytucji wzrasta z +1 na +2, dostosowujesz maksymalną ilość punktów życia, jak gdyby modyfikator zawsze wynosił +2. Dodajesz więc 3 punkty życia dla swoich pierwszych trzech poziomów, a następnie rzuć kośćmi na 4. poziom, używając nowego modyfikatora. Lub jeśli jesteś na 7. poziomie i jakiś efekt obniża twój wynik Konstytucji, zmniejszając modyfikator Konstytucji o 1, maksymalna ilość twoich punktów życia jest zmniejszana o 7</p>"
+      },
+      "int": {
+        "tooltip": "<p>Inteligencja mierzy ostrość umysłu, dokładność pamięci i zdolność do rozumowania.</p><p><strong>Rzuty Inteligencją</strong><br/>Rzut Inteligencją jest konieczny, gdy musisz polegać na logice, wiedzy, pamięci lub rozumowaniu dedukcyjnym. Umiejętności Arcana, Historia, Śledztwo, Natura i Religia odzwierciedlają zdolność do wykonywania określonych rodzajów rzutów Inteligencją.</p><p><strong>Inne Rzuty Inteligencją</strong><br/>Mistrz Gry może zażądać rzutu Inteligencją, gdy próbujesz osiągnąć cele takie jak:<ul><li>Komunikacja z istotą bez użycia słów</li><li>Szacowanie wartości cennego przedmiotu</li><li>Stworzenie przebrania, aby przejść za strażnika miasta</li><li>Sfałszowanie dokumentu</li><li>Przypomnienie wiedzy o rzemiośle lub handlu</li><li>Wygranie gry umiejętnością</li></ul></p>"
+      },
+      "wis": {
+        "tooltip": "<p>Mądrość odzwierciedla, jak dobrze jesteś dostrojony do świata wokół ciebie, i reprezentuje spostrzegawczość i intuicję.</p><p><strong>Rzuty Mądrości</strong>Rzut Mądrości może odzwierciedlać próbę odczytania języka ciała, zrozumienia uczuć kogoś, zauważenia rzeczy w otoczeniu lub opieki nad ranną osobą. Umiejętności Znajomość Zwierząt, Wgląd, Medycyna, Spostrzegawczość i Przeżycie odzwierciedlają zdolność w określonych rodzajach rzutów Mądrości.</p><p><strong>Inne Rzuty Mądrości</strong></br>Mistrz Gry może wezwać rzut Mądrości, gdy próbujesz osiągnąć zadania takie jak:<ul><li>Uzyskanie przeczucia co do właściwego działania</li><li>Określenie, czy pozornie martwe lub żywe istoty są nieumarłe</li></ul></p>"
+      },
+      "cha": {
+        "tooltip": "<p>Charyzma mierzy twoją zdolność skutecznego oddziaływania na innych. Obejmuje takie czynniki jak pewność siebie i elokwencja, i może reprezentować urokliwą lub dowodzącą osobowość.</p><p><strong>Inne Testy Charyzmy</strong><br/>Mistrz Gry może poprosić o test Charyzmy, gdy próbujesz osiągnąć zadania takie jak:<ul><li>Znalezienie najlepszej osoby do rozmowy o wiadomościach, plotkach i pogłoskach</li><li>Wtopienie się w tłum, aby zorientować się w kluczowych tematach rozmów</li></ul></p>"
+      }
+    },
+    "tooltip": {
+      "target": {
+        "name": "Cel"
+      },
+      "range": {
+        "name": "Zasięg"
+      },
+      "properties": {
+        "name": "Właściwości"
+      },
+      "toHit": {
+        "name": "Trafienie"
+      },
+      "damage": {
+        "name": "Obrażenia"
+      }
+    }
+  }
+}
