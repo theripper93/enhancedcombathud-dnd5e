@@ -441,11 +441,13 @@ export function initConfig() {
                 const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
 
+                const spellButton = [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
+
                 const specialActions = Object.values(ECHItems);
 
                 const showSpecialActions = game.settings.get(MODULE_ID, "showSpecialActions");
 
-                const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 }), new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
+                const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
                 for (const item of barItems) {
@@ -483,7 +485,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    buttons.push(new DND5eButtonPanelButton({ type, items, color: 1 }));
+                    const button = new DND5eButtonPanelButton({ type, items, color: 1 })
+                    if(button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
@@ -523,7 +526,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    buttons.push(new DND5eButtonPanelButton({ type, items, color: 3 }));
+                    const button = new DND5eButtonPanelButton({ type, items, color: 3 })
+                    if(button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
@@ -563,7 +567,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    buttons.push(new DND5eButtonPanelButton({ type, items, color: 2 }));
+                    const button = new DND5eButtonPanelButton({ type, items, color: 2 })
+                    if(button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
@@ -747,6 +752,11 @@ export function initConfig() {
                 this.type = type;
                 this.items = items;
                 this.color = color;
+                this._spells = this.prePrepareSpells();
+            }
+
+            get hasContents() {
+                return this._spells ? !!this._spells.length : !!this.items.length;
             }
 
             get colorScheme() {
@@ -786,14 +796,13 @@ export function initConfig() {
                 return requiresPreparation;
             }
 
-            async _getPanel() {
-                if (this.type === "spell") {
-                    const spellLevels = CONFIG.DND5E.spellLevels;
+            prePrepareSpells() {
+                if (this.type !== "spell") return;
+                const spellLevels = CONFIG.DND5E.spellLevels;
                     const itemsWithSpells = [];
                     const itemsToIgnore = [];
                     if (game.modules.get("items-with-spells-5e")?.active) {
                         const actionType = this.items[0].system.activation?.type;
-                        console.log("items-with-spells-5e");
                         const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
                         for (const item of spellItems) {
                             const spellData = item.flags["items-with-spells-5e"]["item-spells"];
@@ -849,8 +858,13 @@ export function initConfig() {
                             buttons: levelSpells.map((item) => new DND5eItemButton({ item })),
                             uses: () => { return this.actor.system.spells[`spell${level}`] },
                         });
-                    }
-                    return new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanel({ id: this.id, accordionPanelCategories: spells.filter((spell) => spell.buttons.length).map(({ label, buttons, uses }) => new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanelCategory({ label, buttons, uses })) });
+                }
+                return spells.filter((spell) => spell.buttons.length);
+            }
+
+            async _getPanel() {
+                if (this.type === "spell") {
+                    return new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanel({ id: this.id, accordionPanelCategories: this._spells.map(({ label, buttons, uses }) => new ARGON.MAIN.BUTTON_PANELS.ACCORDION.AccordionPanelCategory({ label, buttons, uses })) });
                 } else {
                     return new ARGON.MAIN.BUTTON_PANELS.ButtonPanel({ id: this.id, buttons: this.items.map((item) => new DND5eItemButton({ item })) });
                 }
