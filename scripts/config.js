@@ -666,7 +666,7 @@ console.log("spellItems", spellItems);
 
             get visible() {
                 if(!this._isWeaponSet || this._isPrimary) return super.visible;
-                return super.visible && !this.item?.system?.armor?.type === "shield";
+                return super.visible && this.item?.system?.armor?.type !== "shield";
             }
 
             async getTooltipData() {
