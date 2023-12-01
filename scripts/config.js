@@ -656,12 +656,10 @@ console.log("spellItems", spellItems);
                 const validTargets = ["creature", "ally", "enemy"];
                 const actionType = item.system.actionType;
                 const targetType = item.system.target?.type;
-                if (validTargets.includes(targetType)) {
-                    return item.system.target.value;
-                } else {
-                    if (actionType === "mwak" || actionType === "rwak") {
-                        return 1;
-                    }
+                if (!item.system.target?.units && validTargets.includes(targetType)) {
+                    return item.system.target?.value;
+                } else if (actionType === "mwak" || actionType === "rwak"){
+                    return 1;
                 }
                 return null;
             }
