@@ -3,6 +3,7 @@ import { MODULE_ID } from "./main.js";
 const ECHItems = {};
 
 export function initConfig() {
+
     Hooks.on("argonInit", (CoreHUD) => {
         if (game.system.id !== "dnd5e") return;
         registerItems();
@@ -440,7 +441,7 @@ export function initConfig() {
                 const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
-console.log("spellItems", spellItems);
+
                 const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
                 const specialActions = Object.values(ECHItems);
@@ -932,7 +933,8 @@ console.log("spellItems", spellItems);
         class DND5eWeaponSets extends ARGON.WeaponSets {
             async getDefaultSets() {
                 const sets = await super.getDefaultSets();
-                if (this.actor.type !== "npc") return sets;
+                const isTransformed = this.actor.flags?.dnd5e?.isPolymorphed;
+                if (this.actor.type !== "npc" && !isTransformed) return sets;
                 const actions = this.actor.items.filter((item) => item.type === "weapon" && item.system.activation?.type === "action");
                 const bonus = this.actor.items.filter((item) => item.type === "weapon" && item.system.activation?.type === "bonus");
                 return {
@@ -949,6 +951,18 @@ console.log("spellItems", spellItems);
                         secondary: bonus[2]?.uuid ?? null,
                     },
                 };
+            }
+
+            async _getSets() {
+                const isTransformed = this.actor.flags?.dnd5e?.isPolymorphed;
+
+                const sets = isTransformed ? await this.getDefaultSets() : mergeObject(await this.getDefaultSets(), deepClone(this.actor.getFlag("enhancedcombathud", "weaponSets") || {}));
+            
+                for (const [set, slots] of Object.entries(sets)) {
+                  slots.primary = slots.primary ? await fromUuid(slots.primary) : null;
+                  slots.secondary = slots.secondary ? await fromUuid(slots.secondary) : null;
+                }
+                return sets;
             }
 
             async _onSetChange({ sets, active }) {
