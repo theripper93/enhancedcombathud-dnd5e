@@ -105,13 +105,13 @@ export function initConfig() {
                     },
                 ];
             }
-            if (item.labels.toHit) {
+            if (item?.labels?.toHit) {
                 details.push({
                     label: "enhancedcombathud-dnd5e.tooltip.toHit.name",
                     value: item.labels.toHit,
                 });
             }
-            if (item.labels.derivedDamage?.length) {
+            if (item?.labels?.derivedDamage?.length) {
                 let dmgString = "";
                 item.labels.derivedDamage.forEach((dDmg) => {
                     dmgString += dDmg.formula + " " + getDamageTypeIcon(dDmg.damageType) + " ";
