@@ -477,12 +477,25 @@ export function initConfig() {
 
                 const showSpecialActions = game.settings.get(MODULE_ID, "showSpecialActions");
 
-                const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
+                const buttons = showSpecialActions ? [
+                    new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }),
+                    new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])),
+                    ...spellButton,
+                    new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }),
+                    new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])),
+                    new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])),
+                    new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })
+                ] : [
+                    new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }),
+                    ...spellButton,
+                    new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }),
+                    new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })
+                ];
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
                 buttons.push(...condenseItemButtons(barItems));
                 
-                return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length).filter((button) => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
+                return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length);
             }
         }
 
