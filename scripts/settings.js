@@ -28,6 +28,15 @@ export function registerSettings() {
                 ui.ARGON.refresh()
             },
         },
+        condenseClassActions: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseSpecialActions.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseSpecialActions.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: true,
+            onChange: () => ui.ARGON.refresh(),
+        },
         switchEquip: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.name"),
             hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.hint"),

@@ -13,6 +13,10 @@
         "name": "Show Class Actions",
         "hint": "Show class actions in the Main Action bars"
       },
+      "condenseClassActions":{
+        "name": "Condense Class Actions",
+        "hint": "If 'Show Class Actions' is enabled, condense class actions in pairs to save space"
+      },
       "noAA": {
         "name": "Don't Apply Active Effects",
         "hint": "Don't apply active effects when using special actions. (requires refresh)"

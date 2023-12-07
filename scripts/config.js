@@ -172,6 +172,31 @@ export function initConfig() {
             else return '<i style="margin-right: 1ch; pointer-events: none" class="far fa-circle"> </i>';
         }
 
+        function condenseItemButtons(items) {
+            const condenseClassActions = game.settings.get(MODULE_ID, "condenseClassActions");
+            if (!condenseClassActions) return items.map((item) => new DND5eItemButton({item, inActionPanel: true}));
+            const condensedItems = [];
+            const barItemsLength = items.length;
+            const barItemsMultipleOfTwo = barItemsLength - (barItemsLength % 2);
+            let currentSplitButtonItemButton = null;
+            for (let i = 0; i < barItemsLength; i++) {
+                const isCondensedButton = i < barItemsMultipleOfTwo;
+                const item = items[i];
+                if (isCondensedButton) {
+                    if (currentSplitButtonItemButton) {
+                        const button = new DND5eItemButton({item, inActionPanel: false});
+                        condensedItems.push(new ARGON.MAIN.BUTTONS.SplitButton(currentSplitButtonItemButton, button));
+                        currentSplitButtonItemButton = null;
+                    } else {
+                        currentSplitButtonItemButton = new DND5eItemButton({item, inActionPanel: false});
+                    }
+                } else {
+                    condensedItems.push(new DND5eItemButton({ item, inActionPanel: true }));
+                }
+            }
+            return condensedItems;
+        }
+
         class DND5ePortraitPanel extends ARGON.PORTRAIT.PortraitPanel {
             constructor(...args) {
                 super(...args);
@@ -451,9 +476,8 @@ export function initConfig() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })];
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
-                for (const item of barItems) {
-                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
-                }
+                buttons.push(...condenseItemButtons(barItems));
+                
                 return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length).filter((button) => showSpecialActions || !(button instanceof ARGON.MAIN.BUTTONS.SplitButton));
             }
         }
@@ -490,9 +514,7 @@ export function initConfig() {
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
-                for (const item of barItems) {
-                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
-                }
+                buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
             }
@@ -531,9 +553,7 @@ export function initConfig() {
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
-                for (const item of barItems) {
-                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
-                }
+                buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
             }
@@ -572,9 +592,7 @@ export function initConfig() {
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
-                for (const item of barItems) {
-                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
-                }
+                buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
             }
