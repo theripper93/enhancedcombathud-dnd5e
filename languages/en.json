@@ -1,5 +1,13 @@
 {
   "enhancedcombathud-dnd5e": {
+    "portraitConfig": {
+      "prepared": {
+        "label": "Prepared Spells",
+        "auto": "Auto Detect",
+        "preparedOnly": "Prepared Only",
+        "all": "All Spells"
+      }
+    },
     "settings": {
       "switchEquip": {
         "name": "Auto Equip",

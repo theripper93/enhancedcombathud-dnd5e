@@ -237,6 +237,10 @@ export function initConfig() {
                 return this.actor.system.attributes?.death?.failure ?? 0;
             }
 
+            get configurationTemplate() {
+                return "modules/enhancedcombathud-dnd5e/templates/argon-actor-config.hbs";
+            }
+
             async _onDeathSave(event) {
                 this.actor.rollDeathSave({});
             }
@@ -808,6 +812,9 @@ export function initConfig() {
 
             get showPreparedOnly() {
                 if (this.actor.type !== "character") return false;
+                const preparedFlag = this.actor.getFlag(MODULE_ID, "showPrepared");
+                if (preparedFlag === "all") return false;
+                if (preparedFlag === "preparedOnly") return true;
                 const classes = Object.keys(this.actor.classes);
                 const requiresPreparation = ["cleric", "druid", "paladin", "wizard", "artificer", "ranger"].some((className) => classes.includes(className));
                 return requiresPreparation;
