@@ -29,8 +29,8 @@ export function registerSettings() {
             },
         },
         condenseClassActions: {
-            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseSpecialActions.name"),
-            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseSpecialActions.hint"),
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseClassActions.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.condenseClassActions.hint"),
             scope: "world",
             config: true,
             type: Boolean,
