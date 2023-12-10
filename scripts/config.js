@@ -950,12 +950,42 @@ export function initConfig() {
                 this.getMovementMode = game.modules.get('elevation-drag-ruler')?.api?.getMovementMode;
             }
 
+            get visible() {
+                return game.combat?.started;
+            }
+
             get movementMode() {
                 return this.getMovementMode ? this.getMovementMode(this.token) : 'walk';
             }
 
             get movementMax() {
                 return this.actor.system.attributes.movement[this.movementMode] / canvas.scene.dimensions.distance;
+            }
+        }
+
+        class DND5eButtonHud extends ARGON.ButtonHud {
+
+            constructor (...args) {
+                super(...args);
+            }
+
+            get visible() {
+                return !game.combat?.started;
+            }
+
+            async _getButtons() {
+                return [
+                    {
+                        label: "DND5E.LongRest",
+                        onClick: (event) => this.actor.longRest(),
+                        icon: "fas fa-bed",
+                    },
+                    {
+                        label: "DND5E.ShortRest",
+                        onClick: (event) => this.actor.shortRest(),
+                        icon: "fas fa-coffee",
+                    }
+                ]
             }
         }
 
@@ -1016,6 +1046,7 @@ export function initConfig() {
         CoreHUD.defineDrawerPanel(DND5eDrawerPanel);
         CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, ARGON.PREFAB.PassTurnPanel]);
         CoreHUD.defineMovementHud(DND5eMovementHud);
+        CoreHUD.defineButtonHud(DND5eButtonHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);
         CoreHUD.defineSupportedActorTypes(["character", "npc"]);
     });
