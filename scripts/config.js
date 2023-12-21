@@ -9,6 +9,15 @@ export function initConfig() {
         registerItems();
         const ARGON = CoreHUD.ARGON;
 
+        const isMIDI = game.modules.get("midi-qol")?.active;
+        const getMidiFlag = (actionType) => {
+            if (!isMIDI || !ui.ARGON._actor) return null;
+            const flag = ui.ARGON._actor.getFlag("midi-qol", "actions") ?? {};
+            const value = flag[actionType] ?? false;
+            const midiAction = value ? 0 : 1;
+            return midiAction;
+        };
+
         const actionTypes = {
             action: ["action"],
             bonus: ["bonus"],
@@ -458,7 +467,7 @@ export function initConfig() {
             }
 
             get currentActions() {
-                return this.isActionUsed ? 0 : 1;
+                return getMidiFlag("action") ?? (this.isActionUsed ? 0 : 1);
             }
 
             _onNewRound(combat) {
@@ -504,7 +513,7 @@ export function initConfig() {
             }
 
             get currentActions() {
-                return this.isActionUsed ? 0 : 1;
+                return getMidiFlag("bonus") ?? (this.isActionUsed ? 0 : 1);
             }
 
             _onNewRound(combat) {
@@ -542,7 +551,7 @@ export function initConfig() {
             }
 
             get currentActions() {
-                return this.isActionUsed ? 0 : 1;
+                return getMidiFlag("reaction") ?? (this.isActionUsed ? 0 : 1);
             }
 
             _onNewRound(combat) {
