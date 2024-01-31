@@ -1,31 +1,42 @@
 {
   "enhancedcombathud-dnd5e": {
-    "itemconfig": {
-      "sets": {
-        "text": "Sets d'armes"
+    "portraitConfig": {
+      "prepared": {
+        "label": "Sorts préparés Spells",
+        "auto": "Auto Detection",
+        "preparedOnly": "Préparés seulement",
+        "all": "Tous les Sorts"
+      }
+    },
+    "settings": {
+      "switchEquip": {
+        "name": "Equiper automatiquement",
+        "hint": "Equiper/Déséquiper automatiquement les objets lors du changement de set"
       },
-      "set1p": {
-        "text": "Set 1 (Primaire)"
+      "showWeaponsItems": {
+        "name": "Montrer les armes dans la section "Utiliser un objet",
+        "hint": "Utile si les emplacements des armes ne sont pas suffisants"
       },
-      "set2p": {
-        "text": "Set 2 (Primaire)"
+      "showClassActions": {
+        "name": "Montrer les actions de classe",
+        "hint": "Montrer les actions de classe dans la barre de l'Action Principale"
       },
-      "set3p": {
-        "text": "Set 3 (Primaire)"
+      "condenseClassActions":{
+        "name": "Condenser les Actions de Classe",
+        "hint": "Si "Montrer les Actions de Classe" est activé, condenser les actions de classe par paire pour économiser de l'espace"
       },
-      "set1s": {
-        "text": "Set 1 (Secondaire)"
+      "noAA": {
+        "name": "Ne pas activer les Effets Actifs",
+        "hint": "Ne pas activer les Effets Actifs lors de l'utilisation d'actions spéciales (nécessite un rafraîchissement)"
       },
-      "set2s": {
-        "text": "Set 2 (Secondaire)"
-      },
-      "set3s": {
-        "text": "Set 3 (Secondaire)"
+      "showSpecialActions": {
+        "name": "Montrer les Actions Simples",
+        "hint": "Montrer les actions basiques dans la section "Action Principale" (Esquiver, Se précipiter, Se désengager, Se cacher, Se tenir prêt, Bousculer)"
       }
     },
     "hud": {
       "mainactions": {
-        "name": "Actions principales"
+        "name": "Action principale"
       },
       "castspell": {
         "name": "Lancer un sort"
@@ -64,7 +75,7 @@
         "name": "Feuille"
       },
       "saves": {
-        "name": "Sauvegardes"
+        "name": "Jets de sauvegarde"
       },
       "skills": {
         "name": "Compétences"
@@ -72,25 +83,10 @@
       "tools": {
         "name": "Outils"
       },
-      "spells": {
-        "cantrip": "Sort mineur",
-        "pact": "Pacte magique",
-        "will": "À volonté",
-        "innate": "Inné",
-        "1": "Niveau 1",
-        "2": "Niveau 2",
-        "3": "Niveau 3",
-        "4": "Niveau 4",
-        "5": "Niveau 5",
-        "6": "Niveau 6",
-        "7": "Niveau 7",
-        "8": "Niveau 8",
-        "9": "Niveau 9"
-      }
     },
     "items": {
       "disengage": {
-        "name": "Désengager",
+        "name": "Se désengager",
         "desc": "<p>Si vous faites l'action Désengagement, votre mouvement ne provoque pas d'attaques d'opportunité pour le reste du tour.</p>"
       },
       "hide": {
@@ -188,6 +184,23 @@
       },
       "cha": {
         "tooltip": "<p>Le charisme mesure votre capacité à interagir efficacement avec les autres. Il comprend des facteurs tels que la confiance et l'éloquence, et il peut représenter une personnalité charmante ou dominante.</p><p><strong>Autres tests de Charisme</strong><br/>Le DM peut faire appel à un test de Charisme lorsque vous essayez d'accomplir des tâches telles que les suivantes :<ul><li>Trouver la meilleure personne à qui parler pour obtenir des nouvelles, des rumeurs et des ragots</li><li>Se fondre dans une foule pour avoir le sens des principaux sujets de conversation</li></ul></p>"
+      }
+    },
+     "tooltip": {
+      "target": {
+        "name": "Cible"
+      },
+      "range": {
+        "name": "Portée"
+      },
+      "properties": {
+        "name": "Propriétéss"
+      },
+      "toHit": {
+        "name": "Bonus Att"
+      },
+      "damage": {
+        "name": "Dégâts"
       }
     }
   }
