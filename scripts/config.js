@@ -355,7 +355,7 @@ export function initConfig() {
                                 onClick: (event) => this.actor.rollAbility(ability, { event }),
                             },
                             {
-                                label: addSign(abilityData.mod),
+                                label: addSign(abilityData.mod + (abilityData.checkBonus || 0)),
                                 onClick: (event) => this.actor.rollAbilityTest(ability, { event }),
                             },
                             {
@@ -377,7 +377,7 @@ export function initConfig() {
                                 onClick: (event) => this.actor.rollSkill(skill, { event }),
                             },
                             {
-                                label: `${addSign(skillData.mod)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
+                                label: `${addSign(skillData.total)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
                                 style: "display: flex; justify-content: flex-end;",
                             },
                         ],
