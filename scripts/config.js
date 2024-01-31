@@ -133,8 +133,7 @@ export function initConfig() {
 
             const tooltipProperties = [];
             if (damageTypes?.length) damageTypes.forEach((d) => tooltipProperties.push({ label: d, primary: true }));
-            if (properties?.length) properties.forEach((p) => tooltipProperties.push({ label: p, secondary: true }));
-
+            if (properties?.length) properties.forEach((p) => tooltipProperties.push({ label: p?.label ?? p, secondary: true }));
             return { title, description, subtitle, details, properties: tooltipProperties, footerText: materialComponents };
         }
 
