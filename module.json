@@ -90,7 +90,9 @@
       {
         "id": "dnd5e",
         "type": "system",
-        "compatibility": {}
+        "compatibility": {
+          "minimum": "3.0.0"
+        }
       }
     ]
   },
