@@ -216,7 +216,7 @@ export function initConfig() {
                 const isNPC = type === "npc";
                 const isPC = type === "character";
                 if (isNPC) {
-                    const creatureType = game.i18n.localize(CONFIG.DND5E.creatureTypes[actor.system.details.type.value] ?? actor.system.details.type.custom);
+                    const creatureType = game.i18n.localize(CONFIG.DND5E.creatureTypes[actor.system.details.type.value]?.label ?? actor.system.details.type.custom);
                     const cr = system.details.cr >= 1 || system.details.cr <= 0 ? system.details.cr : `1/${1 / system.details.cr}`;
                     return `CR ${cr} ${creatureType}`;
                 } else if (isPC) {
@@ -462,7 +462,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? 1 : null;
+                return this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
@@ -508,7 +508,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? 1 : null;
+                return this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
@@ -546,7 +546,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? 1 : null;
+                return this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
@@ -585,7 +585,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? 1 : null;
+                return this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
@@ -624,7 +624,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? this.actor.system.resources?.legact?.max ?? null : null;
+                return this.actor?.inCombat ? this.actor.system.resources?.legact?.max ?? null : null;
             }
 
             get currentActions() {
@@ -651,7 +651,7 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return this.actor.inCombat ? 1 : null;
+                return this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
@@ -1066,6 +1066,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/journey.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.disengage.desc"),
                 chat: "",
@@ -1161,6 +1165,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/armor-upgrade.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dodge.desc"),
                 chat: "",
@@ -1254,6 +1262,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/clockwork.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.ready.desc"),
                 chat: "",
@@ -1346,6 +1358,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/cloak-dagger.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.hide.desc"),
                 chat: "",
@@ -1442,6 +1458,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/walking-boot.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dash.desc"),
                 chat: "",
@@ -1534,6 +1554,10 @@ function registerItems() {
         type: "feat",
         img: "modules/enhancedcombathud/icons/shield-bash.webp",
         system: {
+            type: {
+                value: "",
+                subtype: ""
+            },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.shove.desc"),
                 chat: "",
