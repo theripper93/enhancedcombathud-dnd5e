@@ -668,6 +668,33 @@ export function initConfig() {
             }
         }
 
+        class DND5eMythicActionPanel extends ARGON.MAIN.ActionPanel {
+            constructor(...args) {
+                super(...args);
+            }
+
+            get label() {
+                return "DND5E.MythicActionLabel";
+            }
+
+            get maxActions() {
+                return null//this.actor?.inCombat ? 1 : null;
+            }
+
+            get currentActions() {
+                return null;//this.actor.system.resources.mythic?.value * 1;
+            }
+
+            async _getButtons() {
+                const buttons = [];
+                const mythic = this.actor.items.filter((item) => item.system.activation?.type === "mythic");
+                mythic.forEach((item) => {
+                    buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
+                });
+                return buttons;
+            }
+        }
+
         class DND5eItemButton extends ARGON.MAIN.BUTTONS.ItemButton {
             constructor(...args) {
                 super(...args);
@@ -1052,7 +1079,7 @@ export function initConfig() {
 
         CoreHUD.definePortraitPanel(DND5ePortraitPanel);
         CoreHUD.defineDrawerPanel(DND5eDrawerPanel);
-        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, ARGON.PREFAB.PassTurnPanel]);
+        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, DND5eMythicActionPanel, ARGON.PREFAB.PassTurnPanel]);
         CoreHUD.defineMovementHud(DND5eMovementHud);
         CoreHUD.defineButtonHud(DND5eButtonHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);
