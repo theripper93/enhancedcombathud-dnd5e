@@ -3,7 +3,6 @@ import { MODULE_ID } from "./main.js";
 const ECHItems = {};
 
 export function initConfig() {
-
     Hooks.on("argonInit", (CoreHUD) => {
         if (game.system.id !== "dnd5e") return;
         registerItems();
@@ -182,7 +181,7 @@ export function initConfig() {
 
         function condenseItemButtons(items) {
             const condenseClassActions = game.settings.get(MODULE_ID, "condenseClassActions");
-            if (!condenseClassActions) return items.map((item) => new DND5eItemButton({item, inActionPanel: true}));
+            if (!condenseClassActions) return items.map((item) => new DND5eItemButton({ item, inActionPanel: true }));
             const condensedItems = [];
             const barItemsLength = items.length;
             const barItemsMultipleOfTwo = barItemsLength - (barItemsLength % 2);
@@ -192,11 +191,11 @@ export function initConfig() {
                 const item = items[i];
                 if (isCondensedButton) {
                     if (currentSplitButtonItemButton) {
-                        const button = new DND5eItemButton({item, inActionPanel: false});
+                        const button = new DND5eItemButton({ item, inActionPanel: false });
                         condensedItems.push(new ARGON.MAIN.BUTTONS.SplitButton(currentSplitButtonItemButton, button));
                         currentSplitButtonItemButton = null;
                     } else {
-                        currentSplitButtonItemButton = new DND5eItemButton({item, inActionPanel: false});
+                        currentSplitButtonItemButton = new DND5eItemButton({ item, inActionPanel: false });
                     }
                 } else {
                     condensedItems.push(new DND5eItemButton({ item, inActionPanel: true }));
@@ -488,12 +487,12 @@ export function initConfig() {
                 if (showSpecialActions) {
                     buttons.push(...[new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[0]), new DND5eSpecialActionButton(specialActions[1])), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[2]), new DND5eSpecialActionButton(specialActions[3])), new ARGON.MAIN.BUTTONS.SplitButton(new DND5eSpecialActionButton(specialActions[4]), new DND5eSpecialActionButton(specialActions[5])), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })]);
                 } else {
-                    buttons.push(...[new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })]); 
+                    buttons.push(...[new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })]);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
                 buttons.push(...condenseItemButtons(barItems));
-                
+
                 return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length);
             }
         }
@@ -525,8 +524,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items, color: 1 })
-                    if(button.hasContents) buttons.push(button);
+                    const button = new DND5eButtonPanelButton({ type, items, color: 1 });
+                    if (button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
@@ -564,8 +563,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items, color: 3 })
-                    if(button.hasContents) buttons.push(button);
+                    const button = new DND5eButtonPanelButton({ type, items, color: 3 });
+                    if (button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
@@ -603,8 +602,8 @@ export function initConfig() {
                 for (const [type, types] of Object.entries(itemTypes)) {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items, color: 2 })
-                    if(button.hasContents) buttons.push(button);
+                    const button = new DND5eButtonPanelButton({ type, items, color: 2 });
+                    if (button.hasContents) buttons.push(button);
                 }
 
                 const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
@@ -678,11 +677,11 @@ export function initConfig() {
             }
 
             get maxActions() {
-                return null//this.actor?.inCombat ? 1 : null;
+                return null; //this.actor?.inCombat ? 1 : null;
             }
 
             get currentActions() {
-                return null;//this.actor.system.resources.mythic?.value * 1;
+                return null; //this.actor.system.resources.mythic?.value * 1;
             }
 
             async _getButtons() {
@@ -720,15 +719,15 @@ export function initConfig() {
                 const targetType = item.system.target?.type;
                 if (!item.system.target?.units && validTargets.includes(targetType)) {
                     return item.system.target?.value;
-                } else if (actionType === "mwak" || actionType === "rwak"){
+                } else if (actionType === "mwak" || actionType === "rwak") {
                     return 1;
                 }
                 return null;
             }
 
             get visible() {
-                if(!this._isWeaponSet || this._isPrimary) return super.visible;
-                return super.visible && this.item?.system?.armor?.type !== "shield";
+                if (!this._isWeaponSet || this._isPrimary) return super.visible;
+                return super.visible && this.item?.system?.type?.value !== "shield";
             }
 
             async getTooltipData() {
@@ -824,7 +823,7 @@ export function initConfig() {
             }
 
             get id() {
-                return `${this.type}-${this.color}`
+                return `${this.type}-${this.color}`;
             }
 
             get label() {
@@ -861,66 +860,72 @@ export function initConfig() {
 
             prePrepareSpells() {
                 if (this.type !== "spell") return;
-                
-                const spellLevels = CONFIG.DND5E.spellLevels;
-                    const itemsToIgnore = [];
-                    if (game.modules.get("items-with-spells-5e")?.active) {
-                        const actionType = this.items[0].system.activation?.type;
-                        const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
-                        for (const item of spellItems) {
-                            const spellData = item.flags["items-with-spells-5e"]["item-spells"];
-                            const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && item.system.activation?.type === actionType);
-                            if(!itemsInSpell.length) continue;
-                            itemsToIgnore.push(...itemsInSpell);
-                            if(item.system.attunement === 1) continue;
-                            this.itemsWithSpells.push({
-                                label: item.name,
-                                buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
-                                uses: () => {return { max: item.system.uses?.max, value: item.system.uses?.value }},
-                            });
-                        }
-                        this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
-                    }
-                    if (this.showPreparedOnly) {
-                        const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
-                        this.items = this.items.filter((item) => {
-                            if (allowIfNotPrepared.includes(item.system.preparation.mode)) return true;
-                            if (item.system.level == 0) return true;
-                            return item.system.preparation.prepared;
-                        });
-                    }
 
-                    const spells = [
-                        ...this.itemsWithSpells,
-                        {
-                            label: "DND5E.SpellPrepAtWill",
-                            buttons: this.items.filter((item) => item.system.preparation.mode === "atwill").map((item) => new DND5eItemButton({ item })),
-                            uses: { max: Infinity, value: Infinity },
-                        },
-                        {
-                            label: "DND5E.SpellPrepInnate",
-                            buttons: this.items.filter((item) => item.system.preparation.mode === "innate").map((item) => new DND5eItemButton({ item })),
-                            uses: { max: Infinity, value: Infinity },
-                        },
-                        {
-                            label: Object.values(spellLevels)[0],
-                            buttons: this.items.filter((item) => item.system.level == 0).map((item) => new DND5eItemButton({ item })),
-                            uses: { max: Infinity, value: Infinity },
-                        },
-                        {
-                            label: "DND5E.PactMagic",
-                            buttons: this.items.filter((item) => item.system.preparation.mode === "pact").map((item) => new DND5eItemButton({ item })),
-                            uses: () => { return this.actor.system.spells.pact }
-                        },
-                    ];
-                    for (const [level, label] of Object.entries(spellLevels)) {
-                        const levelSpells = this.items.filter((item) => item.system.level == level && (item.system.preparation.mode === "prepared" || item.system.preparation.mode === "always"));
-                        if (!levelSpells.length || level == 0) continue;
-                        spells.push({
-                            label,
-                            buttons: levelSpells.map((item) => new DND5eItemButton({ item })),
-                            uses: () => { return this.actor.system.spells[`spell${level}`] },
+                const spellLevels = CONFIG.DND5E.spellLevels;
+                const itemsToIgnore = [];
+                if (game.modules.get("items-with-spells-5e")?.active) {
+                    const actionType = this.items[0].system.activation?.type;
+                    const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
+                    for (const item of spellItems) {
+                        const spellData = item.flags["items-with-spells-5e"]["item-spells"];
+                        const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && item.system.activation?.type === actionType);
+                        if (!itemsInSpell.length) continue;
+                        itemsToIgnore.push(...itemsInSpell);
+                        if (item.system.attunement === 1) continue;
+                        this.itemsWithSpells.push({
+                            label: item.name,
+                            buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
+                            uses: () => {
+                                return { max: item.system.uses?.max, value: item.system.uses?.value };
+                            },
                         });
+                    }
+                    this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
+                }
+                if (this.showPreparedOnly) {
+                    const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
+                    this.items = this.items.filter((item) => {
+                        if (allowIfNotPrepared.includes(item.system.preparation.mode)) return true;
+                        if (item.system.level == 0) return true;
+                        return item.system.preparation.prepared;
+                    });
+                }
+
+                const spells = [
+                    ...this.itemsWithSpells,
+                    {
+                        label: "DND5E.SpellPrepAtWill",
+                        buttons: this.items.filter((item) => item.system.preparation.mode === "atwill").map((item) => new DND5eItemButton({ item })),
+                        uses: { max: Infinity, value: Infinity },
+                    },
+                    {
+                        label: "DND5E.SpellPrepInnate",
+                        buttons: this.items.filter((item) => item.system.preparation.mode === "innate").map((item) => new DND5eItemButton({ item })),
+                        uses: { max: Infinity, value: Infinity },
+                    },
+                    {
+                        label: Object.values(spellLevels)[0],
+                        buttons: this.items.filter((item) => item.system.level == 0).map((item) => new DND5eItemButton({ item })),
+                        uses: { max: Infinity, value: Infinity },
+                    },
+                    {
+                        label: "DND5E.PactMagic",
+                        buttons: this.items.filter((item) => item.system.preparation.mode === "pact").map((item) => new DND5eItemButton({ item })),
+                        uses: () => {
+                            return this.actor.system.spells.pact;
+                        },
+                    },
+                ];
+                for (const [level, label] of Object.entries(spellLevels)) {
+                    const levelSpells = this.items.filter((item) => item.system.level == level && (item.system.preparation.mode === "prepared" || item.system.preparation.mode === "always"));
+                    if (!levelSpells.length || level == 0) continue;
+                    spells.push({
+                        label,
+                        buttons: levelSpells.map((item) => new DND5eItemButton({ item })),
+                        uses: () => {
+                            return this.actor.system.spells[`spell${level}`];
+                        },
+                    });
                 }
                 return spells.filter((spell) => spell.buttons.length);
             }
@@ -979,10 +984,9 @@ export function initConfig() {
         }
 
         class DND5eMovementHud extends ARGON.MovementHud {
-
-            constructor (...args) {
+            constructor(...args) {
                 super(...args);
-                this.getMovementMode = game.modules.get('elevation-drag-ruler')?.api?.getMovementMode;
+                this.getMovementMode = game.modules.get("elevation-drag-ruler")?.api?.getMovementMode;
             }
 
             get visible() {
@@ -990,7 +994,7 @@ export function initConfig() {
             }
 
             get movementMode() {
-                return this.getMovementMode ? this.getMovementMode(this.token) : 'walk';
+                return this.getMovementMode ? this.getMovementMode(this.token) : "walk";
             }
 
             get movementMax() {
@@ -999,8 +1003,7 @@ export function initConfig() {
         }
 
         class DND5eButtonHud extends ARGON.ButtonHud {
-
-            constructor (...args) {
+            constructor(...args) {
                 super(...args);
             }
 
@@ -1019,8 +1022,8 @@ export function initConfig() {
                         label: "DND5E.ShortRest",
                         onClick: (event) => this.actor.shortRest(),
                         icon: "fas fa-coffee",
-                    }
-                ]
+                    },
+                ];
             }
         }
 
@@ -1051,10 +1054,10 @@ export function initConfig() {
                 const isTransformed = this.actor.flags?.dnd5e?.isPolymorphed;
 
                 const sets = isTransformed ? await this.getDefaultSets() : mergeObject(await this.getDefaultSets(), deepClone(this.actor.getFlag("enhancedcombathud", "weaponSets") || {}));
-            
+
                 for (const [set, slots] of Object.entries(sets)) {
-                  slots.primary = slots.primary ? await fromUuid(slots.primary) : null;
-                  slots.secondary = slots.secondary ? await fromUuid(slots.secondary) : null;
+                    slots.primary = slots.primary ? await fromUuid(slots.primary) : null;
+                    slots.secondary = slots.secondary ? await fromUuid(slots.secondary) : null;
                 }
                 return sets;
             }
@@ -1066,7 +1069,10 @@ export function initConfig() {
                 const activeSet = sets[active];
                 const activeItems = Object.values(activeSet).filter((item) => item);
                 const inactiveSets = Object.values(sets).filter((set) => set !== activeSet);
-                const inactiveItems = inactiveSets.flatMap((set) => Object.values(set)).filter((item) => item).filter((item) => !activeItems.includes(item));
+                const inactiveItems = inactiveSets
+                    .flatMap((set) => Object.values(set))
+                    .filter((item) => item)
+                    .filter((item) => !activeItems.includes(item));
                 activeItems.forEach((item) => {
                     if (!item.system?.equipped) updates.push({ _id: item.id, "system.equipped": true });
                 });
@@ -1095,7 +1101,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.disengage.desc"),
@@ -1194,7 +1200,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dodge.desc"),
@@ -1291,7 +1297,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.ready.desc"),
@@ -1387,7 +1393,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.hide.desc"),
@@ -1487,7 +1493,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.dash.desc"),
@@ -1583,7 +1589,7 @@ function registerItems() {
         system: {
             type: {
                 value: "",
-                subtype: ""
+                subtype: "",
             },
             description: {
                 value: game.i18n.localize("enhancedcombathud-dnd5e.items.shove.desc"),
