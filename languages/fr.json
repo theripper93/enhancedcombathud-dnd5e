@@ -14,7 +14,7 @@
         "hint": "Equiper/Déséquiper automatiquement les objets lors du changement de set"
       },
       "showWeaponsItems": {
-        "name": "Montrer les armes dans la section "Utiliser un objet",
+        "name": "Montrer les armes dans la section 'Utiliser un objet'",
         "hint": "Utile si les emplacements des armes ne sont pas suffisants"
       },
       "showClassActions": {
@@ -23,7 +23,7 @@
       },
       "condenseClassActions":{
         "name": "Condenser les Actions de Classe",
-        "hint": "Si "Montrer les Actions de Classe" est activé, condenser les actions de classe par paire pour économiser de l'espace"
+        "hint": "Si 'Montrer les Actions de Classe' est activé, condenser les actions de classe par paire pour économiser de l'espace"
       },
       "noAA": {
         "name": "Ne pas activer les Effets Actifs",
@@ -31,7 +31,7 @@
       },
       "showSpecialActions": {
         "name": "Montrer les Actions Simples",
-        "hint": "Montrer les actions basiques dans la section "Action Principale" (Esquiver, Se précipiter, Se désengager, Se cacher, Se tenir prêt, Bousculer)"
+        "hint": "Montrer les actions basiques dans la section 'Action Principale' (Esquiver, Se précipiter, Se désengager, Se cacher, Se tenir prêt, Bousculer)"
       }
     },
     "hud": {
@@ -82,7 +82,7 @@
       },
       "tools": {
         "name": "Outils"
-      },
+      }
     },
     "items": {
       "disengage": {
