@@ -37,6 +37,16 @@ export function registerSettings() {
             default: true,
             onChange: () => ui.ARGON.refresh(),
         },
+        macroPanel: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.macroPanel.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.macroPanel.hint"),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: false,
+            requiresReload: true,
+            onChange: () => ui.ARGON.refresh(),
+        },
         switchEquip: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.name"),
             hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.switchEquip.hint"),

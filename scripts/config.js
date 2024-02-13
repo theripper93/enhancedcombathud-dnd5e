@@ -1083,9 +1083,15 @@ export function initConfig() {
             }
         }
 
+        const enableMacroPanel = game.settings.get(MODULE_ID, "macroPanel");
+
+        const mainPanels = [DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, DND5eMythicActionPanel]
+        if(enableMacroPanel) mainPanels.push(ARGON.PREFAB.MacroPanel);
+        mainPanels.push(ARGON.PREFAB.PassTurnPanel);
+
         CoreHUD.definePortraitPanel(DND5ePortraitPanel);
         CoreHUD.defineDrawerPanel(DND5eDrawerPanel);
-        CoreHUD.defineMainPanels([DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, DND5eMythicActionPanel, ARGON.PREFAB.PassTurnPanel]);
+        CoreHUD.defineMainPanels(mainPanels);
         CoreHUD.defineMovementHud(DND5eMovementHud);
         CoreHUD.defineButtonHud(DND5eButtonHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);

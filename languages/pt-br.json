@@ -1,194 +1,249 @@
 {
-  "enhancedcombathud-dnd5e": {
-    "itemconfig": {
-      "sets": {
-        "text": "Conjuntos de Armas"
-      },
-      "set1p": {
-        "text": "1º Conjunto (Primário)"
-      },
-      "set2p": {
-        "text": "2º Conjunto (Primário)"
-      },
-      "set3p": {
-        "text": "3º Conjunto (Primário)"
-      },
-      "set1s": {
-        "text": "1º Conjunto (Secundário)"
-      },
-      "set2s": {
-        "text": "2º Conjunto (Secundário)"
-      },
-      "set3s": {
-        "text": "3º Conjunto (Secundário)"
-      }
-    },
-    "hud": {
-      "mainactions": {
-        "name": "Ação Padrão"
-      },
-      "castspell": {
-        "name": "Conjurar Magia"
-      },
-      "usepower": {
-        "name": "Usar Característica"
-      },
-      "useitem": {
-        "name": "Usar Item"
-      },
-      "bonusaction": {
-        "name": "Bônus"
-      },
-      "reaction": {
-        "name": "Reação"
-      },
-      "specialaction": {
-        "name": "Livre"
-      },
-      "pass": {
-        "name": "Passar"
-      },
-      "endturn": {
-        "name": "Terminar Turno"
-      },
-      "hp": {
-        "name": "PV"
-      },
-      "ac": {
-        "name": "CA"
-      },
-      "of": {
-        "name": "de"
-      },
-      "inventory": {
-        "name": "Ficha"
-      },
-      "saves": {
-        "name": "Testes"
-      },
-      "skills": {
-        "name": "Perícias"
-      },
-      "tools": {
-        "name": "Ferramentas"
-      },
-      "spells": {
-        "cantrip": "Truque",
-        "pact": "Magia de Pacto",
-        "will": "À vontade",
-        "innate": "Inato",
-        "1": "1º Círculo",
-        "2": "2º Círculo",
-        "3": "3º Círculo",
-        "4": "4º Círculo",
-        "5": "5º Círculo",
-        "6": "6º Círculo",
-        "7": "7º Círculo",
-        "8": "8º Círculo",
-        "9": "9º Círculo"
-      }
-    },
-    "items": {
-      "disengage": {
-        "name": "Desengajar",
-        "desc": "<p>Se você realiza a ação Desengajar, seu movimento não provoca ataques de oportunidade pelo resto do turno</p>"
-      },
-      "hide": {
-        "name": "Esconder",
-        "desc": "<p>Quando você opta pela ação Esconder, você faz um teste de Destreza (Furtividade) para tentar se esconder, seguindo as regras para esconder-se. Se passar, você ganha certos benefícios,</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Combatentes normalmente tentam escapar da vista de seus adversários ao se esconder, conjurando a magia&nbsp;invisibilidade&nbsp;, ou espreitando-se na escuridão total.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\"> ou espreitando-se na escuridão total.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Quando uma criatura não pode ver você, então você tem vantagem nas jogadas de ataque contra a criatura. Se você está escondido, sem ser visto e ouvido, quando realiza um ataque, você revela sua localização, não importando se o ataque acertou ou não. </p>\n<p>&nbsp;</p>"
-      },
-      "shove": {
-        "name": "Empurrar",
-        "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Quando você quer segurar uma criatura ou entrar em luta corporal com ela, você pode realizar a ação de Ataque para fazer um ataque corpo-a-corpo especial, um agarrão. Se você puder realizar múltiplos ataques com a ação de Ataque, esse ataque especial substitui um deles.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">O alvo da sua tentativa de agarrar deve ser de até uma categoria de tamanho maior que você (no máximo) e deve estar ao seu alcance. Usando pelo menos uma mão livre, você tenta subjugar o alvo ao realizar um teste de agarrar, um teste de Força (Atletismo) resistido pelo teste de Força (Atletismo) ou de Destreza (Acrobacia) do alvo (o alvo escolhe que habilidade usar). Você ganha automaticamente se o alvo está&nbsp;incapacitado. Se você vencer, o alvo fica sujeito à condição agarrado (veja no apêndice A). A condição especifica que tipo de coisas podem terminar com ela e você pode largar o alvo a hora que quiser (nenhuma ação é necessária).</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Escapando de um Agarrão.&nbsp;A&nbsp;grappled&nbsp;Uma criatura vítima de um agarrão pode usar uma ação para escapar. Para fazê-lo, ela precisa ser bem sucedida em um teste de Força (Atletismo) ou Destreza (Acrobacia) resistido por seu teste de Força (Atletismo).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Movendo uma Criatura Agarrada.&nbsp;Quando você se move, você pode arrastar ou carregar a criatura vítima de um agarrão, mas seu deslocamento cai pela metade, a menos que a criatura seja duas ou mais categorias de tamanho menor que a sua.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Shoving a Creature</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Using the Attack action, you can make a special melee attack to shove a creature, either to knock it&nbsp;prone&nbsp;or push it away from you. If you're able to make multiple attacks with the Attack action, this attack replaces one of them.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">The target must be no more than one size larger than you and must be within your reach. Instead of making an attack roll, you make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use). You succeed automatically if the target is&nbsp;incapacitated. If you succeed, you either knock the target&nbsp;prone&nbsp;or push it 5 feet away from you.</p>"
-      },
-      "dash": {
-        "name": "Disparar",
-        "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Quando você realiza a ação de Disparada, você ganha deslocamento adicional no seu turno atual. O aumento equivale ao seu valor de deslocamento, depois de aplicar qualquer modificador. Com o deslocamento de 9 metros, por exemplo, você pode se mover até 18 metros no seu turno se realizar uma disparada.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Qualquer aumento ou redução do seu deslocamento muda esse movimento adicional na mesma medida. Se seu deslocamento de 9 metros for reduzido a 4,5 metros, por exemplo, você pode se mover até 9 metros no seu turno se realizar uma disparada.</p>"
-      },
-      "dodge": {
-        "name": "Esquivar",
-        "desc": "<p>Quando você realiza a ação Esquivar, você se foca completamente em evitar ataques. Até o começo do seu próximo turno, qualquer jogada de ataque contra você é feita com desvantagem se você puder ver o atacante e você tem vantagem em testes de Destreza. Você perde esse benefício se estiver incapacitado (como explicado no apêndice A) ou se seu deslocamento cair para 0.</p>"
-      },
-      "ready": {
-        "name": "Preparar",
-        "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">Às vezes você quer saltar sobre um inimigo ou esperar por uma circunstância específica antes de agir. Para fazer isso, você pode realizar a ação Preparar no seu turno, o que lhe permite agir usando sua reação antes do início do seu próximo turno.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Primeiro, você decide qual circunstância perceptível irá desencadear sua reação. Em seguida, você escolhe a ação que executará em resposta a esse gatilho ou escolhe aumentar sua velocidade em resposta a ele. Exemplos incluem: \"If the cultist steps on the trapdoor, I'll pull the lever that opens it,\" and \"If the goblin steps next to me, I move away.\"</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">When the trigger occurs, you can either take your reaction right after the trigger finishes or ignore the trigger. Remember that you can take only one reaction per round.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">When you ready a spell, you cast it as normal but hold its energy, which you release with your reaction when the trigger occurs. To be readied, a spell must have a casting time of 1 action, and holding onto the spell's magic requires concentration. If your concentration is broken, the spell dissipates without taking effect. For example, if you are concentrating on the&nbsp;web&nbsp;spell and ready&nbsp;magic missile, your&nbsp;web&nbsp;spell ends, and if you take damage before you release&nbsp;magic missile&nbsp;with your reaction, your concentration might be broken.</p>"
-      }
-    },
-    "skills": {
-      "acr": {
-        "tooltip": "Seu teste de Destreza (Acrobacia) cobre sua tentativa de permanecer de pé em uma situação complicada, como quando você está tentando correr através de uma camada de gelo, equilibrar-se em uma corda bamba ou ficar de pé no convés de um navio balançando. O Mestre também pode solicitar um teste de Destreza (Acrobacia) para ver se você consegue realizar acrobacias, incluindo mergulhos, rolagens, cambalhotas e cambalhotas."
-      },
-      "ani": {
-        "tooltip": "Quando houver alguma dúvida se você pode acalmar um animal domesticado, evitar que uma montaria fique assustada ou intuir as intenções de um animal, o Mestre pode pedir um teste de Sabedoria (Lidar com Animais). Você também faz um teste de Sabedoria (Lidar com Animais) para controlar sua montaria quando tenta uma manobra arriscada."
-      },
-      "arc": {
-        "tooltip": "Seu teste de Inteligência (Arcanismo) mede sua habilidade de recordar conhecimentos sobre feitiços, itens mágicos, símbolos sobrenaturais, tradições mágicas, os planos de existência e os habitantes desses planos."
-      },
-      "ath": {
-        "tooltip": "<p>Seu teste de Força (Atletismo) cobre situações difíceis que você encontra ao escalar, saltar ou nadar. Os exemplos incluem as seguintes atividades:</p><ul><li>Você tenta escalar um penhasco íngreme ou escorregadio, evita perigos ao escalar uma parede ou agarra-se a uma superfície enquanto algo tenta derrubá-lo.</li >↵<li>Você tenta saltar uma distância incomumente longa ou realizar uma acrobacia no meio do salto.</li><li>Você tem dificuldade para nadar ou permanecer flutuando em correntes traiçoeiras, ondas agitadas por tempestades ou áreas de algas marinhas espessas. Ou outra criatura tenta empurrar ou puxar você para baixo da água ou interferir de alguma forma na sua natação.</li>↵</ul>"
-      },
-      "dec": {
-        "tooltip": "Seu teste de Carisma (Enganação) determina se você pode esconder a verdade de forma convincente, seja verbalmente ou através de suas ações. Este engano pode abranger tudo, desde enganar os outros através da ambiguidade até contar mentiras descaradas. Situações típicas incluem tentar enganar um guarda, enganar um comerciante, ganhar dinheiro com jogos de azar, passar-se disfarçado, atenuar as suspeitas de alguém com falsas garantias ou manter uma cara séria enquanto conta uma mentira descarada."
-      },
-      "his": {
-        "tooltip": "Seu teste de Inteligência (História) mede sua capacidade de recordar conhecimentos sobre eventos históricos, pessoas lendárias, reinos antigos, disputas passadas, guerras recentes e civilizações perdidas."
-      },
-      "ins": {
-        "tooltip": "Seu teste de Sabedoria (Intuição) decide se você pode determinar as verdadeiras intenções de uma criatura, como ao procurar uma mentira ou prever o próximo movimento de alguém. Fazer isso envolve coletar pistas da linguagem corporal, hábitos de fala e mudanças nos maneirismos."
-      },
-      "itm": {
-        "tooltip": "Quando você tenta influenciar alguém através de ameaças abertas, ações hostis e violência física, o Mestre pode pedir que você faça um teste de Carisma (Intimidação). Os exemplos incluem tentar arrancar informações de um prisioneiro, convencer bandidos de rua a desistir de um confronto ou usar a borda de uma garrafa quebrada para convencer um vizir zombeteiro a reconsiderar uma decisão."
-      },
-      "inv": {
-        "tooltip": "Quando você procura pistas e faz deduções com base nessas pistas, você faz um teste de Inteligência (Investigação). Você pode deduzir a localização de um objeto escondido, discernir pela aparência de um ferimento que tipo de arma o causou ou determinar o ponto mais fraco em um túnel que poderia causar seu colapso. Examinar pergaminhos antigos em busca de um fragmento oculto de conhecimento também pode exigir um teste de Inteligência (Investigação)."
-      },
-      "med": {
-        "tooltip": "Um teste de Sabedoria (Medicina) permite que você tente estabilizar um companheiro moribundo ou diagnosticar uma doença."
-      },
-      "nat": {
-        "tooltip": "Seu teste de Inteligência (Natureza) mede sua capacidade de recordar conhecimentos sobre o terreno, plantas e animais, o clima e os ciclos naturais."
-      },
-      "prc": {
-        "tooltip": "Seu teste de Sabedoria (Percepção) permite que você detecte, ouça ou detecte a presença de algo. Ele mede sua consciência geral do que está ao seu redor e a agudeza de seus sentidos. Por exemplo, você pode tentar ouvir uma conversa através de uma porta fechada, escutar sob uma janela aberta ou ouvir monstros se movendo furtivamente na floresta. Ou você pode tentar localizar coisas que estão obscuras ou fáceis de passar despercebidas, sejam orcs emboscados em uma estrada, bandidos escondidos nas sombras de um beco ou à luz de velas sob uma porta secreta fechada."
-      },
-      "prf": {
-        "tooltip": "Seu teste de Carisma (Atuação) determina quão bem você consegue encantar o público com música, dança, atuação, narrativa ou alguma outra forma de entretenimento."
-      },
-      "per": {
-        "tooltip": "Quando você tenta influenciar alguém ou um grupo de pessoas com tato, graça social ou boa natureza, o Mestre pode pedir que você faça um teste de Carisma (Persuasão). Normalmente, você usa a persuasão quando age de boa fé, para promover amizades, fazer pedidos cordiais ou exibir etiqueta adequada. Exemplos de como persuadir outros incluem convencer um camareiro a deixar seu grupo ver o rei, negociar a paz entre tribos em guerra ou inspirar uma multidão de habitantes da cidade."
-      },
-      "rel": {
-        "tooltip": "Seu teste de Inteligência (Religião) mede sua capacidade de recordar conhecimentos sobre divindades, ritos e orações, hierarquias religiosas, símbolos sagrados e práticas de cultos secretos."
-      },
-      "slt": {
-        "tooltip": "Sempre que você tentar um ato de prestidigitação ou truque manual, como plantar algo em outra pessoa ou esconder um objeto em sua pessoa, faça um teste de Destreza (Prestidigitação). O Mestre também pode solicitar um teste de Destreza (Prestidigitação) para determinar se você pode tirar um porta-moedas de outra pessoa ou tirar algo do bolso de outra pessoa."
-      },
-      "ste": {
-        "tooltip": "Faça um teste de Destreza (Furtividade) quando tentar se esconder dos inimigos, passar furtivamente pelos guardas, escapar sem ser notado ou se aproximar sorrateiramente de alguém sem ser visto ou ouvido."
-      },
-      "sur": {
-        "tooltip": "O Mestre pode pedir que você faça um teste de Sabedoria (Sobrevivência) para seguir rastros, caçar animais selvagens, guiar seu grupo por terrenos baldios congelados, identificar sinais de que ursos-coruja vivem nas proximidades, prever o tempo ou evitar areia movediça e outros perigos naturais."
-      }
-    },
-    "abilities": {
-      "str": {
-        "tooltip": "<p>A força mede a força corporal, o treinamento atlético e até que ponto você pode exercer força física bruta.</p><p><strong>Testes de força</strong><br/>Um teste de força pode modelar qualquer tentativa. levantar, empurrar, puxar ou quebrar algo, forçar seu corpo através de um espaço ou aplicar força bruta a uma situação. A perícia Atletismo reflete aptidão em certos tipos de testes de Força.</p><p><strong>Outros Testes de Força</strong><br/>O Mestre também pode solicitar um teste de Força quando você tentar realizar tarefas como a seguinte:<ul><li>Forçar a abertura de uma porta emperrada, trancada ou gradeada</li><li>Liberar-se das amarras</li><li>Empurrar através de um túnel que seja muito pequeno</li><li >Segure-se em uma carroça enquanto é arrastado por ela</li><li>Tombe uma estátua</li><li>Evite que uma pedra role</li></ul></p><p>< strong>Levantar e Carregar</strong><br/> Seu valor de Força determina a quantidade de peso que você pode suportar. Os termos a seguir definem o que você pode levantar ou carregar.</p><p><strong>Capacidade de carga.</strong> Sua capacidade de carga é seu valor de Força multiplicado por 15. Este é o peso (em libras) que você pode carregar, que é alto o suficiente para que a maioria dos personagens normalmente não precise se preocupar com isso.</p><p><strong>Empurrar, arrastar ou levantar.</strong> Você pode empurrar, arrastar ou levantar um peso em libras até o dobro de sua capacidade de carga (ou 30 vezes seu valor de Força). Ao empurrar ou arrastar peso além de sua capacidade de carga, sua velocidade cai para 1,5 metro.</p><p><strong>Tamanho e força.</strong> Criaturas maiores podem suportar mais peso, enquanto criaturas pequenas podem carregar menos. . Para cada categoria de tamanho acima de Médio, dobre a capacidade de carga da criatura e a quantidade que ela pode empurrar, arrastar ou levantar. Para uma criatura minúscula, reduza esses pesos pela metade.</p>"
-      },
-      "dex": {
-        "tooltip": "<p>A Destreza mede agilidade, reflexos e equilíbrio.</p><p><strong>Testes de Destreza</strong><br/>Um teste de Destreza pode modelar qualquer tentativa de se mover com agilidade, rapidez ou silêncio, ou de evite cair em terreno complicado. As perícias Acrobacia, Prestidigitação e Furtividade refletem aptidão em certos tipos de testes de Destreza.</p><p><strong>Outros Testes de Destreza</strong><br/>O Mestre pode solicitar um teste de Destreza quando você tente realizar tarefas como as seguintes:<ul><li>Controlar uma carroça muito carregada em uma descida íngreme</li><li>Dirigir uma carruagem em uma curva fechada</li><li>Arrombar uma fechadura</li ><li>Desative uma armadilha</li><li>Amarre um prisioneiro com segurança</li><li>Liberte-se das amarras</li><li>Toque um instrumento de cordas</li><li>Crie um objeto pequeno ou detalhado</li></ul></p><p><strong>Classe de armadura</strong><br/>Dependendo da armadura que você veste, você pode adicionar parte ou todo o seu modificador de Destreza a sua Classe de Armadura, conforme descrito no capítulo 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Equipamento.</a></p><p>< strong>Iniciativa</strong><br/>No início de cada combate, você rola a iniciativa fazendo um teste de Destreza. A iniciativa determina a ordem dos turnos das criaturas em combate, conforme descrito no capítulo 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Combate.</a>"
-      },
-      "con": {
-        "tooltip": "<p>A Constituição mede saúde, resistência e força vital.</p><p><strong>Testes de Constituição</strong><br/>Os testes de Constituição são incomuns e nenhuma perícia se aplica aos testes de Constituição, porque a resistência que esta habilidade representa é em grande parte passivo, em vez de envolver um esforço específico por parte de um personagem ou monstro. No entanto, um teste de Constituição pode modelar sua tentativa de ir além dos limites normais.</p><p>O Mestre pode solicitar um teste de Constituição quando você tentar realizar tarefas como as seguintes:<ul><li>Prenda a respiração< /li><li>Marchar ou trabalhar por horas sem descanso</li><li>Ficar sem dormir</li><li>Sobreviver sem comida ou água</li><li>Beber uma caneca inteira de cerveja de uma só vez go</li></ul></p><p><strong>Pontos de Vida</strong><br/>Seu modificador de Constituição contribui para seus pontos de vida. Normalmente, você adiciona seu modificador de Constituição a cada Dado de Vida que você rola para seus pontos de vida.</p><p>Se seu modificador de Constituição mudar, seu máximo de pontos de vida também muda, como se você tivesse o novo modificador do 1º nível. Por exemplo, se você aumentar seu valor de Constituição quando atingir o 4º nível e seu modificador de Constituição aumentar de +1 para +2, você ajusta seu máximo de pontos de vida como se o modificador sempre tivesse sido +2. Então você adiciona 3 pontos de vida para seus três primeiros níveis e, em seguida, rola seus pontos de vida para o 4º nível usando seu novo modificador. Ou se você estiver no 7º nível e algum efeito diminuir seu valor de Constituição de modo a reduzir seu modificador de Constituição em 1, seu máximo de pontos de vida será reduzido em 7.</p>"
-      },
-      "int": {
-        "tooltip": "<p>Inteligência mede a acuidade mental, a precisão da recordação e a capacidade de raciocinar.</p><p><strong>Testes de Inteligência</strong><br/>Um teste de Inteligência entra em ação quando você precisa recorrer lógica, educação, memória ou raciocínio dedutivo. As perícias Arcanismo, História, Investigação, Natureza e Religião refletem aptidão em certos tipos de testes de Inteligência.</p><p><strong>Outros Testes de Inteligência</strong><br/>O Mestre pode solicitar um teste de Inteligência. quando você tenta realizar tarefas como as seguintes:<ul><li>Comunicar-se com uma criatura sem usar palavras</li><li>Estimar o valor de um item precioso</li><li>Elaborar um disfarce para passar como guarda da cidade</li><li>Forjar um documento</li><li>Relembrar conhecimentos sobre um ofício ou comércio</li><li>Vencer um jogo de habilidade</li></ul></ p>"
-      },
-      "wis": {
-        "tooltip": "<p>A sabedoria reflete o quão sintonizado você está com o mundo ao seu redor e representa a percepção e a intuição.</p><p><strong>Testes de Sabedoria</strong>Um teste de Sabedoria pode refletir um esforço para ler a linguagem corporal, entender a linguagem corporal de alguém. sentimentos, observar coisas sobre o ambiente ou cuidar de uma pessoa ferida. As perícias Manejo de Animais, Intuição, Medicina, Percepção e Sobrevivência refletem aptidão em certos tipos de testes de Sabedoria.</p><p><strong>Outros Testes de Sabedoria</strong></br>O Mestre pode exigir um teste de Sabedoria. verifique ao tentar realizar tarefas como as seguintes:<ul><li>Tenha uma intuição sobre qual curso de ação seguir</li><li>Discerna se uma criatura aparentemente morta ou viva é morta-viva</li>< /ul></p>"
-      },
-      "cha": {
-        "tooltip": "<p>Carisma mede sua capacidade de interagir efetivamente com outras pessoas. Inclui fatores como confiança e eloqüência, e pode representar uma personalidade charmosa ou autoritária.</p><p><strong>Outros Testes de Carisma</strong><br/>O Mestre pode solicitar um teste de Carisma quando você tente realizar tarefas como as seguintes:<ul><li>Encontre a melhor pessoa para conversar sobre notícias, rumores e fofocas</li><li>Entre na multidão para entender os principais tópicos da conversa</li><li>Encontre-se na multidão para entender os principais tópicos da conversa.</li><li>Encontre-se na multidão para entender os principais tópicos da conversa. li></ul></p>"
-      }
+    "enhancedcombathud-dnd5e": {
+        "itemconfig": {
+            "sets": {
+                "text": "Conjuntos de Armas"
+            },
+            "set1p": {
+                "text": "1º Conjunto (Primário)"
+            },
+            "set2p": {
+                "text": "2º Conjunto (Primário)"
+            },
+            "set3p": {
+                "text": "3º Conjunto (Primário)"
+            },
+            "set1s": {
+                "text": "1º Conjunto (Secundário)"
+            },
+            "set2s": {
+                "text": "2º Conjunto (Secundário)"
+            },
+            "set3s": {
+                "text": "3º Conjunto (Secundário)"
+            }
+        },
+        "hud": {
+            "mainactions": {
+                "name": "Ação Padrão"
+            },
+            "castspell": {
+                "name": "Conjurar Magia"
+            },
+            "usepower": {
+                "name": "Usar Característica"
+            },
+            "useitem": {
+                "name": "Usar Item"
+            },
+            "bonusaction": {
+                "name": "Bônus"
+            },
+            "reaction": {
+                "name": "Reação"
+            },
+            "specialaction": {
+                "name": "Livre"
+            },
+            "pass": {
+                "name": "Passar"
+            },
+            "endturn": {
+                "name": "Terminar Turno"
+            },
+            "hp": {
+                "name": "PV"
+            },
+            "ac": {
+                "name": "CA"
+            },
+            "of": {
+                "name": "de"
+            },
+            "inventory": {
+                "name": "Ficha"
+            },
+            "saves": {
+                "name": "Testes"
+            },
+            "skills": {
+                "name": "Perícias"
+            },
+            "tools": {
+                "name": "Ferramentas"
+            },
+            "spells": {
+                "1": "1º Círculo",
+                "2": "2º Círculo",
+                "3": "3º Círculo",
+                "4": "4º Círculo",
+                "5": "5º Círculo",
+                "6": "6º Círculo",
+                "7": "7º Círculo",
+                "8": "8º Círculo",
+                "9": "9º Círculo",
+                "cantrip": "Truque",
+                "pact": "Magia de Pacto",
+                "will": "À vontade",
+                "innate": "Inato"
+            }
+        },
+        "items": {
+            "disengage": {
+                "name": "Desengajar",
+                "desc": "<p>Se você realiza a ação Desengajar, seu movimento não provoca ataques de oportunidade pelo resto do turno</p>"
+            },
+            "hide": {
+                "name": "Esconder",
+                "desc": "<p>Quando você opta pela ação Esconder, você faz um teste de Destreza (Furtividade) para tentar se esconder, seguindo as regras para esconder-se. Se passar, você ganha certos benefícios,</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Combatentes normalmente tentam escapar da vista de seus adversários ao se esconder, conjurando a magia&nbsp;invisibilidade&nbsp;, ou espreitando-se na escuridão total.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\"> ou espreitando-se na escuridão total.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Quando uma criatura não pode ver você, então você tem vantagem nas jogadas de ataque contra a criatura. Se você está escondido, sem ser visto e ouvido, quando realiza um ataque, você revela sua localização, não importando se o ataque acertou ou não. </p>\n<p>&nbsp;</p>"
+            },
+            "shove": {
+                "name": "Empurrar",
+                "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Quando você quer segurar uma criatura ou entrar em luta corporal com ela, você pode realizar a ação de Ataque para fazer um ataque corpo-a-corpo especial, um agarrão. Se você puder realizar múltiplos ataques com a ação de Ataque, esse ataque especial substitui um deles.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">O alvo da sua tentativa de agarrar deve ser de até uma categoria de tamanho maior que você (no máximo) e deve estar ao seu alcance. Usando pelo menos uma mão livre, você tenta subjugar o alvo ao realizar um teste de agarrar, um teste de Força (Atletismo) resistido pelo teste de Força (Atletismo) ou de Destreza (Acrobacia) do alvo (o alvo escolhe que habilidade usar). Você ganha automaticamente se o alvo está&nbsp;incapacitado. Se você vencer, o alvo fica sujeito à condição agarrado (veja no apêndice A). A condição especifica que tipo de coisas podem terminar com ela e você pode largar o alvo a hora que quiser (nenhuma ação é necessária).</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Escapando de um Agarrão.&nbsp;A&nbsp;grappled&nbsp;Uma criatura vítima de um agarrão pode usar uma ação para escapar. Para fazê-lo, ela precisa ser bem sucedida em um teste de Força (Atletismo) ou Destreza (Acrobacia) resistido por seu teste de Força (Atletismo).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Movendo uma Criatura Agarrada.&nbsp;Quando você se move, você pode arrastar ou carregar a criatura vítima de um agarrão, mas seu deslocamento cai pela metade, a menos que a criatura seja duas ou mais categorias de tamanho menor que a sua.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Shoving a Creature</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Using the Attack action, you can make a special melee attack to shove a creature, either to knock it&nbsp;prone&nbsp;or push it away from you. If you're able to make multiple attacks with the Attack action, this attack replaces one of them.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">The target must be no more than one size larger than you and must be within your reach. Instead of making an attack roll, you make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use). You succeed automatically if the target is&nbsp;incapacitated. If you succeed, you either knock the target&nbsp;prone&nbsp;or push it 5 feet away from you.</p>"
+            },
+            "dash": {
+                "name": "Disparar",
+                "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Quando você realiza a ação de Disparada, você ganha deslocamento adicional no seu turno atual. O aumento equivale ao seu valor de deslocamento, depois de aplicar qualquer modificador. Com o deslocamento de 9 metros, por exemplo, você pode se mover até 18 metros no seu turno se realizar uma disparada.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Qualquer aumento ou redução do seu deslocamento muda esse movimento adicional na mesma medida. Se seu deslocamento de 9 metros for reduzido a 4,5 metros, por exemplo, você pode se mover até 9 metros no seu turno se realizar uma disparada.</p>"
+            },
+            "dodge": {
+                "name": "Esquivar",
+                "desc": "<p>Quando você realiza a ação Esquivar, você se foca completamente em evitar ataques. Até o começo do seu próximo turno, qualquer jogada de ataque contra você é feita com desvantagem se você puder ver o atacante e você tem vantagem em testes de Destreza. Você perde esse benefício se estiver incapacitado (como explicado no apêndice A) ou se seu deslocamento cair para 0.</p>"
+            },
+            "ready": {
+                "name": "Preparar",
+                "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">Às vezes você quer saltar sobre um inimigo ou esperar por uma circunstância específica antes de agir. Para fazer isso, você pode realizar a ação Preparar no seu turno, o que lhe permite agir usando sua reação antes do início do seu próximo turno.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Primeiro, você decide qual circunstância perceptível irá desencadear sua reação. Em seguida, você escolhe a ação que executará em resposta a esse gatilho ou escolhe aumentar sua velocidade em resposta a ele. Exemplos incluem: \"If the cultist steps on the trapdoor, I'll pull the lever that opens it,\" and \"If the goblin steps next to me, I move away.\"</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">When the trigger occurs, you can either take your reaction right after the trigger finishes or ignore the trigger. Remember that you can take only one reaction per round.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">When you ready a spell, you cast it as normal but hold its energy, which you release with your reaction when the trigger occurs. To be readied, a spell must have a casting time of 1 action, and holding onto the spell's magic requires concentration. If your concentration is broken, the spell dissipates without taking effect. For example, if you are concentrating on the&nbsp;web&nbsp;spell and ready&nbsp;magic missile, your&nbsp;web&nbsp;spell ends, and if you take damage before you release&nbsp;magic missile&nbsp;with your reaction, your concentration might be broken.</p>"
+            }
+        },
+        "skills": {
+            "acr": {
+                "tooltip": "Seu teste de Destreza (Acrobacia) cobre sua tentativa de permanecer de pé em uma situação complicada, como quando você está tentando correr através de uma camada de gelo, equilibrar-se em uma corda bamba ou ficar de pé no convés de um navio balançando. O Mestre também pode solicitar um teste de Destreza (Acrobacia) para ver se você consegue realizar acrobacias, incluindo mergulhos, rolagens, cambalhotas e cambalhotas."
+            },
+            "ani": {
+                "tooltip": "Quando houver alguma dúvida se você pode acalmar um animal domesticado, evitar que uma montaria fique assustada ou intuir as intenções de um animal, o Mestre pode pedir um teste de Sabedoria (Lidar com Animais). Você também faz um teste de Sabedoria (Lidar com Animais) para controlar sua montaria quando tenta uma manobra arriscada."
+            },
+            "arc": {
+                "tooltip": "Seu teste de Inteligência (Arcanismo) mede sua habilidade de recordar conhecimentos sobre feitiços, itens mágicos, símbolos sobrenaturais, tradições mágicas, os planos de existência e os habitantes desses planos."
+            },
+            "ath": {
+                "tooltip": "<p>Seu teste de Força (Atletismo) cobre situações difíceis que você encontra ao escalar, saltar ou nadar. Os exemplos incluem as seguintes atividades:</p><ul><li>Você tenta escalar um penhasco íngreme ou escorregadio, evita perigos ao escalar uma parede ou agarra-se a uma superfície enquanto algo tenta derrubá-lo.</li >↵<li>Você tenta saltar uma distância incomumente longa ou realizar uma acrobacia no meio do salto.</li><li>Você tem dificuldade para nadar ou permanecer flutuando em correntes traiçoeiras, ondas agitadas por tempestades ou áreas de algas marinhas espessas. Ou outra criatura tenta empurrar ou puxar você para baixo da água ou interferir de alguma forma na sua natação.</li>↵</ul>"
+            },
+            "dec": {
+                "tooltip": "Seu teste de Carisma (Enganação) determina se você pode esconder a verdade de forma convincente, seja verbalmente ou através de suas ações. Este engano pode abranger tudo, desde enganar os outros através da ambiguidade até contar mentiras descaradas. Situações típicas incluem tentar enganar um guarda, enganar um comerciante, ganhar dinheiro com jogos de azar, passar-se disfarçado, atenuar as suspeitas de alguém com falsas garantias ou manter uma cara séria enquanto conta uma mentira descarada."
+            },
+            "his": {
+                "tooltip": "Seu teste de Inteligência (História) mede sua capacidade de recordar conhecimentos sobre eventos históricos, pessoas lendárias, reinos antigos, disputas passadas, guerras recentes e civilizações perdidas."
+            },
+            "ins": {
+                "tooltip": "Seu teste de Sabedoria (Intuição) decide se você pode determinar as verdadeiras intenções de uma criatura, como ao procurar uma mentira ou prever o próximo movimento de alguém. Fazer isso envolve coletar pistas da linguagem corporal, hábitos de fala e mudanças nos maneirismos."
+            },
+            "itm": {
+                "tooltip": "Quando você tenta influenciar alguém através de ameaças abertas, ações hostis e violência física, o Mestre pode pedir que você faça um teste de Carisma (Intimidação). Os exemplos incluem tentar arrancar informações de um prisioneiro, convencer bandidos de rua a desistir de um confronto ou usar a borda de uma garrafa quebrada para convencer um vizir zombeteiro a reconsiderar uma decisão."
+            },
+            "inv": {
+                "tooltip": "Quando você procura pistas e faz deduções com base nessas pistas, você faz um teste de Inteligência (Investigação). Você pode deduzir a localização de um objeto escondido, discernir pela aparência de um ferimento que tipo de arma o causou ou determinar o ponto mais fraco em um túnel que poderia causar seu colapso. Examinar pergaminhos antigos em busca de um fragmento oculto de conhecimento também pode exigir um teste de Inteligência (Investigação)."
+            },
+            "med": {
+                "tooltip": "Um teste de Sabedoria (Medicina) permite que você tente estabilizar um companheiro moribundo ou diagnosticar uma doença."
+            },
+            "nat": {
+                "tooltip": "Seu teste de Inteligência (Natureza) mede sua capacidade de recordar conhecimentos sobre o terreno, plantas e animais, o clima e os ciclos naturais."
+            },
+            "prc": {
+                "tooltip": "Seu teste de Sabedoria (Percepção) permite que você detecte, ouça ou detecte a presença de algo. Ele mede sua consciência geral do que está ao seu redor e a agudeza de seus sentidos. Por exemplo, você pode tentar ouvir uma conversa através de uma porta fechada, escutar sob uma janela aberta ou ouvir monstros se movendo furtivamente na floresta. Ou você pode tentar localizar coisas que estão obscuras ou fáceis de passar despercebidas, sejam orcs emboscados em uma estrada, bandidos escondidos nas sombras de um beco ou à luz de velas sob uma porta secreta fechada."
+            },
+            "prf": {
+                "tooltip": "Seu teste de Carisma (Atuação) determina quão bem você consegue encantar o público com música, dança, atuação, narrativa ou alguma outra forma de entretenimento."
+            },
+            "per": {
+                "tooltip": "Quando você tenta influenciar alguém ou um grupo de pessoas com tato, graça social ou boa natureza, o Mestre pode pedir que você faça um teste de Carisma (Persuasão). Normalmente, você usa a persuasão quando age de boa fé, para promover amizades, fazer pedidos cordiais ou exibir etiqueta adequada. Exemplos de como persuadir outros incluem convencer um camareiro a deixar seu grupo ver o rei, negociar a paz entre tribos em guerra ou inspirar uma multidão de habitantes da cidade."
+            },
+            "rel": {
+                "tooltip": "Seu teste de Inteligência (Religião) mede sua capacidade de recordar conhecimentos sobre divindades, ritos e orações, hierarquias religiosas, símbolos sagrados e práticas de cultos secretos."
+            },
+            "slt": {
+                "tooltip": "Sempre que você tentar um ato de prestidigitação ou truque manual, como plantar algo em outra pessoa ou esconder um objeto em sua pessoa, faça um teste de Destreza (Prestidigitação). O Mestre também pode solicitar um teste de Destreza (Prestidigitação) para determinar se você pode tirar um porta-moedas de outra pessoa ou tirar algo do bolso de outra pessoa."
+            },
+            "ste": {
+                "tooltip": "Faça um teste de Destreza (Furtividade) quando tentar se esconder dos inimigos, passar furtivamente pelos guardas, escapar sem ser notado ou se aproximar sorrateiramente de alguém sem ser visto ou ouvido."
+            },
+            "sur": {
+                "tooltip": "O Mestre pode pedir que você faça um teste de Sabedoria (Sobrevivência) para seguir rastros, caçar animais selvagens, guiar seu grupo por terrenos baldios congelados, identificar sinais de que ursos-coruja vivem nas proximidades, prever o tempo ou evitar areia movediça e outros perigos naturais."
+            }
+        },
+        "abilities": {
+            "str": {
+                "tooltip": "<p>A força mede a força corporal, o treinamento atlético e até que ponto você pode exercer força física bruta.</p><p><strong>Testes de força</strong><br/>Um teste de força pode modelar qualquer tentativa. levantar, empurrar, puxar ou quebrar algo, forçar seu corpo através de um espaço ou aplicar força bruta a uma situação. A perícia Atletismo reflete aptidão em certos tipos de testes de Força.</p><p><strong>Outros Testes de Força</strong><br/>O Mestre também pode solicitar um teste de Força quando você tentar realizar tarefas como a seguinte:<ul><li>Forçar a abertura de uma porta emperrada, trancada ou gradeada</li><li>Liberar-se das amarras</li><li>Empurrar através de um túnel que seja muito pequeno</li><li >Segure-se em uma carroça enquanto é arrastado por ela</li><li>Tombe uma estátua</li><li>Evite que uma pedra role</li></ul></p><p>< strong>Levantar e Carregar</strong><br/> Seu valor de Força determina a quantidade de peso que você pode suportar. Os termos a seguir definem o que você pode levantar ou carregar.</p><p><strong>Capacidade de carga.</strong> Sua capacidade de carga é seu valor de Força multiplicado por 15. Este é o peso (em libras) que você pode carregar, que é alto o suficiente para que a maioria dos personagens normalmente não precise se preocupar com isso.</p><p><strong>Empurrar, arrastar ou levantar.</strong> Você pode empurrar, arrastar ou levantar um peso em libras até o dobro de sua capacidade de carga (ou 30 vezes seu valor de Força). Ao empurrar ou arrastar peso além de sua capacidade de carga, sua velocidade cai para 1,5 metro.</p><p><strong>Tamanho e força.</strong> Criaturas maiores podem suportar mais peso, enquanto criaturas pequenas podem carregar menos. . Para cada categoria de tamanho acima de Médio, dobre a capacidade de carga da criatura e a quantidade que ela pode empurrar, arrastar ou levantar. Para uma criatura minúscula, reduza esses pesos pela metade.</p>"
+            },
+            "dex": {
+                "tooltip": "<p>A Destreza mede agilidade, reflexos e equilíbrio.</p><p><strong>Testes de Destreza</strong><br/>Um teste de Destreza pode modelar qualquer tentativa de se mover com agilidade, rapidez ou silêncio, ou de evite cair em terreno complicado. As perícias Acrobacia, Prestidigitação e Furtividade refletem aptidão em certos tipos de testes de Destreza.</p><p><strong>Outros Testes de Destreza</strong><br/>O Mestre pode solicitar um teste de Destreza quando você tente realizar tarefas como as seguintes:<ul><li>Controlar uma carroça muito carregada em uma descida íngreme</li><li>Dirigir uma carruagem em uma curva fechada</li><li>Arrombar uma fechadura</li ><li>Desative uma armadilha</li><li>Amarre um prisioneiro com segurança</li><li>Liberte-se das amarras</li><li>Toque um instrumento de cordas</li><li>Crie um objeto pequeno ou detalhado</li></ul></p><p><strong>Classe de armadura</strong><br/>Dependendo da armadura que você veste, você pode adicionar parte ou todo o seu modificador de Destreza a sua Classe de Armadura, conforme descrito no capítulo 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Equipamento.</a></p><p>< strong>Iniciativa</strong><br/>No início de cada combate, você rola a iniciativa fazendo um teste de Destreza. A iniciativa determina a ordem dos turnos das criaturas em combate, conforme descrito no capítulo 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Combate.</a>"
+            },
+            "con": {
+                "tooltip": "<p>A Constituição mede saúde, resistência e força vital.</p><p><strong>Testes de Constituição</strong><br/>Os testes de Constituição são incomuns e nenhuma perícia se aplica aos testes de Constituição, porque a resistência que esta habilidade representa é em grande parte passivo, em vez de envolver um esforço específico por parte de um personagem ou monstro. No entanto, um teste de Constituição pode modelar sua tentativa de ir além dos limites normais.</p><p>O Mestre pode solicitar um teste de Constituição quando você tentar realizar tarefas como as seguintes:<ul><li>Prenda a respiração< /li><li>Marchar ou trabalhar por horas sem descanso</li><li>Ficar sem dormir</li><li>Sobreviver sem comida ou água</li><li>Beber uma caneca inteira de cerveja de uma só vez go</li></ul></p><p><strong>Pontos de Vida</strong><br/>Seu modificador de Constituição contribui para seus pontos de vida. Normalmente, você adiciona seu modificador de Constituição a cada Dado de Vida que você rola para seus pontos de vida.</p><p>Se seu modificador de Constituição mudar, seu máximo de pontos de vida também muda, como se você tivesse o novo modificador do 1º nível. Por exemplo, se você aumentar seu valor de Constituição quando atingir o 4º nível e seu modificador de Constituição aumentar de +1 para +2, você ajusta seu máximo de pontos de vida como se o modificador sempre tivesse sido +2. Então você adiciona 3 pontos de vida para seus três primeiros níveis e, em seguida, rola seus pontos de vida para o 4º nível usando seu novo modificador. Ou se você estiver no 7º nível e algum efeito diminuir seu valor de Constituição de modo a reduzir seu modificador de Constituição em 1, seu máximo de pontos de vida será reduzido em 7.</p>"
+            },
+            "int": {
+                "tooltip": "<p>Inteligência mede a acuidade mental, a precisão da recordação e a capacidade de raciocinar.</p><p><strong>Testes de Inteligência</strong><br/>Um teste de Inteligência entra em ação quando você precisa recorrer lógica, educação, memória ou raciocínio dedutivo. As perícias Arcanismo, História, Investigação, Natureza e Religião refletem aptidão em certos tipos de testes de Inteligência.</p><p><strong>Outros Testes de Inteligência</strong><br/>O Mestre pode solicitar um teste de Inteligência. quando você tenta realizar tarefas como as seguintes:<ul><li>Comunicar-se com uma criatura sem usar palavras</li><li>Estimar o valor de um item precioso</li><li>Elaborar um disfarce para passar como guarda da cidade</li><li>Forjar um documento</li><li>Relembrar conhecimentos sobre um ofício ou comércio</li><li>Vencer um jogo de habilidade</li></ul></ p>"
+            },
+            "wis": {
+                "tooltip": "<p>A sabedoria reflete o quão sintonizado você está com o mundo ao seu redor e representa a percepção e a intuição.</p><p><strong>Testes de Sabedoria</strong>Um teste de Sabedoria pode refletir um esforço para ler a linguagem corporal, entender a linguagem corporal de alguém. sentimentos, observar coisas sobre o ambiente ou cuidar de uma pessoa ferida. As perícias Manejo de Animais, Intuição, Medicina, Percepção e Sobrevivência refletem aptidão em certos tipos de testes de Sabedoria.</p><p><strong>Outros Testes de Sabedoria</strong></br>O Mestre pode exigir um teste de Sabedoria. verifique ao tentar realizar tarefas como as seguintes:<ul><li>Tenha uma intuição sobre qual curso de ação seguir</li><li>Discerna se uma criatura aparentemente morta ou viva é morta-viva</li>< /ul></p>"
+            },
+            "cha": {
+                "tooltip": "<p>Carisma mede sua capacidade de interagir efetivamente com outras pessoas. Inclui fatores como confiança e eloqüência, e pode representar uma personalidade charmosa ou autoritária.</p><p><strong>Outros Testes de Carisma</strong><br/>O Mestre pode solicitar um teste de Carisma quando você tente realizar tarefas como as seguintes:<ul><li>Encontre a melhor pessoa para conversar sobre notícias, rumores e fofocas</li><li>Entre na multidão para entender os principais tópicos da conversa</li><li>Encontre-se na multidão para entender os principais tópicos da conversa.</li><li>Encontre-se na multidão para entender os principais tópicos da conversa. li></ul></p>"
+            }
+        },
+        "portraitConfig": {
+            "prepared": {
+                "all": "Todos os feitiços",
+                "auto": "Detecção automática",
+                "label": "Feitiços Preparados",
+                "preparedOnly": "Preparado apenas"
+            }
+        },
+        "settings": {
+            "condenseClassActions": {
+                "hint": "Se 'Mostrar ações de classe' estiver ativado, condense ações de classe em pares para economizar espaço",
+                "name": "Condensar ações coletivas"
+            },
+            "macroPanel": {
+                "hint": "Mostrar um painel de macro para cada caractere que espelhe as macros da barra de atalho",
+                "name": "Painel Macro"
+            },
+            "noAA": {
+                "hint": "Não aplique efeitos ativos ao usar ações especiais. \n(requer atualização)",
+                "name": "Não aplique efeitos ativos"
+            },
+            "showClassActions": {
+                "hint": "Mostrar ações coletivas nas barras de ação principal",
+                "name": "Mostrar ações coletivas"
+            },
+            "showSpecialActions": {
+                "hint": "Mostre ações básicas na seção Ação principal. \n(Esquivar, Correr, Desengajar, Esconder-se, Preparar, Empurrar)",
+                "name": "Mostrar ações básicas"
+            },
+            "showWeaponsItems": {
+                "hint": "Mostre as armas na seção ‘Usar Item’. \nÚtil se os slots de suas armas não forem suficientes",
+                "name": "Mostrar armas na seção ‘Usar item’"
+            },
+            "switchEquip": {
+                "hint": "Equipar/desequipar itens automaticamente ao trocar de conjunto",
+                "name": "Equipar automaticamente"
+            }
+        },
+        "tooltip": {
+            "damage": {
+                "name": "Dano"
+            },
+            "properties": {
+                "name": "Propriedades"
+            },
+            "range": {
+                "name": "Faixa"
+            },
+            "target": {
+                "name": "Alvo"
+            },
+            "toHit": {
+                "name": "Acertar"
+            }
+        }
     }
-  }
 }
