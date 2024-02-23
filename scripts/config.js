@@ -998,6 +998,7 @@ export function initConfig() {
             }
 
             get movementMax() {
+                if(!this.actor) return 0;
                 return this.actor.system.attributes.movement[this.movementMode] / canvas.scene.dimensions.distance;
             }
         }
