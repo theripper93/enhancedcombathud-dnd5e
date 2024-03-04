@@ -726,8 +726,13 @@ export function initConfig() {
             }
 
             get visible() {
-                if (!this._isWeaponSet || this._isPrimary) return super.visible;
-                return super.visible && this.item?.system?.type?.value !== "shield";
+                if (!this._isWeaponSet) return super.visible;
+                const isReaction = this.parent instanceof DND5eReactionActionPanel;
+                const isMelee = this.item?.system?.actionType === "mwak";
+                if (isReaction && !isMelee) return false;
+                if (this._isPrimary) return super.visible;
+                if (this.item?.system?.type?.value === "shield") return false;
+                return super.visible;
             }
 
             async getTooltipData() {
@@ -998,7 +1003,7 @@ export function initConfig() {
             }
 
             get movementMax() {
-                if(!this.actor) return 0;
+                if (!this.actor) return 0;
                 return this.actor.system.attributes.movement[this.movementMode] / canvas.scene.dimensions.distance;
             }
         }
@@ -1086,8 +1091,8 @@ export function initConfig() {
 
         const enableMacroPanel = game.settings.get(MODULE_ID, "macroPanel");
 
-        const mainPanels = [DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, DND5eMythicActionPanel]
-        if(enableMacroPanel) mainPanels.push(ARGON.PREFAB.MacroPanel);
+        const mainPanels = [DND5eActionActionPanel, DND5eBonusActionPanel, DND5eReactionActionPanel, DND5eFreeActionPanel, DND5eLegActionPanel, DND5eLairActionPanel, DND5eMythicActionPanel];
+        if (enableMacroPanel) mainPanels.push(ARGON.PREFAB.MacroPanel);
         mainPanels.push(ARGON.PREFAB.PassTurnPanel);
 
         CoreHUD.definePortraitPanel(DND5ePortraitPanel);
