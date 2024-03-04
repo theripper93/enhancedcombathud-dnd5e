@@ -854,7 +854,7 @@ export function initConfig() {
                 if (preparedFlag === "all") return false;
                 if (preparedFlag === "preparedOnly") return true;
                 const classes = Object.keys(this.actor.classes);
-                const requiresPreparation = ["cleric", "druid", "paladin", "wizard", "artificer", "ranger"].some((className) => classes.includes(className));
+                const requiresPreparation = ["cleric", "druid", "paladin", "wizard", "artificer"].some((className) => classes.includes(className));
                 return requiresPreparation;
             }
 
