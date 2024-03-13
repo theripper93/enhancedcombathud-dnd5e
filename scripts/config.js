@@ -60,7 +60,7 @@ export function initConfig() {
                 if (!item || !item.system) return;
 
                 title = item.name;
-                description = item.system.description.value;
+                description = item.system.identified ? item.system.description.value : (item.system.description.unidentified ?? item.system.description.value);
                 itemType = item.type;
                 target = item.labels?.target || "-";
                 range = item.labels?.range || "-";
