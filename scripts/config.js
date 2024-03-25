@@ -99,7 +99,7 @@ export function initConfig() {
                 }
             }
 
-            if (description) description = await TextEditor.enrichHTML(description);
+            if (description) description = await TextEditor.enrichHTML(description, {async: true});
             let details = [];
             if (target || range) {
                 details = [
