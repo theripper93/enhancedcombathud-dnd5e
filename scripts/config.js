@@ -60,7 +60,7 @@ export function initConfig() {
                 if (!item || !item.system) return;
 
                 title = item.name;
-                description = item.system.identified ? item.system.description.value : (item.system.description.unidentified ?? item.system.description.value);
+                description = item.system.identified ? item.system.description.value : item.system.description.unidentified ?? item.system.description.value;
                 itemType = item.type;
                 target = item.labels?.target || "-";
                 range = item.labels?.range || "-";
@@ -99,7 +99,7 @@ export function initConfig() {
                 }
             }
 
-            if (description) description = await TextEditor.enrichHTML(description, {async: true});
+            if (description) description = await TextEditor.enrichHTML(description, { async: true });
             let details = [];
             if (target || range) {
                 details = [
@@ -1059,7 +1059,7 @@ export function initConfig() {
             async _getSets() {
                 const isTransformed = this.actor.flags?.dnd5e?.isPolymorphed;
 
-                const sets = isTransformed ? await this.getDefaultSets() : mergeObject(await this.getDefaultSets(), deepClone(this.actor.getFlag("enhancedcombathud", "weaponSets") || {}));
+                const sets = isTransformed ? await this.getDefaultSets() : foundry.utils.mergeObject(await this.getDefaultSets(), foundry.utils.deepClone(this.actor.getFlag("enhancedcombathud", "weaponSets") || {}));
 
                 for (const [set, slots] of Object.entries(sets)) {
                     slots.primary = slots.primary ? await fromUuid(slots.primary) : null;
