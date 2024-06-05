@@ -1170,30 +1170,6 @@ function registerItems() {
                 scaling: "spell",
             },
         },
-        effects: [
-            {
-                _id: "8FtZnIC1vbyKZ6xF",
-                changes: [],
-                disabled: false,
-                duration: {
-                    startTime: null,
-                    turns: 1,
-                },
-                icon: "modules/enhancedcombathud/icons/journey.webp",
-                label: "Disengage",
-                origin: "Item.wyQkeuZkttllAFB1",
-                transfer: false,
-                flags: {
-                    dae: {
-                        stackable: "none",
-                        macroRepeat: "none",
-                        specialDuration: [],
-                        transfer: false,
-                    },
-                },
-                tint: "",
-            },
-        ],
         sort: 0,
         flags: {
             core: {
@@ -1271,30 +1247,6 @@ function registerItems() {
             },
             consumableType: "trinket",
         },
-        effects: [
-            {
-                _id: "2xH2YQ6pm430O0Aq",
-                changes: [],
-                disabled: false,
-                duration: {
-                    startTime: null,
-                    rounds: 1,
-                },
-                icon: "modules/enhancedcombathud/icons/armor-upgrade.webp",
-                label: "Dodge",
-                origin: "Item.pakEYcgLYxtKGv7J",
-                transfer: false,
-                flags: {
-                    dae: {
-                        stackable: "none",
-                        macroRepeat: "none",
-                        specialDuration: [],
-                        transfer: false,
-                    },
-                },
-                tint: "",
-            },
-        ],
         sort: 0,
         flags: {
             "midi-qol": {
@@ -1368,29 +1320,6 @@ function registerItems() {
             },
             consumableType: "trinket",
         },
-        effects: [
-            {
-                _id: "BevDb0J80M9BdoEl",
-                changes: [],
-                disabled: false,
-                duration: {
-                    startTime: null,
-                    turns: 1,
-                },
-                icon: "modules/enhancedcombathud/icons/clockwork.webp",
-                label: "Ready",
-                transfer: false,
-                flags: {
-                    dae: {
-                        stackable: "none",
-                        macroRepeat: "none",
-                        specialDuration: [],
-                        transfer: false,
-                    },
-                },
-                tint: "",
-            },
-        ],
         sort: 0,
         flags: {
             "midi-qol": {
@@ -1468,29 +1397,6 @@ function registerItems() {
             },
             consumableType: "trinket",
         },
-        effects: [
-            {
-                _id: "SZkbtgGCICrpH0GJ",
-                changes: [],
-                disabled: false,
-                duration: {
-                    startTime: null,
-                    turns: 10,
-                },
-                icon: "modules/enhancedcombathud/icons/cloak-dagger.webp",
-                label: "Hide",
-                transfer: false,
-                flags: {
-                    dae: {
-                        stackable: "none",
-                        macroRepeat: "none",
-                        specialDuration: [],
-                        transfer: false,
-                    },
-                },
-                tint: "",
-            },
-        ],
         sort: 0,
         flags: {
             "midi-qol": {
@@ -1564,29 +1470,6 @@ function registerItems() {
             },
             consumableType: "trinket",
         },
-        effects: [
-            {
-                _id: "PPMPZY1t3AUB7UGA",
-                changes: [],
-                disabled: false,
-                duration: {
-                    startTime: null,
-                    rounds: 1,
-                },
-                icon: "modules/enhancedcombathud/icons/walking-boot.webp",
-                label: "Dash",
-                transfer: false,
-                flags: {
-                    dae: {
-                        stackable: "none",
-                        macroRepeat: "none",
-                        specialDuration: [],
-                        transfer: false,
-                    },
-                },
-                tint: "",
-            },
-        ],
         sort: 0,
         flags: {
             "midi-qol": {
@@ -1660,7 +1543,6 @@ function registerItems() {
             },
             consumableType: "trinket",
         },
-        effects: [],
         sort: 0,
         flags: {
             "midi-qol": {
@@ -1668,10 +1550,4 @@ function registerItems() {
             },
         },
     };
-
-    if (game.settings.get("enhancedcombathud-dnd5e", "noAA")) {
-        for (let key of Object.keys(ECHItems)) {
-            delete ECHItems[key].effects;
-        }
-    }
 }

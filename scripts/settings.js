@@ -65,15 +65,6 @@ export function registerSettings() {
             default: true,
             onChange: () => ui.ARGON.refresh(),
         },
-        noAA: {
-            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.name"),
-            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.noAA.hint"),
-            scope: "world",
-            config: true,
-            type: Boolean,
-            default: false,
-            onChange: () => ui.ARGON.refresh(),
-        },
     };
 
     registerSettingsArray(settings);
