@@ -869,6 +869,7 @@ export function initConfig() {
                 const spellLevels = CONFIG.DND5E.spellLevels;
                 const itemsToIgnore = [];
                 if (game.modules.get("items-with-spells-5e")?.active) {
+                    const IWSAPI = game.modules.get("items-with-spells-5e").api;
                     const actionType = this.items[0].system.activation?.type;
                     const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
                     for (const item of spellItems) {
@@ -876,7 +877,7 @@ export function initConfig() {
                         const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && item.system.activation?.type === actionType);
                         if (!itemsInSpell.length) continue;
                         itemsToIgnore.push(...itemsInSpell);
-                        if (item.system.attunement === 1) continue;
+                        if (!IWSAPI.isUsableItem(item)) continue;
                         this.itemsWithSpells.push({
                             label: item.name,
                             buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
