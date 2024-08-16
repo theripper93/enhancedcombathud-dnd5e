@@ -975,11 +975,11 @@ export function initConfig() {
             }
 
             async _onLeftClick(event) {
-                const useCE = game.modules.get("dfreds-convenient-effects")?.active && game.dfreds.effectInterface.findEffectByName(this.label);
+                const useCE = game.modules.get("dfreds-convenient-effects")?.active && game.dfreds.effectInterface.findEffect({effectName: this.label});
                 let success = false;
                 if (useCE) {
                     success = true;
-                    await game.dfreds.effectInterface.toggleEffect(this.label, { overlay: false, uuids: [this.actor.uuid] });
+                    await game.dfreds.effectInterface.toggleEffect({effectName: this.label, overlay: false, uuids: [this.actor.uuid] });
                 } else {
                     success = await this.item.use({ event }, { event });
                 }
