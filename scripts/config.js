@@ -17,6 +17,20 @@ export function initConfig() {
             return midiAction;
         };
 
+        const getActivationType = (item) => {
+            if (!item?.system?.activities) {
+                return
+            }
+            return Array.from(item.system.activities)[0]?.activation?.type;
+        }
+
+        const getActionType = (item) => {
+            if (!item?.system?.activities) {
+                return
+            }
+            return Array.from(item.system.activities)[0]?.actionType;
+        }
+
         const actionTypes = {
             action: ["action"],
             bonus: ["bonus"],
@@ -72,7 +86,7 @@ export function initConfig() {
                 switch (itemType) {
                     case "weapon":
                         subtitle = CONFIG.DND5E.weaponTypes[item.system.weaponType];
-                        properties.push(CONFIG.DND5E.itemActionTypes[item.system.actionType]);
+                        properties.push(CONFIG.DND5E.itemActionTypes[getActionType(item)]);
                         for (let [key, value] of Object.entries(item.system.properties)) {
                             let prop = value && CONFIG.DND5E.weaponProperties[key] ? CONFIG.DND5E.weaponProperties[key] : undefined;
                             if (prop) properties.push(prop);
@@ -90,11 +104,11 @@ export function initConfig() {
                         break;
                     case "consumable":
                         subtitle = CONFIG.DND5E.consumableTypes[item.system.consumableType];
-                        properties.push(CONFIG.DND5E.itemActionTypes[item.system.actionType]);
+                        properties.push(CONFIG.DND5E.itemActionTypes[getActionType(item)]);
                         break;
                     case "feat":
                         subtitle = item.system.requirements;
-                        properties.push(CONFIG.DND5E.itemActionTypes[item.system.actionType]);
+                        properties.push(CONFIG.DND5E.itemActionTypes[getActionType(item)]);
                         break;
                 }
             }
@@ -474,9 +488,9 @@ export function initConfig() {
             }
 
             async _getButtons() {
-                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
-                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
-                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && actionTypes.action.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && actionTypes.action.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
 
                 const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
@@ -490,7 +504,7 @@ export function initConfig() {
                     buttons.push(...[new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true }), ...spellButton, new DND5eButtonPanelButton({ type: "feat", items: featItems, color: 0 }), new DND5eButtonPanelButton({ type: "consumable", items: consumableItems, color: 0 })]);
                 }
 
-                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(item.system.activation?.type));
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.action.includes(getActivationType(item)));
                 buttons.push(...condenseItemButtons(barItems));
 
                 return buttons.filter((button) => button.hasContents || button.items == undefined || button.items.length);
@@ -522,13 +536,13 @@ export function initConfig() {
             async _getButtons() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: false })];
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.bonus.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     const button = new DND5eButtonPanelButton({ type, items, color: 1 });
                     if (button.hasContents) buttons.push(button);
                 }
 
-                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(item.system.activation?.type));
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.bonus.includes(getActivationType(item)));
                 buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
@@ -561,13 +575,13 @@ export function initConfig() {
                 const buttons = [new DND5eItemButton({ item: null, isWeaponSet: true, isPrimary: true })];
                 //buttons.push(new DND5eEquipmentButton({slot: 1}));
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.reaction.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     const button = new DND5eButtonPanelButton({ type, items, color: 3 });
                     if (button.hasContents) buttons.push(button);
                 }
 
-                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(item.system.activation?.type));
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.reaction.includes(getActivationType(item)));
                 buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
@@ -600,13 +614,13 @@ export function initConfig() {
                 const buttons = [];
 
                 for (const [type, types] of Object.entries(itemTypes)) {
-                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(item.system.activation?.type) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                    const items = this.actor.items.filter((item) => types.includes(item.type) && actionTypes.free.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     const button = new DND5eButtonPanelButton({ type, items, color: 2 });
                     if (button.hasContents) buttons.push(button);
                 }
 
-                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(item.system.activation?.type));
+                const barItems = this.actor.items.filter((item) => CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value) && actionTypes.free.includes(getActivationType(item)));
                 buttons.push(...condenseItemButtons(barItems));
 
                 return buttons;
@@ -632,7 +646,7 @@ export function initConfig() {
 
             async _getButtons() {
                 const buttons = [];
-                const legendary = this.actor.items.filter((item) => item.system.activation?.type === "legendary");
+                const legendary = this.actor.items.filter((item) => getActivationType(item) === "legendary");
                 legendary.forEach((item) => {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 });
@@ -659,7 +673,7 @@ export function initConfig() {
 
             async _getButtons() {
                 const buttons = [];
-                const lair = this.actor.items.filter((item) => item.system.activation?.type === "lair");
+                const lair = this.actor.items.filter((item) => getActivationType(item) === "lair");
                 lair.forEach((item) => {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 });
@@ -686,7 +700,7 @@ export function initConfig() {
 
             async _getButtons() {
                 const buttons = [];
-                const mythic = this.actor.items.filter((item) => item.system.activation?.type === "mythic");
+                const mythic = this.actor.items.filter((item) => getActivationType(item) === "mythic");
                 mythic.forEach((item) => {
                     buttons.push(new DND5eItemButton({ item, inActionPanel: true }));
                 });
@@ -699,26 +713,33 @@ export function initConfig() {
                 super(...args);
             }
 
+            get activity() {
+                if(!this.item?.system?.activities) {
+                    return
+                }
+                return Array.from(this.item.system.activities)[0];
+            }
+
             get hasTooltip() {
                 return true;
             }
 
             get ranges() {
-                const item = this.item;
-                const touchRange = item.system.range.units == "touch" ? canvas?.scene?.grid?.distance : null;
+                const item = this.activity;
+                const touchRange = item.range.units == "touch" ? canvas?.scene?.grid?.distance : null;
                 return {
-                    normal: item.system?.range?.value ?? touchRange,
-                    long: item.system?.range?.long ?? null,
+                    normal: item?.range?.value ?? touchRange,
+                    long: item?.range?.long ?? null,
                 };
             }
 
             get targets() {
-                const item = this.item;
+                const item = this.activity;
                 const validTargets = ["creature", "ally", "enemy"];
-                const actionType = item.system.actionType;
-                const targetType = item.system.target?.type;
-                if (!item.system.target?.units && validTargets.includes(targetType)) {
-                    return item.system.target?.value;
+                const actionType = item.actionType;
+                const targetType = item.target?.type;
+                if (!item.target?.units && validTargets.includes(targetType)) {
+                    return item.target?.value;
                 } else if (actionType === "mwak" || actionType === "rwak") {
                     return 1;
                 }
@@ -728,10 +749,10 @@ export function initConfig() {
             get visible() {
                 if (!this._isWeaponSet) return super.visible;
                 const isReaction = this.parent instanceof DND5eReactionActionPanel;
-                const isMelee = this.item?.system?.actionType === "mwak";
+                const isMelee = this.activity?.actionType === "mwak";
                 if (isReaction && !isMelee) return false;
                 if (this._isPrimary) return super.visible;
-                if (this.item?.system?.type?.value === "shield") return false;
+                if (this.activity?.type?.value === "shield") return false;
                 return super.visible;
             }
 
@@ -743,18 +764,18 @@ export function initConfig() {
 
             async _onLeftClick(event) {
                 ui.ARGON.interceptNextDialog(event.currentTarget);
-                const used = await this.item.use({ event }, { event });
+                const used = await this.activity.use({ event }, { event });
                 if (used) {
-                    DND5eItemButton.consumeActionEconomy(this.item);
+                    DND5eItemButton.consumeActionEconomy(this.activity);
                 }
             }
 
             async _onRightClick(event) {
-                this.item?.sheet?.render(true);
+                this.activity?.sheet?.render(true);
             }
 
             static consumeActionEconomy(item) {
-                const activationType = item.system.activation?.type;
+                const activationType = getActivationType(item);
                 let actionType = null;
                 for (const [type, types] of Object.entries(actionTypes)) {
                     if (types.includes(activationType)) actionType = type;
@@ -780,30 +801,30 @@ export function initConfig() {
 
             async render(...args) {
                 await super.render(...args);
-                if (this.item) {
-                    const weapons = this.actor.items.filter((item) => item.system.consume?.target === this.item.id);
+                if (this.activity) {
+                    const weapons = this.actor.items.filter((item) => item.consume?.target === this.activity.id);
                     ui.ARGON.updateItemButtons(weapons);
                 }
             }
 
             get quantity() {
-                if (!this.item?.system) return null;
+                if (!this.activity) return null;
                 const showQuantityItemTypes = ["consumable"];
-                const consumeType = this.item.system.consume?.type;
+                const consumeType = this.activity.consume?.type;
                 if (consumeType === "ammo") {
-                    const ammoItem = this.actor.items.get(this.item.system.consume.target);
+                    const ammoItem = this.actor.items.get(this.activity.consume.target);
                     if (!ammoItem) return null;
-                    return Math.floor((ammoItem.system.quantity ?? 0) / this.item.system.consume.amount);
+                    return Math.floor((ammoItem.quantity ?? 0) / this.activity.consume.amount);
                 } else if (consumeType === "attribute") {
-                    return Math.floor(getProperty(this.actor.system, this.item.system.consume.target) / this.item.system.consume.amount);
+                    return Math.floor(getProperty(this.actor, this.activity.consume.target) / this.activity.consume.amount);
                 } else if (consumeType === "charges") {
-                    const chargesItem = this.actor.items.get(this.item.system.consume.target);
+                    const chargesItem = this.actor.items.get(this.activity.consume.target);
                     if (!chargesItem) return null;
-                    return Math.floor((chargesItem.system.uses?.value ?? 0) / this.item.system.consume.amount);
-                } else if (showQuantityItemTypes.includes(this.item.type)) {
-                    return this.item.system.uses?.value ?? this.item.system.quantity;
-                } else if (this.item.system.uses.value !== null && this.item.system.uses.per !== null) {
-                    return this.item.system.uses.value;
+                    return Math.floor((chargesItem.uses?.value ?? 0) / this.activity.consume.amount);
+                } else if (showQuantityItemTypes.includes(this.activity.type)) {
+                    return this.activity.uses?.value ?? this.activity.quantity;
+                } else if (this.activity.uses.value !== null && this.activity.uses.per !== null && this.activity.uses.max) {
+                    return this.activity.uses.value;
                 }
                 return null;
             }
@@ -874,7 +895,7 @@ export function initConfig() {
                     const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
                     for (const item of spellItems) {
                         const spellData = item.flags["items-with-spells-5e"]["item-spells"];
-                        const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && item.system.activation?.type === actionType);
+                        const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && getActivationType(item) === actionType);
                         if (!itemsInSpell.length) continue;
                         itemsToIgnore.push(...itemsInSpell);
                         if (!IWSAPI.isUsableItem(item)) continue;
@@ -1039,8 +1060,8 @@ export function initConfig() {
                 const sets = await super.getDefaultSets();
                 const isTransformed = this.actor.flags?.dnd5e?.isPolymorphed;
                 if (this.actor.type !== "npc" && !isTransformed) return sets;
-                const actions = this.actor.items.filter((item) => item.type === "weapon" && item.system.activation?.type === "action");
-                const bonus = this.actor.items.filter((item) => item.type === "weapon" && item.system.activation?.type === "bonus");
+                const actions = this.actor.items.filter((item) => item.type === "weapon" && getActivationType(item) === "action");
+                const bonus = this.actor.items.filter((item) => item.type === "weapon" && getActivationType(item) === "bonus");
                 return {
                     1: {
                         primary: actions[0]?.uuid ?? null,
