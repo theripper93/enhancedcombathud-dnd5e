@@ -19,17 +19,17 @@ export function initConfig() {
 
         const getActivationType = (item) => {
             if (!item?.system?.activities) {
-                return
+                return;
             }
             return Array.from(item.system.activities)[0]?.activation?.type;
-        }
+        };
 
         const getActionType = (item) => {
             if (!item?.system?.activities) {
-                return
+                return;
             }
             return Array.from(item.system.activities)[0]?.actionType;
-        }
+        };
 
         const actionTypes = {
             action: ["action"],
@@ -714,8 +714,8 @@ export function initConfig() {
             }
 
             get activity() {
-                if(!this.item?.system?.activities) {
-                    return
+                if (!this.item?.system?.activities) {
+                    return;
                 }
                 return Array.from(this.item.system.activities)[0];
             }
@@ -971,6 +971,7 @@ export function initConfig() {
             constructor(specialItem) {
                 super();
                 const actorItem = this.actor.items.getName(specialItem.name);
+                this.actorItem = actorItem;
                 this.item =
                     actorItem ??
                     new CONFIG.Item.documentClass(specialItem, {
@@ -990,6 +991,13 @@ export function initConfig() {
                 return true;
             }
 
+            get activity() {
+                if (!this.item?.system?.activities) {
+                    return;
+                }
+                return Array.from(this.item.system.activities)[0];
+            }
+
             async getTooltipData() {
                 const tooltipData = await getTooltipDetails(this.item);
                 tooltipData.propertiesLabel = "enhancedcombathud-dnd5e.tooltip.properties.name";
@@ -997,17 +1005,54 @@ export function initConfig() {
             }
 
             async _onLeftClick(event) {
-                const useCE = game.modules.get("dfreds-convenient-effects")?.active && game.dfreds.effectInterface.findEffect({effectName: this.label});
+                const useCE = game.modules.get("dfreds-convenient-effects")?.active && game.dfreds.effectInterface.findEffect({ effectName: this.label });
                 let success = false;
                 if (useCE) {
                     success = true;
-                    await game.dfreds.effectInterface.toggleEffect({effectName: this.label, overlay: false, uuids: [this.actor.uuid] });
+                    await game.dfreds.effectInterface.toggleEffect({ effectName: this.label, overlay: false, uuids: [this.actor.uuid] });
                 } else {
-                    success = await this.item.use({ event }, { event });
+                    success = this.actorItem ? await this.activity.use({ event }, { event }) : await this.createChatMessage();
                 }
                 if (success) {
                     DND5eItemButton.consumeActionEconomy(this.item);
                 }
+            }
+
+            async createChatMessage() {
+                return await ChatMessage.create({
+                    user: game.user,
+                    speaker: {
+                        actor: this.actor,
+                        token: this.actor.token,
+                        alias: this.actor.name,
+                    },
+                    content: `
+                    <div class="dnd5e2 chat-card item-card" data-display-challenge="">
+
+    <section class="card-header description collapsible">
+
+        <header class="summary">
+            <img class="gold-icon" src="${this.icon}">
+            <div class="name-stacked border">
+                <span class="title">${this.label}</span>
+                <span class="subtitle">
+                    Feature
+                </span>
+            </div>
+            <i class="fas fa-chevron-down fa-fw"></i>
+        </header>
+
+        <section class="details collapsible-content card-content">
+            <div class="wrapper">
+                ${this.item.system.description.value}
+            </div>
+        </section>
+    </section>
+
+
+</div>
+                    `,
+                });
             }
         }
 
