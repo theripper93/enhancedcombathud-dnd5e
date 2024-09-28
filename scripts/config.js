@@ -765,7 +765,7 @@ export function initConfig() {
 
             async _onLeftClick(event) {
                 ui.ARGON.interceptNextDialog(event.currentTarget);
-                const used = await this.activity.use({ event }, { event });
+                const used = await this.item.use({event, legacy: false}, {event});
                 if (used) {
                     DND5eItemButton.consumeActionEconomy(this.activity);
                 }
