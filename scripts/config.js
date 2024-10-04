@@ -8,6 +8,13 @@ export function initConfig() {
         registerItems();
         const ARGON = CoreHUD.ARGON;
 
+        class DND5eTooltip extends ARGON.CORE.Tooltip{
+            get classes() {
+                const original = super.classes;
+                return original.concat(["dnd5e2"]);
+            }
+        }
+
         const isMIDI = game.modules.get("midi-qol")?.active;
         const getMidiFlag = (actionType) => {
             if (!isMIDI || !ui.ARGON._actor) return null;
@@ -1169,6 +1176,7 @@ export function initConfig() {
         CoreHUD.defineMovementHud(DND5eMovementHud);
         CoreHUD.defineButtonHud(DND5eButtonHud);
         CoreHUD.defineWeaponSets(DND5eWeaponSets);
+        CoreHUD.defineTooltip(DND5eTooltip);
         CoreHUD.defineSupportedActorTypes(["character", "npc"]);
     });
 }
