@@ -83,7 +83,9 @@
       {
         "id": "enhancedcombathud",
         "type": "module",
-        "compatibility": {}
+        "compatibility": {
+          "minimum": "3.0.4"
+        }
       }
     ],
     "systems": [
