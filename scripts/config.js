@@ -120,7 +120,7 @@ export function initConfig() {
                 }
             }
 
-            if (description) description = await TextEditor.enrichHTML(description, { async: true });
+            if (description) description = await TextEditor.enrichHTML(description, { async: true, relativeTo: item.parent });
             let details = [];
             if (target || range) {
                 details = [
@@ -371,15 +371,15 @@ export function initConfig() {
                         [
                             {
                                 label: CONFIG.DND5E.abilities[ability].label,
-                                onClick: (event) => this.actor.rollAbility(ability, { event }),
+                                onClick: (event) => this.actor.rollAbilityCheck({ability, event}),
                             },
                             {
                                 label: addSign(abilityData.mod + (abilityData.checkBonus || 0)),
-                                onClick: (event) => this.actor.rollAbilityTest(ability, { event }),
+                                onClick: (event) => this.actor.rollAbilityCheck({ability, event}),
                             },
                             {
                                 label: addSign(abilityData.save),
-                                onClick: (event) => this.actor.rollAbilitySave(ability, { event }),
+                                onClick: (event) => this.actor.rollSavingThrow({ability, event }),
                             },
                         ],
                         ability,
@@ -393,7 +393,7 @@ export function initConfig() {
                         [
                             {
                                 label: getProficiencyIcon(skillData.proficient) + CONFIG.DND5E.skills[skill].label,
-                                onClick: (event) => this.actor.rollSkill(skill, { event }),
+                                onClick: (event) => this.actor.rollSkill({skill, event}),
                             },
                             {
                                 label: `${addSign(skillData.total)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
