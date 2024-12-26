@@ -818,19 +818,20 @@ export function initConfig() {
             get quantity() {
                 if (!this.activity) return null;
                 const showQuantityItemTypes = ["consumable"];
-                const consumeType = this.activity.consume?.type;
-                if (consumeType === "ammo") {
-                    const ammoItem = this.actor.items.get(this.activity.consume.target);
+                const consumeType = this.activity?.consume?.type;
+                const useAmmo = this.item.system.ammunition?.type;
+                if (useAmmo) {
+                    const ammoItem = this.item.system.ammunitionOptions[0]?.item;
                     if (!ammoItem) return null;
-                    return Math.floor((ammoItem.quantity ?? 0) / this.activity.consume.amount);
+                    return Math.floor((ammoItem.system.quantity ?? 0));
                 } else if (consumeType === "attribute") {
                     return Math.floor(getProperty(this.actor, this.activity.consume.target) / this.activity.consume.amount);
                 } else if (consumeType === "charges") {
                     const chargesItem = this.actor.items.get(this.activity.consume.target);
                     if (!chargesItem) return null;
                     return Math.floor((chargesItem.uses?.value ?? 0) / this.activity.consume.amount);
-                } else if (showQuantityItemTypes.includes(this.activity.type)) {
-                    return this.activity.uses?.value ?? this.activity.quantity;
+                } else if (showQuantityItemTypes.includes(this.item.type) && !this.activity.uses.max) {
+                    return this.item.system.quantity;
                 } else if (this.activity.uses.value !== null && this.activity.uses.per !== null && this.activity.uses.max) {
                     return this.activity.uses.value;
                 }
