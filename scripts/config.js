@@ -748,7 +748,7 @@ export function initConfig() {
                 const targetType = affects.type;
                 if (!item.target?.template?.units && validTargets.includes(targetType)) {
                     return affects.count ?? 1;
-                } else if (actionType === "mwak" || actionType === "rwak") {
+                } else if (actionType === "mwak" || actionType === "rwak" || actionType === "msak" || actionType === "rsak") {
                     return affects.count || 1;
                 }
                 return null;
