@@ -741,6 +741,7 @@ export function initConfig() {
             }
 
             get targets() {
+                console.log("Targets")
                 const item = this.activity;
                 const validTargets = ["creature", "ally", "enemy"];
                 const actionType = item.actionType;
@@ -748,6 +749,8 @@ export function initConfig() {
                 const targetType = affects.type;
                 if (!item.target?.template?.units && validTargets.includes(targetType)) {
                     return affects.count ?? 1;
+                } else if (validTargets.includes(targetType) && affects.count) {
+                    return affects.count;
                 } else if (actionType === "mwak" || actionType === "rwak" || actionType === "msak" || actionType === "rsak") {
                     return affects.count || 1;
                 }
