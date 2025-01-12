@@ -8,7 +8,7 @@ export function initConfig() {
         registerItems();
         const ARGON = CoreHUD.ARGON;
 
-        class DND5eTooltip extends ARGON.CORE.Tooltip{
+        class DND5eTooltip extends ARGON.CORE.Tooltip {
             get classes() {
                 const original = super.classes;
                 return original.concat(["dnd5e2"]);
@@ -371,15 +371,15 @@ export function initConfig() {
                         [
                             {
                                 label: CONFIG.DND5E.abilities[ability].label,
-                                onClick: (event) => this.actor.rollAbilityCheck({ability, event}),
+                                onClick: (event) => this.actor.rollAbilityCheck({ ability, event }),
                             },
                             {
                                 label: addSign(abilityData.mod + (abilityData.checkBonus || 0)),
-                                onClick: (event) => this.actor.rollAbilityCheck({ability, event}),
+                                onClick: (event) => this.actor.rollAbilityCheck({ ability, event }),
                             },
                             {
                                 label: addSign(abilityData.save),
-                                onClick: (event) => this.actor.rollSavingThrow({ability, event }),
+                                onClick: (event) => this.actor.rollSavingThrow({ ability, event }),
                             },
                         ],
                         ability,
@@ -393,7 +393,7 @@ export function initConfig() {
                         [
                             {
                                 label: getProficiencyIcon(skillData.proficient) + CONFIG.DND5E.skills[skill].label,
-                                onClick: (event) => this.actor.rollSkill({skill, event}),
+                                onClick: (event) => this.actor.rollSkill({ skill, event }),
                             },
                             {
                                 label: `${addSign(skillData.total)}<span style="margin: 0 1rem; filter: brightness(0.8)">(${skillData.passive})</span>`,
@@ -741,7 +741,6 @@ export function initConfig() {
             }
 
             get targets() {
-                console.log("Targets")
                 const item = this.activity;
                 const validTargets = ["creature", "ally", "enemy"];
                 const actionType = item.actionType;
@@ -775,7 +774,7 @@ export function initConfig() {
 
             async _onLeftClick(event) {
                 ui.ARGON.interceptNextDialog(event.currentTarget);
-                const used = await this.item.use({event, legacy: false}, {event});
+                const used = await this.item.use({ event, legacy: false }, { event });
                 if (used) {
                     DND5eItemButton.consumeActionEconomy(this.activity);
                 }
@@ -826,7 +825,7 @@ export function initConfig() {
                 if (useAmmo) {
                     const ammoItem = this.item.system.ammunitionOptions[0]?.item;
                     if (!ammoItem) return null;
-                    return Math.floor((ammoItem.system.quantity ?? 0));
+                    return Math.floor(ammoItem.system.quantity ?? 0);
                 } else if (consumeType === "attribute") {
                     return Math.floor(getProperty(this.actor, this.activity.consume.target) / this.activity.consume.amount);
                 } else if (consumeType === "charges") {
@@ -921,6 +920,33 @@ export function initConfig() {
                     }
                     this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
                 }
+                const magicItemsSpells = this.items.filter((item) => item.flags.dnd5e?.cachedFor?.includes("Activity"));
+                const magicItems = magicItemsSpells.map((item) => ({ spell: item, item: this.actor.items.get(item.flags.dnd5e.cachedFor.split(".Activity.")[0].replace(".Item.", "")) }));
+                const magicItemsMap = new Map();
+                magicItems.forEach((item) => {
+                    const current = magicItemsMap.get(item.item);
+                    if (current) {
+                        current.push(item.spell);
+                    } else {
+                        magicItemsMap.set(item.item, [item.spell]);
+                    }
+                });
+                for (const [item, spells] of magicItemsMap) {
+                    const requiresAttunement = item.system.attunement === "required";
+                    const isAttuned = item.system.attuned;
+                    itemsToIgnore.push(...spells);
+
+                    if (requiresAttunement && !isAttuned) continue;
+
+                    this.itemsWithSpells.push({
+                        label: item.name,
+                        buttons: spells.map((spell) => new DND5eItemButton({ item: spell })),
+                        uses: () => {
+                            return { max: item.system.uses?.max, value: item.system.uses?.value };
+                        },
+                    });
+                }
+                if (magicItems.length) this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
                 if (this.showPreparedOnly) {
                     const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
                     this.items = this.items.filter((item) => {
