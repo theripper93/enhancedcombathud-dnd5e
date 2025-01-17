@@ -86,7 +86,7 @@ export function initConfig() {
                 target = item.labels?.target || "-";
                 range = item.labels?.range || "-";
                 properties = [];
-                dt = item.labels?.damageTypes?.split(", ");
+                dt = item?.labels?.damages?.map(d => d.damageType);
                 damageTypes = dt && dt.length ? dt : [];
                 materialComponents = "";
 
@@ -140,9 +140,9 @@ export function initConfig() {
                     value: item.labels.toHit,
                 });
             }
-            if (item?.labels?.derivedDamage?.length) {
+            if (item?.labels?.damages?.length) {
                 let dmgString = "";
-                item.labels.derivedDamage.forEach((dDmg) => {
+                item.labels.damages.forEach((dDmg) => {
                     dmgString += dDmg.formula + " " + getDamageTypeIcon(dDmg.damageType) + " ";
                 });
                 details.push({
@@ -158,6 +158,7 @@ export function initConfig() {
         }
 
         function getDamageTypeIcon(damageType) {
+            damageType ??= "";
             switch (damageType.toLowerCase()) {
                 case "acid":
                     return '<i class="fas fa-flask"></i>';
@@ -188,7 +189,7 @@ export function initConfig() {
                 case "healing":
                     return '<i class="fas fa-heart"></i>';
                 default:
-                    return "";
+                    return '<i class="fas fa-sparkles"></i>';
             }
         }
 
@@ -777,6 +778,13 @@ export function initConfig() {
                 const used = await this.item.use({ event, legacy: false }, { event });
                 if (used) {
                     DND5eItemButton.consumeActionEconomy(this.activity);
+                    const useOtherItem = this.activity?.consumption?.targets?.find(t => t.type === "itemUses");
+                    if (useOtherItem) {
+                        const otherItem = this.actor.items.get(useOtherItem.target);
+                        const allConnectedItems = this.actor.items.filter(i => i.system.activities?.find(a => a.consumption?.targets?.find(t => t.type === "itemUses" && t.target === otherItem.id)));
+                        ui.ARGON.updateItemButtons(allConnectedItems);
+                    }
+                    this.render(true)
                 }
             }
 
