@@ -818,10 +818,18 @@ export function initConfig() {
             }
 
             get quantity() {
+                if (this.item.system.uses?.max) return this.item.system.uses.max - this.item.system.uses.spent;
                 if (!this.activity) return null;
                 const showQuantityItemTypes = ["consumable"];
                 const consumeType = this.activity?.consume?.type;
                 const useAmmo = this.item.system.ammunition?.type;
+                const useOtherItem = this.activity?.consumption?.targets?.find(t => t.type === "itemUses");
+                if (useOtherItem) {
+                    const otherItem = this.actor.items.get(useOtherItem.target);
+                    if (otherItem && otherItem.system.uses?.max) {
+                        return otherItem.system.uses.max - otherItem.system.uses.spent;
+                    }
+                }
                 if (useAmmo) {
                     const ammoItem = this.item.system.ammunitionOptions[0]?.item;
                     if (!ammoItem) return null;
