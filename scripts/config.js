@@ -3,6 +3,11 @@ import { MODULE_ID } from "./main.js";
 const ECHItems = {};
 
 export function initConfig() {
+
+    Hooks.on("updateItem", (item) => {
+        if(item.parent === ui.ARGON._actor && ui.ARGON.rendered) ui.ARGON.components.portrait.refresh()
+    })
+
     Hooks.on("argonInit", (CoreHUD) => {
         if (game.system.id !== "dnd5e") return;
         registerItems();
