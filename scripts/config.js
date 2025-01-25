@@ -1146,12 +1146,12 @@ export function initConfig() {
             async _getButtons() {
                 return [
                     {
-                        label: "DND5E.LongRest",
+                        label: "DND5E.REST.Long.Label",
                         onClick: (event) => this.actor.longRest(),
                         icon: "fas fa-bed",
                     },
                     {
-                        label: "DND5E.ShortRest",
+                        label: "DND5E.REST.Short.Label",
                         onClick: (event) => this.actor.shortRest(),
                         icon: "fas fa-coffee",
                     },
