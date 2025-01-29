@@ -780,7 +780,7 @@ export function initConfig() {
 
             async _onLeftClick(event) {
                 ui.ARGON.interceptNextDialog(event.currentTarget);
-                const used = await this.item.use({ event, legacy: false }, { event });
+                const used = await this.item.use({event, legacy: false}, {event});
                 if (used) {
                     DND5eItemButton.consumeActionEconomy(this.activity);
                     const useOtherItem = this.activity?.consumption?.targets?.find(t => t.type === "itemUses");
@@ -797,14 +797,14 @@ export function initConfig() {
                 this.activity?.sheet?.render(true);
             }
 
-            static consumeActionEconomy(item) {
-                const activationType = getActivationType(item);
+            static consumeActionEconomy(activity) {
+                const activationType = activity?.activation?.type;
                 let actionType = null;
                 for (const [type, types] of Object.entries(actionTypes)) {
                     if (types.includes(activationType)) actionType = type;
                 }
                 if (!actionType) return;
-                if (game.combat?.combatant?.actor !== item.parent) actionType = "reaction";
+                if (game.combat?.combatant?.actor !== activity.item.parent) actionType = "reaction";
                 if (actionType === "action") {
                     ui.ARGON.components.main[0].isActionUsed = true;
                     ui.ARGON.components.main[0].updateActionUse();
