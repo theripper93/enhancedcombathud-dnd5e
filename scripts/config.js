@@ -327,7 +327,7 @@ export function initConfig() {
                             text: SpellDC,
                         },
                         {
-                            text: this.actor.system.attributes.spelldc,
+                            text: this.actor.system.attributes.spell.dc,
                             color: "var(--ech-movement-baseMovement-background)",
                         },
                     ],
@@ -384,7 +384,7 @@ export function initConfig() {
                                 onClick: (event) => this.actor.rollAbilityCheck({ ability, event }),
                             },
                             {
-                                label: addSign(abilityData.save),
+                                label: addSign(abilityData.save.value),
                                 onClick: (event) => this.actor.rollSavingThrow({ ability, event }),
                             },
                         ],
