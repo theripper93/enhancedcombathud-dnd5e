@@ -921,44 +921,25 @@ export function initConfig() {
 
                 const spellLevels = CONFIG.DND5E.spellLevels;
                 const itemsToIgnore = [];
-                if (game.modules.get("items-with-spells-5e")?.active) {
-                    const IWSAPI = game.modules.get("items-with-spells-5e").api;
-                    const actionType = this.items[0].system.activation?.type;
-                    const spellItems = this.actor.items.filter((item) => item.flags["items-with-spells-5e"]?.["item-spells"]?.length);
-                    for (const item of spellItems) {
-                        const spellData = item.flags["items-with-spells-5e"]["item-spells"];
-                        const itemsInSpell = spellData.map((spell) => this.actor.items.get(spell.id)).filter((item) => item && getActivationType(item) === actionType);
-                        if (!itemsInSpell.length) continue;
-                        itemsToIgnore.push(...itemsInSpell);
-                        if (!IWSAPI.isUsableItem(item)) continue;
-                        this.itemsWithSpells.push({
-                            label: item.name,
-                            buttons: itemsInSpell.map((item) => new DND5eItemButton({ item })),
-                            uses: () => {
-                                return { max: item.system.uses?.max, value: item.system.uses?.value };
-                            },
-                        });
-                    }
-                    this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
-                }
-                const magicItemsSpells = this.items.filter((item) => item.flags.dnd5e?.cachedFor?.includes("Activity"));
-                const magicItems = magicItemsSpells.map((item) => ({ spell: item, item: this.actor.items.get(item.flags.dnd5e.cachedFor.split(".Activity.")[0].replace(".Item.", "")) }));
-                const magicItemsMap = new Map();
-                magicItems.forEach((item) => {
-                    const current = magicItemsMap.get(item.item);
+                const magicItemsSpells = this.items.filter((item) => item.flags.dnd5e?.cachedFor);
+                const activitySpellMap = magicItemsSpells.map(is => {
+                    const activity = fromUuidSync(this.actor.documentName + "." + this.actor.id + is.flags.dnd5e.cachedFor);
+                    return { spellItem: is, activity, magicItem: activity.item };
+                })
+
+                const magicItems = new Map();
+                activitySpellMap.forEach(spell => {
+                    itemsToIgnore.push(spell.spellItem);
+                    if(!spell.activity.displayInSpellbook) return;
+                    const current = magicItems.get(spell.magicItem);
                     if (current) {
-                        current.push(item.spell);
+                        current.push(spell.spellItem);
                     } else {
-                        magicItemsMap.set(item.item, [item.spell]);
+                        magicItems.set(spell.magicItem, [spell.spellItem]);
                     }
-                });
-                for (const [item, spells] of magicItemsMap) {
-                    const requiresAttunement = item.system.attunement === "required";
-                    const isAttuned = item.system.attuned;
-                    itemsToIgnore.push(...spells);
+                })
 
-                    if (requiresAttunement && !isAttuned) continue;
-
+                for (const [item, spells] of magicItems) {
                     this.itemsWithSpells.push({
                         label: item.name,
                         buttons: spells.map((spell) => new DND5eItemButton({ item: spell })),
@@ -967,7 +948,7 @@ export function initConfig() {
                         },
                     });
                 }
-                if (magicItems.length) this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
+                this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
                 if (this.showPreparedOnly) {
                     const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
                     this.items = this.items.filter((item) => {
