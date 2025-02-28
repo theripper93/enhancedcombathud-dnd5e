@@ -921,22 +921,14 @@ export function initConfig() {
 
                 const spellLevels = CONFIG.DND5E.spellLevels;
                 const itemsToIgnore = [];
-                const magicItemsSpells = this.items.filter((item) => item.flags.dnd5e?.cachedFor);
-                const activitySpellMap = magicItemsSpells.map(is => {
-                    const activity = fromUuidSync(this.actor.documentName + "." + this.actor.id + is.flags.dnd5e.cachedFor);
-                    return { spellItem: is, activity, magicItem: activity.item };
-                })
-
                 const magicItems = new Map();
-                activitySpellMap.forEach(spell => {
-                    itemsToIgnore.push(spell.spellItem);
-                    if(!spell.activity.displayInSpellbook) return;
-                    const current = magicItems.get(spell.magicItem);
-                    if (current) {
-                        current.push(spell.spellItem);
-                    } else {
-                        magicItems.set(spell.magicItem, [spell.spellItem]);
-                    }
+                this.items.filter((item) => item.flags.dnd5e?.cachedFor).forEach(is => {
+                    const activity = fromUuidSync(this.actor.documentName + "." + this.actor.id + is.flags.dnd5e.cachedFor);
+                    itemsToIgnore.push(is);
+                    if(!activity.displayInSpellbook) return;
+                    const magicItem = activity.item;
+                    const current = magicItems.get(magicItem);
+                    current ? current.push(is) : magicItems.set(magicItem, [is]);
                 })
 
                 for (const [item, spells] of magicItems) {
@@ -948,6 +940,7 @@ export function initConfig() {
                         },
                     });
                 }
+                
                 this.items = this.items.filter((item) => !itemsToIgnore.includes(item));
                 if (this.showPreparedOnly) {
                     const allowIfNotPrepared = ["atwill", "innate", "pact", "always"];
