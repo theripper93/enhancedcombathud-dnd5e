@@ -925,7 +925,7 @@ export function initConfig() {
                 this.items.filter((item) => item.flags.dnd5e?.cachedFor).forEach(is => {
                     const activity = fromUuidSync(this.actor.documentName + "." + this.actor.id + is.flags.dnd5e.cachedFor);
                     itemsToIgnore.push(is);
-                    if(!activity.displayInSpellbook) return;
+                    if(!activity?.displayInSpellbook) return;
                     const magicItem = activity.item;
                     const current = magicItems.get(magicItem);
                     current ? current.push(is) : magicItems.set(magicItem, [is]);
