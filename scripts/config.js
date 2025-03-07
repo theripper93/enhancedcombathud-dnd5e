@@ -125,7 +125,7 @@ export function initConfig() {
                 }
             }
 
-            if (description) description = await TextEditor.enrichHTML(description, { async: true, relativeTo: item.parent });
+            if (description) description = await TextEditor.enrichHTML(description, { async: true, relativeTo: item });
             let details = [];
             if (target || range) {
                 details = [
