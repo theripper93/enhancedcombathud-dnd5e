@@ -831,6 +831,7 @@ export function initConfig() {
             }
 
             get quantity() {
+                if(!this.item) return null;
                 if (this.item.system.uses?.max) return this.item.system.uses.max - this.item.system.uses.spent;
                 if (!this.activity) return null;
                 const showQuantityItemTypes = ["consumable"];
