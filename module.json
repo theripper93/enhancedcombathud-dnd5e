@@ -93,13 +93,13 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "minimum": "4.3.3"
+          "minimum": "5.0.0"
         }
       }
     ]
   },
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   }
 }
