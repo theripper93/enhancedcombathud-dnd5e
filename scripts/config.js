@@ -431,15 +431,15 @@ export function initConfig() {
                         gridCols: "5fr 2fr 2fr",
                         captions: [
                             {
-                                label: "Abilities",
+                                label: game.i18n.localize("DND5E.Abilities"),
                                 align: "left",
                             },
                             {
-                                label: "Check",
+                                label: game.i18n.localize("DND5E.CHECK.Title"),
                                 align: "center",
                             },
                             {
-                                label: "Save",
+                                label: game.i18n.localize("DND5E.SAVE.Title.one"),
                                 align: "center",
                             },
                         ],
@@ -450,7 +450,7 @@ export function initConfig() {
                         gridCols: "7fr 2fr",
                         captions: [
                             {
-                                label: "Skills",
+                                label: game.i18n.localize("DND5E.Skills"),
                             },
                             {
                                 label: "",
@@ -462,7 +462,7 @@ export function initConfig() {
                         gridCols: "7fr 2fr",
                         captions: [
                             {
-                                label: "Tools",
+                                label: game.i18n.localize("enhancedcombathud-dnd5e.hud.tools.name"),
                             },
                             {
                                 label: "",
