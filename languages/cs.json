@@ -1,0 +1,249 @@
+{
+    "enhancedcombathud-dnd5e": {
+  "portraitConfig": {
+    "prepared": {
+        "label": "Připravená kouzla",
+        "auto": "Automaticky detekovat",
+        "preparedOnly": "Pouze připravená",
+        "all": "Všechna kouzla"
+    }
+    },
+  "settings": {
+    "switchEquip": {
+        "name": "Automaticky vybavovat předměty?",
+        "hint": "Při přepnutí setu se předměty automaticky vybaví/odloží."
+    },
+    "showWeaponsItems": {
+        "name": "Zobrazovat zbraně na kartě 'Předměty'?",
+        "hint": "Zobrazí zbraně na kartě 'Předměty'. Užitečné, pokud nestačí karty zbraní."
+    },
+    "showClassActions": {
+        "name": "Zobrazovat akce povolání?",
+        "hint": "Zobrazí akce povolání na kartě hlavních akcí."
+    },
+    "condenseClassActions": {
+        "name": "Kondenzovat akce povolání?",
+        "hint": "Pokud je zaškrtnuto 'Zobrazovat akce povolání', sbalí se pro úsporu místa akce povolání do párů."
+    },
+    "noAA": {
+        "name": "Zákaz používání aktivních efektů",
+        "hint": "Při použití speciálních akcí se nepoužívají aktivní efekty. (Vyžaduje znovunačtení.)"
+    },
+    "showSpecialActions": {
+        "name": "Zobrazovat základní akce?",
+        "hint": "Na kartě hlavních akcí se zobrazí základní akce. (Uhýbání, Sprint, Odpoutání se, Schování se, Příprava, Strčit.)"
+    },
+    "macroPanel": {
+        "name": "Zobrazovat lištu maker?",
+        "hint": "Zobrazí lištu maker každé postavy zrcadlící makra na rychlé liště maker."
+    }
+    },
+    "hud": {
+      "mainactions": {
+                "name": "Hlavní akce"
+            },
+            "castspell": {
+                "name": "Kouzla"
+            },
+            "usepower": {
+                "name": "Schopnosti"
+            },
+            "useitem": {
+                "name": "Předměty"
+            },
+            "bonusaction": {
+                "name": "Bonusová akce"
+            },
+            "reaction": {
+                "name": "Reakce"
+            },
+            "specialaction": {
+                "name": "Volná akce"
+            },
+            "pass": {
+                "name": "Přeskočit"
+            },
+            "endturn": {
+                "name": "Ukončit tah"
+            },
+            "hp": {
+                "name": "BV"
+            },
+            "ac": {
+                "name": "OČ"
+            },
+            "of": {
+                "name": "z"
+            },
+            "inventory": {
+                "name": "Deník"
+            },
+            "saves": {
+                "name": "Záchrany"
+            },
+            "skills": {
+                "name": "Dovednosti"
+            },
+            "tools": {
+                "name": "Nástroje"
+            },
+    "spells": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "cantrip": "",
+        "innate": "",
+        "pact": "",
+        "will": ""
+    }
+    },
+        "items": {
+    "disengage": {
+        "name": "Odpoutat se",
+        "desc": "<p>Pokud provedeš akci Odpoutat se, tvůj pohyb po zbytek kola nevyvolává příležitostné útoky.</p>"
+    },
+    "hide": {
+        "name": "Skrýt se",
+        "desc": "<p>Když provedeš akci Skrýt se, hodíš si na Obratnost (Nenápadnost) ve snaze se schovat podle pravidel dle skrytí. Pokud uspěješ, získáš určité výhody.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Bojovníci se často snaží uniknout pozornosti svých nepřátel tím, že se schovají, sešlou kouzlo Neviditelnost, nebo se schovávají ve tmě.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">Když útočíš na cíl, který nevidíš, máš Nevýhodu na hod na útok. To platí, ať už hádáš polohu cíle, nebo když útočíš na tvora, kterého slyšíš, ale nevidíš. Pokud cíl není na místě, na které útočíš, automaticky mineš, ale PJ obvykle pouze oznámují, že útok minul, aniž by upřesnili, zda byla uhádnuta správná poloha.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Když tě tvor nevidí, máš na útok proti němu Výhodu. Pokud jsi skrytý--neviděný a neslyšený--a provedeš útok, prozradíš svou polohu, ať už útok zasáhne, nebo mine.</p><p>&nbsp;</p>"
+    },
+    "shove": {
+        "name": "Strčit",
+        "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Když chceš bytost chytit, nebo s ní zápasit, můžeš použít akci Útok k provedení speciálního útoku na blízko = zápas. Pokud máš více útoků pro akci Útok, tento útok nahrazuje jeden z nich.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">Cíl zápasu nesmí být o více než jednu velikost větší než ty a musí být v dosahu. Pomocí alespoň jedné volné ruky se pokusíš sevřít cíl hodem na Sílu (Atletiku) proti soupeřovu hodu na Sílu (Atletiku), nebo na Obratnost (Akrobacii) (cíl si vybere vlastnost, kterou použije). Uspěješ automaticky, pokud je cíl zneschopněný. Pokud uspěješ, udělí cíli stav uchvácený. Stav specifikuje, co jej ukončí, a ty můžeš cíl kdykoliv pustit (není třeba žádná akce).</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Únik ze zápasu. Zadržená bytost může použít akci k úniku. K tomu musí uspět v hodu na Sílu (Atletiku) nebo Obratnost (Akrobacii) proti tvému hodu na Sílu (Atletiku).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Pohyb se zadrženou bytostí. Když se pohybuješ, můžeš s sebou zadrženou bytost táhnout, nebo nést, ale tvá Rychlost se sníží na polovinu, pokud bytost není alespoň o dvě velikosti menší než ty.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Strčit</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Pomocí akce Útok můžeš provést speciální útok na blízko a strčit bytost, buď kvůli sražení na zem, nebo jejímu odtlačení od tebe. Pokud máš více útoků s akcí Útok, tento útok nahrazuje jeden z nich.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">Cíl nesmí být o více než jednu velikost větší než ty a musí být v dosahu. Místo hodu na útok hodíš na Sílu (Atletiku) proti hodu cíle na Sílu (Atletiku), nebo Obratnost (Akrobacii) (cíl si vybere vlastnost, kterou použije). Uspěješ automaticky, pokud je cíl zneschopněný. Pokud uspěješ, buď cíl srazíš na zem, nebo jej odtlačíš o 1,5 metru od sebe.</p>"
+    },
+    "dash": {
+        "name": "Sprint",
+        "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Když provedeš akci Sprint, získáš dodatečný pohyb v aktuálním kole. Zvýšení se rovná tvé Rychlosti, po započítání všech oprav. Pokud máš například rychlost 30 stop, můžeš se, pokud sprintuješ, ve svém kole pohnout o až 60 stop.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Každé zvýšení nebo snížení Rychlosti ovlivní tento dodatečný pohyb stejnou měrou. Pokud je tvá rychlost ze 30 stop snížena na 15 stop, můžeš se, pokud sprintuješ, toto kolo pohybovat až o 30 stop.</p>"
+    },
+    "dodge": {
+        "name": "Uhýbání",
+        "desc": "<p>Pokud provedeš akci Uhýbání, soustředíš se pouze na vyhýbání se útokům. Pokud útočníka vidíš, do začátku svého dalšího tahu má každý útok proti tobě Nevýhodu a máš Výhodu na záchranné hody na Obratnost. O tuto výhodu přijdeš, pokud jsi zneschopněn, nebo pokud se tvá Rychlost sníží na 0.</p>"
+    },
+    "ready": {
+        "name": "Příprava",
+        "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">Někdy chceš získat převahu nad nepřítelem, nebo čekat na konkrétní okolnosti, než budeš jednat. K tomu můžeš ve svém tahu provést akci Příprava, což ti umožní jednat pomocí své Reakce před začátkem tvého dalšího tahu.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Nejprve určíš, která vnímatelná okolnost spustí tvou reakci. Poté vybereš akci, kterou podnikneš jako odpověď na tuto okolnost, nebo se rozhodneš jako odpověď na tuto okolnost pohybovat se až do své Rychlosti. Příklady zahrnují „Pokud kultista šlápne na padací dveře, zatáhnu za páku, která je otevře,“ nebo „Pokud se goblin přiblíží ke mně, ustoupím.“</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">Když nastane spouštěč, můžeš buď provést svou reakci hned po skončení spouštěče, nebo jej ignorovat. Pamatuj, že můžeš provést pouze jednu Reakci za kolo.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">Když si připravíš kouzlo, sesíláš ho jako obvykle, ale energii zadržuješ, dokud nepoužiješ svou Reakci, když nastane spouštěč. Aby mohlo být připraveno, kouzlo musí mít čas seslání 1 akci, a udržování kouzla vyžaduje soustředění. Pokud se tvé soustředění přeruší, kouzlo se rozplyne bez efektu. Například, pokud se soustředíš na kouzlo a připravíš si nově Magickou střelu, tvé soustředění skončí. A pokud utrpíš zranění před vypuštěním Magické střely pomocí své Reakce, může se tvé soustředění přerušit.</p>"
+    }
+    },
+    "skills": {
+        "acr": {
+        "tooltip": "Tvé ověření Obratnosti (Akrobacie) pokrývá pokusy udržet se na nohou v náročné situaci, jako když se snažíš přeběhnout přes ledovou plochu, balancovat na provaze, nebo zůstat stát na houpající se palubě lodi. PJ může také požadovat ověření Obratnosti (Akrobacie), aby zjistil, zda dokážeš provádět akrobatické kousky jako skoky, kotouly, přemety a salta."
+    },
+        "ani": {
+        "tooltip": "Když jde o to, zda dokážeš uklidnit domestikované zvíře, udržet jízdní zvíře v klidu, nebo vycítit úmysly zvířete, PJ může požadovat ověření Moudrosti (Ovládání zvířat). Ověření Moudrosti (Ovládání zvířat) provádíš i za situací, kdy se pokoušíš o riskantní manévr s jízdním zvířetem."
+    },
+        "arc": {
+        "tooltip": "Tvé ověření Inteligence (Mystiky) měří tvou schopnost vybavit si znalosti o kouzlech, magických předmětech, podivných symbolech, magických tradicích, rovinách existence a obyvatelích těchto rovin."
+    },
+        "ath": {
+        "tooltip": "<p>Tvé ověření Síly (Atletiky) pokrývá obtížné situace, kterým čelíš při lezení, skákání nebo plavání. Příklady zahrnují následující činnosti:</p><ul><li>Pokoušíš se vyšplhat na strmou, nebo kluzkou skálu, vyhýbat se překážkám při šplhání po zdi, nebo se držet na povrchu, zatímco se tě něco snaží shodit.</li>↵<li>Pokoušíš-li se skočit neobvykle daleko, nebo provést trik během skoku.</li><li>Bojuješ-li s plaváním, nebo udržením se na hladině v nebezpečných proudech, bouřlivých vlnách, nebo v oblastech s hustým mořským trávníkem. Nebo když se tě jiná bytost snaží zatáhnout pod vodu, nebo jinak ti bránit v plavání.</li>↵</ul>"
+    },
+        "dec": {
+        "tooltip": "Tvé ověření Charismatu (Klamání) určuje, zda dokážeš přesvědčivě skrýt pravdu, buď slovně, nebo svými činy. Toto klamání může zahrnovat vše od jemných nejednoznačností až po vyložené lži. Typické situace zahrnují pokusy o rychlý rozhovor s hlídačem, oklamání obchodníka, vydělávání peněz hazardem, předstírání někoho jiného v přestrojení, utišení něčího podezření falešnými zárukami, nebo udržení vážné tváře při vyprávění očividné lži."
+    },
+        "his": {
+        "tooltip": "Tvé ověření Inteligence (Historie) měří tvou schopnost vybavit si znalosti o historických událostech, legendárních osobnostech, starobylých královstvích, minulých sporech, nedávných válkách a ztracených civilizacích."
+    },
+        "ins": {
+        "tooltip": "Tvé ověření Moudrosti (Vhledu) určuje, zda dokážeš zjistit skutečné úmysly bytosti, například když odhaluješ lež, nebo předpovídáš něčí další krok. Tím se rozumí získávání náznaků z neverbální komunikace, zvyklostí v řeči a změn v chování."
+    },
+        "itm": {
+        "tooltip": "Když se pokoušíš ovlivnit někoho prostřednictvím otevřených hrozeb, nepřátelských akcí a fyzického násilí, může tě PJ požádat, abys provedl ověření Charismanu (Zastrašování). Příklady zahrnují snahu získat informace od vězně, přesvědčit pouliční rváče, aby ustoupili z konfrontace, nebo použít okraj rozbité láhve k přesvědčení posměšného vezíra, aby přehodnotil své rozhodnutí."
+    },
+        "inv": {
+        "tooltip": "Ověření Inteligence (Vyšetřování) posuzuje tvou schopnost hledat stopy a vyvodit závěry na základě těchto stop. Můžeš například dedukovat umístění skrytého objektu, rozpoznat podle vzhledu rány, jaký typ zbraně ji způsobil, nebo určit nejslabší místo v tunelu, které by mohlo způsobit jeho zhroucení. I procházení starověkých svitků v hledání skrytého fragmentu znalostí může vyžadovat ověření Inteligence (Vyšetřování)."
+    },
+        "med": {
+        "tooltip": "Ověření Moudrosti (Lékařství) ti umožňuje pokusit se stabilizovat umírajícího společníka, nebo diagnostikovat nemoc."
+    },
+        "nat": {
+        "tooltip": "Ověření Inteligence (Přírody) měří tvou schopnost si vybavit znalosti o terénu, rostlinách a zvířatech, počasí a přírodních cyklech."
+    },
+        "prc": {
+        "tooltip": "Ověření Moudrosti (Vnímání) ti umožní spatřit, slyšet, nebo jinak odhalit přítomnost něčeho. Měří obecnou pozornost k okolí a ostrost tvých smyslů. Například se můžeš pokusit zaslechnout konverzaci za zavřenými dveřmi, odposlouchávat pod otevřeným oknem, nebo zaslechnout nestvůry tiše se pohybující v lese. Také se můžeš snažit spatřit věci, které jsou skryté, nebo snadno přehlédnutelné, ať už jde o orky číhající v záloze na cestě, zločince skrývajícího se ve stínech uličky, nebo svíčku prosvítající zpoza zavřených tajných dveří."
+    },
+        "prf": {
+        "tooltip": "Ověření Charismatu (Umění) určuje, jak dobře dokážeš potěšit publikum hudbou, tancem, herectvím, vyprávěním příběhů, nebo jinou formou zábavy."
+    },
+        "per": {
+        "tooltip": "Když se pokoušíš ovlivnit někoho, nebo skupinu lidí taktem, společenskou grácií, nebo dobrou povahou, může PJ požádat o provedení ověření Charismatu (Přesvědčování). Přesvědčování se obvykle používá, když jednáš v dobré víře, abys podpořil(a) přátelství, zdvořile žádal(a), nebo projevil(a) správnou etiketu. Příklady přesvědčování zahrnují přesvědčení komořího, aby nechal družinu spatřit krále, vyjednávání o míru mezi válčícími kmeny, nebo inspirování davu měšťanů."
+    },
+        "rel": {
+        "tooltip": "Tvé ověření Inteligence (Náboženství) měří tvou schopnost si vybavit znalosti o božstvech, rituálech a modlitbách, náboženských hierarchiích, svatých symbolech a praktikách tajných kultů."
+    },
+        "slt": {
+        "tooltip": "Kdykoli se pokoušíš o zručný čin, nebo ruční trik. Například něco na někoho umístit, nebo skrýt předmět na své osobě, proveď ověřní Obratnosti (Čachrů). PJ může požádat o ověření Obratnosti (Čachrů), také aby určil, zda dokážeš ukrást měšec s mincemi jinému člověku, nebo vytáhnout něco z kapsy jiného člověka."
+    },
+        "ste": {
+        "tooltip": "Ověření Obratnosti (Nenápadnosti) provádíš, když se pokoušíš skrýt se před nepřáteli, projít kolem stráží, nenápadně se vytratit, nebo se přiblížit k někomu, aniž bys byl viděn, nebo slyšen."
+    },
+        "sur": {
+        "tooltip": "PJ tě může požádat, abys provedl ověření Moudrosti (Přežití), když se pokoušíš sledovat stopy, lovit divokou zvěř, vést svou skupinu mrazivými pustinami, identifikovat známky přítomnosti sovodvědů v okolí, předpovědět počasí, nebo se vyhnout písečné bouři a dalším přírodním nebezpečím."
+    }
+    },
+    "abilities": {
+        "str": {
+        "tooltip": "<p>Síla měří tělesnou sílu, atletický trénink a míru, do jaké dokážeš vyvinout čistou fyzickou sílu.</p><p><strong>Ověření Síly</strong><br/>Ověření Síly může modelovat jakýkoli pokus zvednout, tlačit, táhnout, nebo rozbít něco. Protlačit své tělo skrze prostor, nebo jinak aplikovat hrubou sílu. Dovednost Atletika odráží schopnosti v určitých typech ověření Síly.</p><p><strong>Další ověření Síly</strong><br/>PJ může také požádat o ověření Síly, když se pokoušíš splnit další úkoly, třeba následující:<ul><li>Otevřít zaseknuté, zamčené, nebo zabarikádované dveře</li><li>Vysvobodit se z pout</li><li>Protlačit se skrze tunel, který je příliš malý</li><li>Udržet se vozu, zatímco jsi táhnut za ním</li><li>Převrátit sochu</li><li>Udržet balvan, aby se neodvalil</li></ul></p><p><strong>Zvedání a nesení</strong><br/> Tvoje hodnota Síly určuje množství váhy, kterou můžeš unést. Následující termíny definují, co můžeš zvednout, nebo nést.</p><p><strong>Nosnost.</strong> Tvoje nosnost je tvá hodnota Síly vynásobená 15. To je váha (v librách), kterou můžeš nosit, což je dostatečně vysoké, aby se většina postav obvykle nemusela ničeho obávat.</p><p><strong>Tlačení, tahaní, nebo zvedání.</strong> Můžeš tlačit, táhnout, nebo zvedmout váhu v librách až dvakrát převyšující tvou Nosnost (nebo 30krát tvoji hodnotu Síly). Když tlačíš, nebo táhneš váhu přesahující tvou nosnost, tvoje Rychlost klesá na 5 stop.</p><p><strong>Velikost a Síla.</strong> Větší bytosti mohou unést více váhy, zatímco malé bytosti mohou nést méně. Pro každou velikost kategorie nad střední zdvojnásob nosnost bytosti a množství, které může tlačit, táhnout, nebo zvedat. Pro malé bytosti tyto váhy zmenši na polovinu.</p>"
+    },
+        "dex": {
+        "tooltip": "<p>Obratnost měří hbitost, reflexy a rovnováhu.</p><p><strong>Ověření Obratnosti</strong><br/>Ověření Obratnosti může modelovat jakýkoli pokus pohybovat se obratně, rychle, nebo tiše, nebo se udržet na nohou na kluzkém terénu. Dovednosti Akrobacie, Čachry a Nenápadnost odráží schopnosti v určitých typech ověření Obratnosti.</p><p><strong>Další ověření Obratnosti</strong><br/>PJ může požádat o ověření Obratnosti, když se pokoušíš splnit úkoly jako následující:<ul><li>Ovládat silně naložený vůz na strmém svahu</li><li>Řídit vůz do ostré zatáčky</li><li>Otevřít zámek</li><li>Deaktivovat past</li><li>Bezpečně svázat vězně</li><li>Uvolnit se z pout</li><li>Hrát na strunný nástroj</li><li>Vytvořit malý, nebo detailní objekt</li></ul></p><p><strong>Obranné číslo</strong><br/>V závislosti na zbroji, kterou nosíš, můžeš přidat část, nebo celou opravu Obratnosti ke svému OČ, jak je popsáno v kapitole 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Vybavení</a></p><p><strong>Iniciativa</strong><br/>Na začátku každého boje házíš iniciativu provedením ověření Obratnosti. Iniciativa určuje pořadí tahů bytostí v boji, jak je popsáno v kapitole 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Boj.</a>"
+    },
+        "con": {
+        "tooltip": "<p>Odolnost měří zdraví, výdrž a životní sílu.</p><p><strong>Ověření Odolnosti</strong><br/>Ověření odolnosti jsou neobvyklé a žádné dovednosti se na ně nevztahují, protože výdrž, kterou tato schopnost představuje, je většinou pasivní a nezahrnuje konkrétní úsilí ze strany postavy či bytosti. Ověření Odolnosti může modelovat tvůj pokus překonat normální limity.</p><p>PJ může požádat o ověření Odolnosti, když se pokoušíš splnit úkoly jako následující:<ul><li>Zadržet dech</li><li>Pochodovat, nebo pracovat hodiny bez odpočinku</li><li>Obstát bez spánku</li><li>Přežít bez jídla, nebo vody</li><li>Vypít celou holbu piva na jeden zátah</li></ul></p><p><strong>Body výdrže</strong><br/>Tvá oprava Odolnosti přispívá k tvým bodům výdrže. Obvykle přidáváš svou opravu Odolnosti ke každému hodu kostek obnovy, které házíš pro své body výdrže.</p><p>Pokud se tvá oprava Odolnosti změní, změní se také tvé maximum bodů výdrže, jako bys měl novou opravu od 1. úrovně. Například pokud zvýšíš svou hodnotu Odolnosti, když dosáhneš 4. úrovně, a tvá oprava Odolnosti se zvýší z +1 na +2, upravíš své maximum bodů výdrže, jako by byl modifikátor vždy +2. Takže přidáš 3 BV za své první tři úrovně a poté hodíš na své body výdrže za 4. úroveň pomocí nové opravy. Nebo pokud jsi 7. úrovně a nějaký efekt sníží tvou hodnotu Odolnosti, což sníží tvou opravu Odolnosti o 1, tvé maximum BV se sníží o 7.</p>"
+    },
+        "int": {
+        "tooltip": "<p>Inteligence měří duševní bystrost, přesnost vzpomínek a schopnost uvažovat.</p><p><strong>Ověření Inteligence</strong><br/>Ověření Inteligence se uplatňuje, když potřebuješ využít logiku, vzdělání, paměť, nebo deduktivní uvažování. Dovednosti Mystika, Historie, Vyšetřování, Příroda a Náboženství odrážejí způsobilost v určitých typech ověření Inteligence.</p><p><strong>Další ověření Inteligence</strong><br/>PJ může požádat o ověření inteligence, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Komunikovat s bytostí bez použití slov</li><li>Odhadnout hodnotu cenného předmětu</li><li>Připravit si převlek, abys mohl projít jako městská hlídka</li><li>Padělat dokument</li><li>Vzpomínat si na znalosti o řemesle, nebo obchodu</li><li>Vyhrát znalostní hru</li></ul></p>"
+    },
+        "wis": {
+        "tooltip": "<p>Moudrost odráží, jak jsi v souladu se světem kolem sebe, a představuje vnímavost a intuici.</p><p><strong>Ověření Moudrosti</strong>Ověření Moudrosti může odrážet snahu číst řeč těla, porozumět něčím pocitům, všímat si věcí v prostředí, nebo pečovat o zraněnou osobu. Dovednosti Ovládání zvířat, Vhled, Lékařství, Vnímání a Přežití odrážejí způsobilost v určitých typech ověření Moudrosti.</p><p><strong>Další ověření Moudrosti</strong></br>PJ může požádat o ověření Moudrosti, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Dostat pocit, jakým směrem se akce vyvine</li><li>Rozlišit, zda je zdánlivě mrtvá, nebo naopak živá bytost nemrtvá</li></ul></p>"
+    },
+        "cha": {
+        "tooltip": "<p>Charisma měří tvou schopnost efektivně komunikovat s ostatními. Zahrnuje takové faktory, jako jsou sebevědomí a výmluvnost a může představovat okouzlující, nebo dominantní osobnost.</p><p><strong>Další ověření Charismatu</strong><br/>PJ může požádat o ověření Charismatu, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Najít nejlepšího člověka, se kterým si lze promluvit o zprávách, drbech a pomluvách</li><li>Splynout s davem, abys získal přehled o klíčových tématech konverzace</li></ul></p>"
+    }
+    },
+    "tooltip": {
+        "target": {
+        "name": "Cíl"
+    },
+        "range": {
+        "name": "Dostřel"
+    },
+        "properties": {
+        "name": "Parametry"
+    },
+        "toHit": {
+        "name": "Na zásah"
+    },
+        "damage": {
+        "name": "Zranění"
+    }
+    },
+    "itemconfig": {
+        "set1p": {
+        "text": ""
+    },
+        "set1s": {
+        "text": ""
+    },
+        "set2p": {
+        "text": ""
+    },
+        "set2s": {
+        "text": ""
+    },
+        "set3p": {
+        "text": ""
+    },
+        "set3s": {
+        "text": ""
+    },
+        "sets": {
+        "text": ""
+    }
+    }   
+}
+}
