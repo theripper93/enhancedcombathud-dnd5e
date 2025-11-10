@@ -14,8 +14,8 @@
         "hint": "Při přepnutí setu se předměty automaticky vybaví/odloží."
     },
     "showWeaponsItems": {
-        "name": "Zobrazovat zbraně na kartě 'Předměty'?",
-        "hint": "Zobrazí zbraně na kartě 'Předměty'. Užitečné, pokud nestačí karty zbraní."
+        "name": "Zobrazovat zbraně v kartě 'Předměty'?",
+        "hint": "Zobrazí zbraně v kartě 'Předměty'. Užitečné, pokud nestačí vlastní karty zbraní."
     },
     "showClassActions": {
         "name": "Zobrazovat akce povolání?",
@@ -143,7 +143,7 @@
         "tooltip": "<p>Tvé ověření Síly (Atletiky) pokrývá obtížné situace, kterým čelíš při lezení, skákání nebo plavání. Příklady zahrnují následující činnosti:</p><ul><li>Pokoušíš se vyšplhat na strmou, nebo kluzkou skálu, vyhýbat se překážkám při šplhání po zdi, nebo se držet na povrchu, zatímco se tě něco snaží shodit.</li>↵<li>Pokoušíš-li se skočit neobvykle daleko, nebo provést trik během skoku.</li><li>Bojuješ-li s plaváním, nebo udržením se na hladině v nebezpečných proudech, bouřlivých vlnách, nebo v oblastech s hustým mořským trávníkem. Nebo když se tě jiná bytost snaží zatáhnout pod vodu, nebo jinak ti bránit v plavání.</li>↵</ul>"
     },
         "dec": {
-        "tooltip": "Tvé ověření Charismatu (Klamání) určuje, zda dokážeš přesvědčivě skrýt pravdu, buď slovně, nebo svými činy. Toto klamání může zahrnovat vše od jemných nejednoznačností až po vyložené lži. Typické situace zahrnují pokusy o rychlý rozhovor s hlídačem, oklamání obchodníka, vydělávání peněz hazardem, předstírání někoho jiného v přestrojení, utišení něčího podezření falešnými zárukami, nebo udržení vážné tváře při vyprávění očividné lži."
+        "tooltip": "Tvé ověření Charismatu (Klamání) určuje, zda dokážeš přesvědčivě skrýt pravdu, buď slovně, nebo svými činy. Toto klamání může zahrnovat vše od jemných nejednoznačností až po vyložené lži. Typické situace zahrnují pokusy o rychlý rozhovor s hlídačem, oklamání obchodníka, vydělávání peněz hazardem, předstírání někoho jiného v přestrojení, utišení něčího podezření falešnými zárukami, nebo udržení vážné tváře při vykládání očividné lži."
     },
         "his": {
         "tooltip": "Tvé ověření Inteligence (Historie) měří tvou schopnost vybavit si znalosti o historických událostech, legendárních osobnostech, starobylých královstvích, minulých sporech, nedávných válkách a ztracených civilizacích."
@@ -152,10 +152,10 @@
         "tooltip": "Tvé ověření Moudrosti (Vhledu) určuje, zda dokážeš zjistit skutečné úmysly bytosti, například když odhaluješ lež, nebo předpovídáš něčí další krok. Tím se rozumí získávání náznaků z neverbální komunikace, zvyklostí v řeči a změn v chování."
     },
         "itm": {
-        "tooltip": "Když se pokoušíš ovlivnit někoho prostřednictvím otevřených hrozeb, nepřátelských akcí a fyzického násilí, může tě PJ požádat, abys provedl ověření Charismanu (Zastrašování). Příklady zahrnují snahu získat informace od vězně, přesvědčit pouliční rváče, aby ustoupili z konfrontace, nebo použít okraj rozbité láhve k přesvědčení posměšného vezíra, aby přehodnotil své rozhodnutí."
+        "tooltip": "Když se pokoušíš ovlivnit někoho prostřednictvím otevřených hrozeb, nepřátelských akcí a fyzického násilí, může tě PJ požádat, abys provedl/a ověření Charismanu (Zastrašování). Příklady zahrnují snahu získat informace od vězně, přesvědčit pouliční rváče, aby ustoupili z konfrontace, nebo použít okraj rozbité láhve k přesvědčení posměšného vezíra, aby přehodnotil své rozhodnutí."
     },
         "inv": {
-        "tooltip": "Ověření Inteligence (Vyšetřování) posuzuje tvou schopnost hledat stopy a vyvodit závěry na základě těchto stop. Můžeš například dedukovat umístění skrytého objektu, rozpoznat podle vzhledu rány, jaký typ zbraně ji způsobil, nebo určit nejslabší místo v tunelu, které by mohlo způsobit jeho zhroucení. I procházení starověkých svitků v hledání skrytého fragmentu znalostí může vyžadovat ověření Inteligence (Vyšetřování)."
+        "tooltip": "Ověření Inteligence (Pátrání) posuzuje tvou schopnost hledat stopy a vyvodit závěry na základě těchto stop. Můžeš například dedukovat umístění skrytého objektu, rozpoznat podle vzhledu rány, jaký typ zbraně ji způsobil, nebo určit nejslabší místo v tunelu, které by mohlo způsobit jeho zhroucení. I procházení starověkých svitků v hledání skrytého fragmentu znalostí může vyžadovat ověření Inteligence (Pátrání)."
     },
         "med": {
         "tooltip": "Ověření Moudrosti (Lékařství) ti umožňuje pokusit se stabilizovat umírajícího společníka, nebo diagnostikovat nemoc."
@@ -167,10 +167,10 @@
         "tooltip": "Ověření Moudrosti (Vnímání) ti umožní spatřit, slyšet, nebo jinak odhalit přítomnost něčeho. Měří obecnou pozornost k okolí a ostrost tvých smyslů. Například se můžeš pokusit zaslechnout konverzaci za zavřenými dveřmi, odposlouchávat pod otevřeným oknem, nebo zaslechnout nestvůry tiše se pohybující v lese. Také se můžeš snažit spatřit věci, které jsou skryté, nebo snadno přehlédnutelné, ať už jde o orky číhající v záloze na cestě, zločince skrývajícího se ve stínech uličky, nebo svíčku prosvítající zpoza zavřených tajných dveří."
     },
         "prf": {
-        "tooltip": "Ověření Charismatu (Umění) určuje, jak dobře dokážeš potěšit publikum hudbou, tancem, herectvím, vyprávěním příběhů, nebo jinou formou zábavy."
+        "tooltip": "Ověření Charismatu (Vystupování) určuje, jak dobře dokážeš pobavit publikum hudbou, tancem, herectvím, vyprávěním příběhů, nebo jinou formou zábavy."
     },
         "per": {
-        "tooltip": "Když se pokoušíš ovlivnit někoho, nebo skupinu lidí taktem, společenskou grácií, nebo dobrou povahou, může PJ požádat o provedení ověření Charismatu (Přesvědčování). Přesvědčování se obvykle používá, když jednáš v dobré víře, abys podpořil(a) přátelství, zdvořile žádal(a), nebo projevil(a) správnou etiketu. Příklady přesvědčování zahrnují přesvědčení komořího, aby nechal družinu spatřit krále, vyjednávání o míru mezi válčícími kmeny, nebo inspirování davu měšťanů."
+        "tooltip": "Když se pokoušíš ovlivnit někoho, nebo skupinu lidí taktem, společenskou grácií, nebo dobrou povahou, může PJ požádat o provedení ověření Charismatu (Přesvědčování). Přesvědčování se obvykle používá, když jednáš v dobré víře, abys podpořil/a přátelství, zdvořile žádal/a, nebo projevil/a řádnou etiketu. Příklady přesvědčování zahrnují přesvědčení komořího, aby nechal družinu spatřit krále, vyjednávání o míru mezi válčícími kmeny, nebo inspirování davu měšťanů."
     },
         "rel": {
         "tooltip": "Tvé ověření Inteligence (Náboženství) měří tvou schopnost si vybavit znalosti o božstvech, rituálech a modlitbách, náboženských hierarchiích, svatých symbolech a praktikách tajných kultů."
@@ -196,7 +196,7 @@
         "tooltip": "<p>Odolnost měří zdraví, výdrž a životní sílu.</p><p><strong>Ověření Odolnosti</strong><br/>Ověření odolnosti jsou neobvyklé a žádné dovednosti se na ně nevztahují, protože výdrž, kterou tato schopnost představuje, je většinou pasivní a nezahrnuje konkrétní úsilí ze strany postavy či bytosti. Ověření Odolnosti může modelovat tvůj pokus překonat normální limity.</p><p>PJ může požádat o ověření Odolnosti, když se pokoušíš splnit úkoly jako následující:<ul><li>Zadržet dech</li><li>Pochodovat, nebo pracovat hodiny bez odpočinku</li><li>Obstát bez spánku</li><li>Přežít bez jídla, nebo vody</li><li>Vypít celou holbu piva na jeden zátah</li></ul></p><p><strong>Body výdrže</strong><br/>Tvá oprava Odolnosti přispívá k tvým bodům výdrže. Obvykle přidáváš svou opravu Odolnosti ke každému hodu kostek obnovy, které házíš pro své body výdrže.</p><p>Pokud se tvá oprava Odolnosti změní, změní se také tvé maximum bodů výdrže, jako bys měl novou opravu od 1. úrovně. Například pokud zvýšíš svou hodnotu Odolnosti, když dosáhneš 4. úrovně, a tvá oprava Odolnosti se zvýší z +1 na +2, upravíš své maximum bodů výdrže, jako by byl modifikátor vždy +2. Takže přidáš 3 BV za své první tři úrovně a poté hodíš na své body výdrže za 4. úroveň pomocí nové opravy. Nebo pokud jsi 7. úrovně a nějaký efekt sníží tvou hodnotu Odolnosti, což sníží tvou opravu Odolnosti o 1, tvé maximum BV se sníží o 7.</p>"
     },
         "int": {
-        "tooltip": "<p>Inteligence měří duševní bystrost, přesnost vzpomínek a schopnost uvažovat.</p><p><strong>Ověření Inteligence</strong><br/>Ověření Inteligence se uplatňuje, když potřebuješ využít logiku, vzdělání, paměť, nebo deduktivní uvažování. Dovednosti Mystika, Historie, Vyšetřování, Příroda a Náboženství odrážejí způsobilost v určitých typech ověření Inteligence.</p><p><strong>Další ověření Inteligence</strong><br/>PJ může požádat o ověření inteligence, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Komunikovat s bytostí bez použití slov</li><li>Odhadnout hodnotu cenného předmětu</li><li>Připravit si převlek, abys mohl projít jako městská hlídka</li><li>Padělat dokument</li><li>Vzpomínat si na znalosti o řemesle, nebo obchodu</li><li>Vyhrát znalostní hru</li></ul></p>"
+        "tooltip": "<p>Inteligence měří duševní bystrost, přesnost vzpomínek a schopnost uvažovat.</p><p><strong>Ověření Inteligence</strong><br/>Ověření Inteligence se uplatňuje, když potřebuješ využít logiku, vzdělání, paměť, nebo deduktivní uvažování. Dovednosti Mystika, Historie, Pátrání, Příroda a Náboženství odrážejí způsobilost v určitých typech ověření Inteligence.</p><p><strong>Další ověření Inteligence</strong><br/>PJ může požádat o ověření inteligence, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Komunikovat s bytostí bez použití slov</li><li>Odhadnout hodnotu cenného předmětu</li><li>Připravit si převlek, abys mohl projít jako městská hlídka</li><li>Padělat dokument</li><li>Vzpomínat si na znalosti o řemesle, nebo obchodu</li><li>Vyhrát znalostní hru</li></ul></p>"
     },
         "wis": {
         "tooltip": "<p>Moudrost odráží, jak jsi v souladu se světem kolem sebe, a představuje vnímavost a intuici.</p><p><strong>Ověření Moudrosti</strong>Ověření Moudrosti může odrážet snahu číst řeč těla, porozumět něčím pocitům, všímat si věcí v prostředí, nebo pečovat o zraněnou osobu. Dovednosti Ovládání zvířat, Vhled, Lékařství, Vnímání a Přežití odrážejí způsobilost v určitých typech ověření Moudrosti.</p><p><strong>Další ověření Moudrosti</strong></br>PJ může požádat o ověření Moudrosti, když se pokoušíš splnit úkoly, jako jsou následující:<ul><li>Dostat pocit, jakým směrem se akce vyvine</li><li>Rozlišit, zda je zdánlivě mrtvá, nebo naopak živá bytost nemrtvá</li></ul></p>"

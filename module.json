@@ -62,6 +62,11 @@
       "path": "languages/cn.json"
     },
     {
+      "lang": "cs",
+      "name": "Čeština",
+      "path": "languages/cs.json"
+    },
+    {
       "lang": "pl",
       "name": "Polski",
       "path": "languages/pl.json"
@@ -102,4 +107,5 @@
     "minimum": "13",
     "verified": "13"
   }
+
 }
