@@ -39,7 +39,7 @@
             },
             "explodeItemActivities": {
                 "name": "Expand Items into Activities",
-                "hint": "Wether to treat each activity as a separate button in the HUD",
+                "hint": "Whether to treat each activity as a separate button in the HUD",
                 "only-weapons": "Only expand weapons",
                 "always": "Always expand",
                 "never": "Never expand"

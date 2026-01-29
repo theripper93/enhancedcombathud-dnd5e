@@ -1,249 +1,256 @@
 {
-    "enhancedcombathud-dnd5e": {
-        "itemconfig": {
-            "sets": {
-                "text": "Set di Armi"
-            },
-            "set1p": {
-                "text": "Set 1 (Primario)"
-            },
-            "set2p": {
-                "text": "Set 2 (Primario)"
-            },
-            "set3p": {
-                "text": "Set 3 (Primario)"
-            },
-            "set1s": {
-                "text": "Set 1 (Secondario)"
-            },
-            "set2s": {
-                "text": "Set 2 (Secondario)"
-            },
-            "set3s": {
-                "text": "Set 3 (Secondario)"
-            }
-        },
-        "hud": {
-            "mainactions": {
-                "name": "Azione Principale"
-            },
-            "castspell": {
-                "name": "Lancia Incantesimo"
-            },
-            "usepower": {
-                "name": "Usa Privilegio"
-            },
-            "useitem": {
-                "name": "Usa Oggetto"
-            },
-            "bonusaction": {
-                "name": "Bonus"
-            },
-            "reaction": {
-                "name": "Reazione"
-            },
-            "specialaction": {
-                "name": "Libero"
-            },
-            "pass": {
-                "name": "Passa"
-            },
-            "endturn": {
-                "name": "Fine Turno"
-            },
-            "hp": {
-                "name": "PF"
-            },
-            "ac": {
-                "name": "CA"
-            },
-            "of": {
-                "name": "di"
-            },
-            "inventory": {
-                "name": "Scheda PG"
-            },
-            "saves": {
-                "name": "Tiri Salvezza"
-            },
-            "skills": {
-                "name": "Abilità"
-            },
-            "tools": {
-                "name": "Strumenti"
-            },
-            "spells": {
-                "1": "1º Livello",
-                "2": "2º Livello",
-                "3": "3º Livello",
-                "4": "4º Livello",
-                "5": "5º Livello",
-                "6": "6º Livello",
-                "7": "7º Livello",
-                "8": "8º Livello",
-                "9": "9º Livello",
-                "cantrip": "Trucchetto",
-                "pact": "Patto Magico",
-                "will": "A Volontà",
-                "innate": "Innato"
-            }
-        },
-        "items": {
-            "disengage": {
-                "name": "Disimpegno",
-                "desc": "<p>Se un personaggio compie l'azione di Disimpegno, il suo movimento non provoca attacchi di opportunità per il resto del turno.</p>"
-            },
-            "hide": {
-                "name": "Nascondersi",
-                "desc": "<p>Quando si esegue l'azione Nascondersi, si effettua una prova di Destrezza (Furtività) nel tentativo di nascondersi, seguendo le regole per nascondersi. Se ci riesci, ottieni determinati vantaggi.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">I combattenti spesso cercano di sfuggire all'attenzione dei loro nemici nascondendosi, lanciando l'incantesimo Invisibilità o nascondendosi nell'oscurità.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">Quando attacchi un bersaglio che non puoi vedere, hai lo svantaggio al tiro per colpire. Questo è valido sia che tu stia indovinando la posizione del bersaglio o che tu stia prendendo di mira una creatura che puoi sentire ma non vedere. Se il bersaglio non si trova nella posizione che hai preso di mira, manchi automaticamente, ma il DM in genere dice solo che l'attacco è andato a vuoto, non se hai indovinato la posizione del bersaglio correttamente.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Quando una creatura non può vederti, hai il vantaggio ai tiri per colpire contro di essa. Se sei nascosto, sia invisibile che non sentito, quando fai un attacco, fornisci la tua posizione quando l'attacco colpisce o manca.</p>\n<p>&nbsp;</p>"
-            },
-            "shove": {
-                "name": "Spingere",
-                "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Quando vuoi bloccare una creatura o lottarci a terra, puoi usare l’azione Attaccare per effettuare uno speciale attacco in mischia: lottare. Se sei in grado di attaccare più volte con l’azione Attaccare, questo attacco ne rimpiazza uno.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">Il bersaglio di questo attacco non può essere più di una taglia più grosso di te, e deve essere a portata. Utilizzando almeno una mano libera, cerchi di prendere l’avversario effettuando una prova di lottare, ovvero una prova di Forza (Atletica) contesa dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio (starà al bersaglio scegliere quale usare). Se riesci, poni il bersaglio nella condizione afferrato (vedi l’appendice). La condizione specifica cosa le pone termine, e puoi liberare il bersaglio in qualsiasi momento, senza dover effettuare alcuna azione.</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Sfuggire alla Presa. Una creatura afferrata può usare la sua azione per liberarsi. Per farlo, deve riuscire una prova di Forza (Atletica) o Destrezza (Acrobazia) contesa dalla tua prova di Forza (Atletica).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Spostare una Creatura Afferrata. Quando ti muovi, puoi trascinare o trasportare la creatura afferrata con te, ma la tua velocità è dimezzata, a meno che la creatura non sia di due o più taglie più piccola di te.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Spingere una Creatura</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Usando l’azione Attaccare, puoi effettuare uno speciale attacco in mischia per spingere una creatura, per gettarla prona o per allontanarla da te. Se puoi effettuare attacchi multipli con l’azione Attaccare, questo attacco ne rimpiazza uno.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">Il bersaglio della tua spinta non può essere più di una taglia più grosso di te, e deve essere a portata. Effettui una prova di Forza (Atletica) contesa dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio (starà al bersaglio scegliere quale usare). Se vinci la contesa, getti prono il bersaglio o lo spingi 1,5 metri lontano da te.</p>"
-            },
-            "dash": {
-                "name": "Scatto",
-                "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Quando effettui l’azione Scattare, aumenti il tuo movimento per il turno in corso. L’incremento è uguale alla tua velocità, dopo l’applicazione di qualsiasi modificatore. Con velocità 9 metri, per esempio, se scatti durante il tuo turno potrai muoverti di 18 metri.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Qualsiasi incremento o decremento della tua velocità cambia questo movimento aggiuntivo dello stesso ammontare. Se la tua velocità 9 metri è ridotta a 4,5 metri, per esempio, in questo turno potrai muoverti 9 metri scattando.</p>"
-            },
-            "dodge": {
-                "name": "Schivata",
-                "desc": "<p>Quando effettui l’azione Schivare, ti concentri solamente sull’evitare gli attacchi. Fino all’inizio del tuo prossimo turno, qualsiasi tiro per colpire effettuato contro di te ha svantaggio qualora tu possa vedere l’attaccante, ed effettuerai i tiri salvezza su Destrezza con vantaggio. Perdi questo beneficio se sei inabile (come spiegato nell’appendice) o se la tua velocità scende a 0.</p>"
-            },
-            "ready": {
-                "name": "Preparare",
-                "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">A volte, vuoi anticipare un avversario o aspettare una specifica circostanza prima di agire. Per farlo, puoi effettuare durante il tuo turno l’azione Preparare in modo da agire più avanti tramite la tua reazione. Hai fino al tuo prossimo turno per usare l’azione preparata.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Per prima cosa, decidi quale circostanza percettibile possa provocare la tua reazione. Poi, scegli l’azione che effettuerai in risposta a quell’innesco, o muoviti fino al massimo della tua velocità. Esempi includono “Se il cultista va sulla botola, tirerò la leva che la apre,” e “Se il goblin si avvicina, mi allontano.”</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">Quando si manifesta l’innesco, puoi usare la tua reazione subito dopo il termine dell’innesco o ignorarlo. Ricordati che puoi effettuare una sola reazione per round.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">Quando prepari un incantesimo, lo lanci come di norma ma ne trattieni l’energia, che libererai con la tua reazione al manifestarsi dell’innesco. Per essere preparato, un incantesimo deve avere tempo di lancio 1 azione, e trattenere la magia dell’incantesimo richiede concentrazione. Se la tua concentrazione è infranta, l’incantesimo si dissipa senza produrre effetto. Per esempio, se ti stai concentrando sull’incantesimo ragnatela e prepari dardo incantato, l’incantesimo ragnatela termina, e se subisci danni prima di liberare il dardo incantato con la tua reazione, la tua concentrazione potrebbe infrangersi.</p>"
-            }
-        },
-        "skills": {
-            "acr": {
-                "tooltip": "Le prove di Destrezza (Acrobazie) copreno il tuo tentativo di rimanere in piedi in una situazione difficile, come quando stai cercando di correre su una lastra di ghiaccio, tenerti in equilibrio su una corda tesa o stare in piedi sul ponte di una nave. Il DM potrebbe anche richiedere una prova di Destrezza (Acrobazie) per vedere se è possibile eseguire acrobazie, inclusi tuffi, capriole e salti mortali."
-            },
-            "ani": {
-                "tooltip": "Quando ci si trova nella situazione di dover calmare un animale domestico, impedire a una cavalcatura di spaventarsi o intuire le intenzioni di un animale, il DM potrebbe richiedere una prova di Saggezza (Addestrare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa."
-            },
-            "arc": {
-                "tooltip": "Le prove di Intelligenza (Arcano) misurano la tua capacità di richiamare conoscenze su incantesimi, oggetti magici, simboli mitici, tradizioni magiche, piani di esistenza e abitanti di quei piani."
-            },
-            "ath": {
-                "tooltip": "<p>Le prova di Forza (Atletica) coprono le situazioni difficili che incontri mentre ti arrampichi, salti o nuoti. Gli esempi includono le seguenti attività:</p><ul><li>tentare di scalare una scogliera a picco e scivolosa, evitare i pericoli mentre scali una parete o ti aggrappi a una superficie mentre qualcosa sta cercando di buttarti giù</li><li>Provare a saltare una distanza insolitamente lunga o fare un'acrobazia a metà salto</li><li>Faticare a nuotare o a rimanere a galla in correnti insidiose, onde agitate dalle tempeste o aree coperte da spesse alghe. Oppure un'altra creatura cerca di spingerti o tirarti sott'acqua o di interferire in altro modo mentre nuoti.</li></ul>"
-            },
-            "dec": {
-                "tooltip": "La prove di Carisma (Inganno) determinano se puoi celare in modo convincente la verità, verbalmente o attraverso le tue azioni. L'inganno può comprendere tutto, dal fuorviare gli altri attraverso l'ambiguità al dire menzogne ​​​​apertamente. Situazioni tipiche includono cercare di parlare velocemente con una guardia, truffare un mercante, guadagnare denaro con il gioco d'azzardo, celare l'aspetto travestendosi, attenuare i sospetti di qualcuno con false assicurazioni o mantenere un aspetto serio mentre si racconta una palese bugia."
-            },
-            "his": {
-                "tooltip": "Le prove di Intelligenza (Storia) misurano la tua capacità di ricordare le tradizioni su eventi storici, persone leggendarie, antichi regni, dispute passate, guerre recenti e civiltà perdute."
-            },
-            "ins": {
-                "tooltip": "Le prove di Saggezza (Intuizione) decidono se è possibile determinare le vere intenzioni di una creatura, ad esempio quando si scopre una bugia o si prevede la prossima mossa di qualcuno. Fare ciò implica raccogliere indizi dal linguaggio del corpo, dalle abitudini del linguaggio e dai cambiamenti nei modi di fare."
-            },
-            "itm": {
-                "tooltip": "Quando tenti di influenzare qualcuno attraverso minacce palesi, azioni ostili e violenza fisica, il DM potrebbe chiederti di effettuare una prova di Carisma (Intimidazione). Gli esempi includono il tentativo di estrapolare informazioni da un prigioniero, convincere dei delinquenti di strada a rinunciare a uno scontro o usare il bordo di una bottiglia rotta per convincere un visir beffardo a riconsiderare una decisione."
-            },
-            "inv": {
-                "tooltip": "Quando cerchi indizi e fai deduzioni basate su quegli indizi, fai una prova di Intelligenza (Indagine). Potresti dedurre la posizione di un oggetto nascosto, discernere dall'aspetto di una ferita che tipo di arma lo ha inferto o determinare il punto più debole in un tunnel che potrebbe provocarne il collasso. Anche sfogliare antiche pergamene alla ricerca di un frammento nascosto di conoscenza potrebbe richiedere una prova di Intelligenza (Indagine)."
-            },
-            "med": {
-                "tooltip": "Una prova di Saggezza (Medicina) consente di cercare di stabilizzare un compagno morente o di diagnosticare una malattia."
-            },
-            "nat": {
-                "tooltip": "Le prove di Intelligenza (Natura) misurano la tua capacità di ricordare le caratteristiche di terreni, piante e animali, il tempo e i cicli naturali."
-            },
-            "prc": {
-                "tooltip": "La prove di Saggezza (Percezione) ti consentono di individuare, ascoltare o rilevare in altro modo la presenza di qualcosa. Misurano la tua consapevolezza generale di ciò che ti circonda e l'acutezza dei tuoi sensi. Ad esempio, potresti provare a sentire una conversazione attraverso una porta chiusa, origliare sotto una finestra aperta o ascoltare i mostri che si muovono furtivamente nella foresta. Oppure potresti provare a individuare cose che sono oscurate o facili da perdere, che si tratti di orchi in agguato su una strada, delinquenti nascosti nell'ombra di un vicolo o a lume di candela sotto una porta segreta chiusa."
-            },
-            "prf": {
-                "tooltip": "La prove di Carisma (Intrattenere) determina quanto bene puoi deliziare un pubblico con musica, danza, recitazione, narrazione o qualche altra forma di intrattenimento."
-            },
-            "per": {
-                "tooltip": "Quando tenti di influenzare qualcuno o un gruppo di persone con tatto, portamento o buone maniere, il DM potrebbe chiederti di fare una prova di Carisma (Persuasione). In genere, usi la persuasione quando agisci in buona fede, per promuovere amicizie, fare richieste cordiali o esibire un'etichetta adeguata. Esempi di persuadere gli altri includono convincere un ciambellano a lasciare che il tuo gruppo veda il re, negoziare la pace tra tribù in guerra o ispirare una folla di cittadini."
-            },
-            "rel": {
-                "tooltip": "Le prove di Intelligenza (Religione) misurano la tua capacità di ricordare tradizioni su divinità, riti e preghiere, gerarchie religiose, simboli sacri e pratiche di culti segreti."
-            },
-            "slt": {
-                "tooltip": "Ogni volta che si tenta un atto di gioco di prestigio o un trucchetto manuale, come piantare qualcosa su qualcun altro o nascondere un oggetto sulla propria persona, si deve  effettuare una prova di Destrezza (Rapidità di Mano). Il DM potrebbe anche richiedere una prova di Destrezza (Rapidità di Mano) per determinare se è possibile sfilare un portamonete da un'altra persona o far scivolare qualcosa fuori dalla tasca di un'altra persona."
-            },
-            "ste": {
-                "tooltip": "Effettua una prova di Destrezza (Furtività) quando tenti di nasconderti dai nemici, sgattaiolare oltre le guardie, scivolare via senza essere notato o avvicinarti di soppiatto a qualcuno senza essere visto o sentito."
-            },
-            "sur": {
-                "tooltip": "Il DM potrebbe chiederti di effettuare una prova di Saggezza (Sopravvivenza) per seguire tracce, cacciare selvaggina, guidare il tuo gruppo attraverso terre desolate ghiacciate, identificare i segni che indicano che gli orsigufo vivono nelle vicinanze, prevedere il tempo o evitare le sabbie mobili e altri pericoli naturali."
-            }
-        },
-        "tooltip": {
-            "target": {
-                "name": "Bersaglio"
-            },
-            "range": {
-                "name": "Distanza"
-            },
-            "properties": {
-                "name": "Proprietà"
-            },
-            "damage": {
-                "name": "Danno"
-            },
-            "toHit": {
-                "name": "Colpire"
-            }
-        },
-        "abilities": {
-            "cha": {
-                "tooltip": "<p>Il carisma misura la tua capacità di interagire in modo efficace con gli altri. \nInclude fattori come sicurezza ed eloquenza e può rappresentare una personalità affascinante o imponente.</p><p><strong>Altre prove di Carisma</strong><br/>Il DM potrebbe richiedere una prova di Carisma quando tu \nprova a svolgere attività come le seguenti:<ul><li>Trova la persona migliore con cui parlare per notizie, voci e pettegolezzi</li><li>Mimetizzarsi tra la folla per comprendere il senso degli argomenti chiave di conversazione</ \nli></ul></p>"
-            },
-            "con": {
-                "tooltip": "<p>La Costituzione misura la salute, la resistenza e la forza vitale.</p><p><strong>Verifica di Costituzione</strong><br/>Le prove di Costituzione sono rare e nessuna abilità si applica alle prove di Costituzione, perché la resistenza \nL'abilità rappresenta è in gran parte passiva piuttosto che comportare uno sforzo specifico da parte di un personaggio o di un mostro. \nTuttavia, una prova di Costituzione può modellare il tuo tentativo di spingerti oltre i limiti normali.</p><p>Il DM potrebbe richiedere una prova di Costituzione quando provi a svolgere compiti come i seguenti:<ul><li>Trattenete il respiro< \n/li><li>Marcia o lavora per ore senza riposo</li><li>Vai senza dormire</li><li>Sopravvivi senza cibo né acqua</li><li>Bevi un intero boccale di birra in una volta \nvai</li></ul></p><p><strong>Punti ferita</strong><br/>Il tuo modificatore di Costituzione contribuisce ai tuoi punti ferita. \nSolitamente, aggiungi il tuo modificatore di Costituzione a ogni Dado Vita che tiri per i tuoi punti ferita.</p><p>Se il tuo modificatore di Costituzione cambia, cambia anche il tuo massimo di punti ferita, come se avessi il nuovo modificatore dal 1° livello. \nAd esempio, se aumenti il ​​tuo punteggio di Costituzione quando raggiungi il 4° livello e il tuo modificatore di Costituzione aumenta da 1 a 2, modifichi il tuo massimo di punti ferita come se il modificatore fosse sempre stato 2. Quindi aggiungi 3 punti ferita per i tuoi primi tre livelli \n, quindi tira i tuoi punti ferita per il 4° livello usando il tuo nuovo modificatore. \nOppure, se sei di 7° livello e qualche effetto abbassa il tuo punteggio di Costituzione tanto da ridurre il tuo modificatore di Costituzione di 1, i tuoi punti ferita massimi vengono ridotti di 7.</p>"
-            },
-            "dex": {
-                "tooltip": "<p>La Destrezza misura l'agilità, i riflessi e l'equilibrio.</p><p><strong>Prove di Destrezza</strong><br/>Una prova di Destrezza può modellare qualsiasi tentativo di muoversi agilmente, velocemente o silenziosamente, o di \nevitare di cadere su un terreno difficile. \nLe abilità Acrobazia, Rapidità di mano e Furtività riflettono l'attitudine in alcuni tipi di prove di Destrezza.</p><p><strong>Altre prove di Destrezza</strong><br/>Il DM potrebbe richiedere una prova di Destrezza quando tu \nprova a svolgere compiti come i seguenti:<ul><li>Controllare un carro pesantemente carico durante una discesa ripida</li><li>Guidare un carro attorno a una curva stretta</li><li>Scassinare una serratura</li \n><li>Disattiva una trappola</li><li>Lega saldamente un prigioniero</li><li>Liberati dai legami</li><li>Suona uno strumento a corda</li><li>Crea un \noggetto piccolo o dettagliato</li></ul></p><p><strong>Classe di armatura</strong><br/>A seconda dell'armatura che indossi, potresti aggiungere parte o tutto il tuo modificatore di Destrezza a \nla tua Classe Armatura, come descritto nel capitolo 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Equipaggiamento.</a></p><p>< \nstrong>Iniziativa</strong><br/>All'inizio di ogni combattimento, tiri l'iniziativa effettuando una prova di Destrezza. \nL'iniziativa determina l'ordine dei turni delle creature in combattimento, come descritto nel capitolo 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Combattimento.</a>"
-            },
-            "int": {
-                "tooltip": "<p>L'intelligenza misura l'acutezza mentale, l'accuratezza della memoria e la capacità di ragionare.</p><p><strong>Verifica di Intelligenza</strong><br/>Una prova di Intelligenza entra in gioco quando è necessario attingere \nlogica, educazione, memoria o ragionamento deduttivo. \nLe abilità Arcano, Storia, Investigazione, Natura e Religione riflettono l'attitudine in certi tipi di prove di Intelligenza.</p><p><strong>Altre prove di Intelligenza</strong><br/>Il DM potrebbe richiedere una prova di Intelligenza \nquando provi a svolgere compiti come i seguenti:<ul><li>Comunicare con una creatura senza usare parole</li><li>Stimare il valore di un oggetto prezioso</li><li>Creare un travestimento per passare \ncome guardia cittadina</li><li>Forgia un documento</li><li>Ricorda la tradizione di un mestiere o di un mestiere</li><li>Vinci un gioco di abilità</li></ul></ \np>"
-            },
-            "str": {
-                "tooltip": "<p>La Forza misura la potenza corporea, la preparazione atletica e la misura in cui puoi esercitare la forza fisica.</p><p><strong>Prove di Forza</strong><br/>Una prova di Forza può modellare qualsiasi tentativo \nsollevare, spingere, tirare o rompere qualcosa, forzare il proprio corpo ad attraversare uno spazio o applicare in altro modo la forza bruta a una situazione. \nL'abilità Atletica riflette l'attitudine in certi tipi di prove di Forza.</p><p><strong>Altre prove di Forza</strong><br/>Il DM potrebbe anche richiedere una prova di Forza quando provi a svolgere compiti come \nseguente:<ul><li>Aprire con la forza una porta bloccata, chiusa a chiave o sbarrata</li><li>Liberarsi dai legami</li><li>Spingersi attraverso un tunnel troppo piccolo</li><li \n>Aggrappati a un carro mentre vieni trascinato dietro</li><li>Ribalta una statua</li><li>Evita che un masso rotoli</li></ul></p><p>< \nstrong>Sollevamento e trasporto</strong><br/> Il tuo punteggio di forza determina la quantità di peso che puoi sopportare. \nI seguenti termini definiscono cosa puoi sollevare o trasportare.</p><p><strong>Capacità di carico.</strong> La tua capacità di carico è il tuo punteggio di Forza moltiplicato per 15. Questo è il peso (in libbre) che puoi \ntrasportare, che è abbastanza alto da consentire alla maggior parte dei personaggi di non doversi preoccupare.</p><p><strong>Spingi, trascina o solleva.</strong> Puoi spingere, trascinare o sollevare un peso \nin libbre fino al doppio della tua capacità di carico (o 30 volte il tuo punteggio di Forza). \nMentre spingi o trascini un peso superiore alla tua capacità di carico, la tua velocità scende a 1,5 metri.</p><p><strong>Taglia e forza.</strong> Le creature più grandi possono sopportare più peso, mentre le creature Minuscole possono trasportarne meno \n. \nPer ogni categoria di taglia superiore alla Media, raddoppia la capacità di carico della creatura e la quantità che può spingere, trascinare o sollevare. \nPer una creatura Minuscola, dimezza questi pesi.</p>"
-            },
-            "wis": {
-                "tooltip": "<p>La saggezza riflette quanto sei in sintonia con il mondo che ti circonda e rappresenta la percettività e l'intuizione.</p><p><strong>Verifica di saggezza</strong>Una prova di saggezza potrebbe riflettere uno sforzo per leggere il linguaggio del corpo, comprendere il linguaggio di qualcuno \nsentimenti, notare cose sull'ambiente o prendersi cura di una persona ferita. \nLe abilità Addestramento Animali, Intuizione, Medicina, Percezione e Sopravvivenza riflettono l'attitudine in certi tipi di prove di Saggezza.</p><p><strong>Altre prove di Saggezza</strong></br>Il DM potrebbe richiedere una Saggezza \ncontrolla quando provi a svolgere attività come le seguenti:<ul><li>Avere un'idea di quale linea di condotta seguire</li><li>Capire se una creatura apparentemente morta o vivente è non morta</li>< \n/ul></p>"
-            }
-        },
-        "portraitConfig": {
-            "prepared": {
-                "all": "Tutti gli incantesimi",
-                "auto": "Trovato automaticamente",
-                "label": "Incantesimi preparati",
-                "preparedOnly": "Solo preparato"
-            }
-        },
-        "settings": {
-            "condenseClassActions": {
-                "hint": "Se l'opzione \"Mostra azioni della classe\" è abilitata, condensa le azioni della classe in coppie per risparmiare spazio",
-                "name": "Azioni collettive condensate"
-            },
-            "macroPanel": {
-                "hint": "Mostra un pannello macro per ogni personaggio che rispecchia le macro della hotbar",
-                "name": "Pannello macro"
-            },
-            "noAA": {
-                "hint": "Non applicare effetti attivi quando si utilizzano azioni speciali. \n(richiede aggiornamento)",
-                "name": "Non applicare effetti attivi"
-            },
-            "showClassActions": {
-                "hint": "Mostra le azioni della classe nelle barre delle azioni principali",
-                "name": "Mostra azioni di classe"
-            },
-            "showSpecialActions": {
-                "hint": "Mostra le azioni di base nella sezione Azione principale. \n(Schivare, Scattare, Disimpegnarsi, Nascondersi, Pronti, Spingere)",
-                "name": "Mostra azioni di base"
-            },
-            "showWeaponsItems": {
-                "hint": "Mostra le armi nella sezione \"Usa oggetto\". \nUtile se gli slot per le armi non sono sufficienti",
-                "name": "Mostra le armi nella sezione \"Usa oggetto\"."
-            },
-            "switchEquip": {
-                "hint": "Equipaggia/rimuovi automaticamente gli oggetti quando si cambia set",
-                "name": "Equipaggiamento automatico"
-            }
-        }
+  "enhancedcombathud-dnd5e": {
+    "portraitConfig": {
+      "prepared": {
+        "label": "Incantesimi preparati",
+        "auto": "Trovato automaticamente",
+        "preparedOnly": "Solo preparato",
+        "all": "Tutti gli incantesimi"
+      }
+    },
+    "settings": {
+      "switchEquip": {
+        "name": "Equipaggiamento automatico",
+        "hint": "Equipaggia/rimuovi automaticamente gli oggetti quando si cambia set"
+      },
+      "showWeaponsItems": {
+        "name": "Mostra le armi nella sezione \"Usa oggetto\".",
+        "hint": "Mostra le armi nella sezione \"Usa oggetto\". \nUtile se gli slot per le armi non sono sufficienti"
+      },
+      "showClassActions": {
+        "name": "Mostra azioni di classe",
+        "hint": "Mostra le azioni della classe nelle barre delle azioni principali"
+      },
+      "condenseClassActions": {
+        "name": "Azioni collettive condensate",
+        "hint": "Se l'opzione \"Mostra azioni della classe\" è abilitata, condensa le azioni della classe in coppie per risparmiare spazio"
+      },
+      "noAA": {
+        "name": "Non applicare effetti attivi",
+        "hint": "Non applicare effetti attivi quando si utilizzano azioni speciali. \n(richiede aggiornamento)"
+      },
+      "showSpecialActions": {
+        "name": "Mostra azioni di base",
+        "hint": "Mostra le azioni di base nella sezione Azione principale. \n(Schivare, Scattare, Disimpegnarsi, Nascondersi, Pronti, Spingere)"
+      },
+      "macroPanel": {
+        "name": "Pannello macro",
+        "hint": "Mostra un pannello macro per ogni personaggio che rispecchia le macro della hotbar"
+      },
+      "explodeItemActivities": {
+        "name": "Espandi gli elementi in attività",
+        "hint": "Se trattare ogni attività come un pulsante separato nell'HUD",
+        "only-weapons": "Espandi solo le armi",
+        "always": "Espandi sempre",
+        "never": "Non espandere mai"
+      }
+    },
+    "hud": {
+      "mainactions": {
+        "name": "Azione Principale"
+      },
+      "castspell": {
+        "name": "Lancia Incantesimo"
+      },
+      "usepower": {
+        "name": "Usa Privilegio"
+      },
+      "useitem": {
+        "name": "Usa Oggetto"
+      },
+      "bonusaction": {
+        "name": "Bonus"
+      },
+      "reaction": {
+        "name": "Reazione"
+      },
+      "specialaction": {
+        "name": "Libero"
+      },
+      "pass": {
+        "name": "Passa"
+      },
+      "endturn": {
+        "name": "Fine Turno"
+      },
+      "hp": {
+        "name": "PF"
+      },
+      "ac": {
+        "name": "CA"
+      },
+      "of": {
+        "name": "di"
+      },
+      "inventory": {
+        "name": "Scheda PG"
+      },
+      "saves": {
+        "name": "Tiri Salvezza"
+      },
+      "skills": {
+        "name": "Abilità"
+      },
+      "tools": {
+        "name": "Strumenti"
+      },
+      "spells": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "cantrip": "",
+        "innate": "",
+        "pact": "",
+        "will": ""
+      }
+    },
+    "items": {
+      "disengage": {
+        "name": "Disimpegno",
+        "desc": "<p>Se un personaggio compie l'azione di Disimpegno, il suo movimento non provoca attacchi di opportunità per il resto del turno.</p>"
+      },
+      "hide": {
+        "name": "Nascondersi",
+        "desc": "<p>Quando si esegue l'azione Nascondersi, si effettua una prova di Destrezza (Furtività) nel tentativo di nascondersi, seguendo le regole per nascondersi. Se ci riesci, ottieni determinati vantaggi.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">I combattenti spesso cercano di sfuggire all'attenzione dei loro nemici nascondendosi, lanciando l'incantesimo Invisibilità o nascondendosi nell'oscurità.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">Quando attacchi un bersaglio che non puoi vedere, hai lo svantaggio al tiro per colpire. Questo è valido sia che tu stia indovinando la posizione del bersaglio o che tu stia prendendo di mira una creatura che puoi sentire ma non vedere. Se il bersaglio non si trova nella posizione che hai preso di mira, manchi automaticamente, ma il DM in genere dice solo che l'attacco è andato a vuoto, non se hai indovinato la posizione del bersaglio correttamente.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Quando una creatura non può vederti, hai il vantaggio ai tiri per colpire contro di essa. Se sei nascosto, sia invisibile che non sentito, quando fai un attacco, fornisci la tua posizione quando l'attacco colpisce o manca.</p>\n<p>&nbsp;</p>"
+      },
+      "shove": {
+        "name": "Spingere",
+        "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Quando vuoi bloccare una creatura o lottarci a terra, puoi usare l’azione Attaccare per effettuare uno speciale attacco in mischia: lottare. Se sei in grado di attaccare più volte con l’azione Attaccare, questo attacco ne rimpiazza uno.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">Il bersaglio di questo attacco non può essere più di una taglia più grosso di te, e deve essere a portata. Utilizzando almeno una mano libera, cerchi di prendere l’avversario effettuando una prova di lottare, ovvero una prova di Forza (Atletica) contesa dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio (starà al bersaglio scegliere quale usare). Se riesci, poni il bersaglio nella condizione afferrato (vedi l’appendice). La condizione specifica cosa le pone termine, e puoi liberare il bersaglio in qualsiasi momento, senza dover effettuare alcuna azione.</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Sfuggire alla Presa. Una creatura afferrata può usare la sua azione per liberarsi. Per farlo, deve riuscire una prova di Forza (Atletica) o Destrezza (Acrobazia) contesa dalla tua prova di Forza (Atletica).</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Spostare una Creatura Afferrata. Quando ti muovi, puoi trascinare o trasportare la creatura afferrata con te, ma la tua velocità è dimezzata, a meno che la creatura non sia di due o più taglie più piccola di te.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Spingere una Creatura</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Usando l’azione Attaccare, puoi effettuare uno speciale attacco in mischia per spingere una creatura, per gettarla prona o per allontanarla da te. Se puoi effettuare attacchi multipli con l’azione Attaccare, questo attacco ne rimpiazza uno.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">Il bersaglio della tua spinta non può essere più di una taglia più grosso di te, e deve essere a portata. Effettui una prova di Forza (Atletica) contesa dalla prova di Forza (Atletica) o Destrezza (Acrobazia) del bersaglio (starà al bersaglio scegliere quale usare). Se vinci la contesa, getti prono il bersaglio o lo spingi 1,5 metri lontano da te.</p>"
+      },
+      "dash": {
+        "name": "Scatto",
+        "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Quando effettui l’azione Scattare, aumenti il tuo movimento per il turno in corso. L’incremento è uguale alla tua velocità, dopo l’applicazione di qualsiasi modificatore. Con velocità 9 metri, per esempio, se scatti durante il tuo turno potrai muoverti di 18 metri.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Qualsiasi incremento o decremento della tua velocità cambia questo movimento aggiuntivo dello stesso ammontare. Se la tua velocità 9 metri è ridotta a 4,5 metri, per esempio, in questo turno potrai muoverti 9 metri scattando.</p>"
+      },
+      "dodge": {
+        "name": "Schivata",
+        "desc": "<p>Quando effettui l’azione Schivare, ti concentri solamente sull’evitare gli attacchi. Fino all’inizio del tuo prossimo turno, qualsiasi tiro per colpire effettuato contro di te ha svantaggio qualora tu possa vedere l’attaccante, ed effettuerai i tiri salvezza su Destrezza con vantaggio. Perdi questo beneficio se sei inabile (come spiegato nell’appendice) o se la tua velocità scende a 0.</p>"
+      },
+      "ready": {
+        "name": "Preparare",
+        "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">A volte, vuoi anticipare un avversario o aspettare una specifica circostanza prima di agire. Per farlo, puoi effettuare durante il tuo turno l’azione Preparare in modo da agire più avanti tramite la tua reazione. Hai fino al tuo prossimo turno per usare l’azione preparata.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Per prima cosa, decidi quale circostanza percettibile possa provocare la tua reazione. Poi, scegli l’azione che effettuerai in risposta a quell’innesco, o muoviti fino al massimo della tua velocità. Esempi includono “Se il cultista va sulla botola, tirerò la leva che la apre,” e “Se il goblin si avvicina, mi allontano.”</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">Quando si manifesta l’innesco, puoi usare la tua reazione subito dopo il termine dell’innesco o ignorarlo. Ricordati che puoi effettuare una sola reazione per round.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">Quando prepari un incantesimo, lo lanci come di norma ma ne trattieni l’energia, che libererai con la tua reazione al manifestarsi dell’innesco. Per essere preparato, un incantesimo deve avere tempo di lancio 1 azione, e trattenere la magia dell’incantesimo richiede concentrazione. Se la tua concentrazione è infranta, l’incantesimo si dissipa senza produrre effetto. Per esempio, se ti stai concentrando sull’incantesimo ragnatela e prepari dardo incantato, l’incantesimo ragnatela termina, e se subisci danni prima di liberare il dardo incantato con la tua reazione, la tua concentrazione potrebbe infrangersi.</p>"
+      }
+    },
+    "skills": {
+      "acr": {
+        "tooltip": "Le prove di Destrezza (Acrobazie) copreno il tuo tentativo di rimanere in piedi in una situazione difficile, come quando stai cercando di correre su una lastra di ghiaccio, tenerti in equilibrio su una corda tesa o stare in piedi sul ponte di una nave. Il DM potrebbe anche richiedere una prova di Destrezza (Acrobazie) per vedere se è possibile eseguire acrobazie, inclusi tuffi, capriole e salti mortali."
+      },
+      "ani": {
+        "tooltip": "Quando ci si trova nella situazione di dover calmare un animale domestico, impedire a una cavalcatura di spaventarsi o intuire le intenzioni di un animale, il DM potrebbe richiedere una prova di Saggezza (Addestrare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa."
+      },
+      "arc": {
+        "tooltip": "Le prove di Intelligenza (Arcano) misurano la tua capacità di richiamare conoscenze su incantesimi, oggetti magici, simboli mitici, tradizioni magiche, piani di esistenza e abitanti di quei piani."
+      },
+      "ath": {
+        "tooltip": "<p>Le prova di Forza (Atletica) coprono le situazioni difficili che incontri mentre ti arrampichi, salti o nuoti. Gli esempi includono le seguenti attività:</p><ul><li>tentare di scalare una scogliera a picco e scivolosa, evitare i pericoli mentre scali una parete o ti aggrappi a una superficie mentre qualcosa sta cercando di buttarti giù</li><li>Provare a saltare una distanza insolitamente lunga o fare un'acrobazia a metà salto</li><li>Faticare a nuotare o a rimanere a galla in correnti insidiose, onde agitate dalle tempeste o aree coperte da spesse alghe. Oppure un'altra creatura cerca di spingerti o tirarti sott'acqua o di interferire in altro modo mentre nuoti.</li></ul>"
+      },
+      "dec": {
+        "tooltip": "La prove di Carisma (Inganno) determinano se puoi celare in modo convincente la verità, verbalmente o attraverso le tue azioni. L'inganno può comprendere tutto, dal fuorviare gli altri attraverso l'ambiguità al dire menzogne ​​​​apertamente. Situazioni tipiche includono cercare di parlare velocemente con una guardia, truffare un mercante, guadagnare denaro con il gioco d'azzardo, celare l'aspetto travestendosi, attenuare i sospetti di qualcuno con false assicurazioni o mantenere un aspetto serio mentre si racconta una palese bugia."
+      },
+      "his": {
+        "tooltip": "Le prove di Intelligenza (Storia) misurano la tua capacità di ricordare le tradizioni su eventi storici, persone leggendarie, antichi regni, dispute passate, guerre recenti e civiltà perdute."
+      },
+      "ins": {
+        "tooltip": "Le prove di Saggezza (Intuizione) decidono se è possibile determinare le vere intenzioni di una creatura, ad esempio quando si scopre una bugia o si prevede la prossima mossa di qualcuno. Fare ciò implica raccogliere indizi dal linguaggio del corpo, dalle abitudini del linguaggio e dai cambiamenti nei modi di fare."
+      },
+      "itm": {
+        "tooltip": "Quando tenti di influenzare qualcuno attraverso minacce palesi, azioni ostili e violenza fisica, il DM potrebbe chiederti di effettuare una prova di Carisma (Intimidazione). Gli esempi includono il tentativo di estrapolare informazioni da un prigioniero, convincere dei delinquenti di strada a rinunciare a uno scontro o usare il bordo di una bottiglia rotta per convincere un visir beffardo a riconsiderare una decisione."
+      },
+      "inv": {
+        "tooltip": "Quando cerchi indizi e fai deduzioni basate su quegli indizi, fai una prova di Intelligenza (Indagine). Potresti dedurre la posizione di un oggetto nascosto, discernere dall'aspetto di una ferita che tipo di arma lo ha inferto o determinare il punto più debole in un tunnel che potrebbe provocarne il collasso. Anche sfogliare antiche pergamene alla ricerca di un frammento nascosto di conoscenza potrebbe richiedere una prova di Intelligenza (Indagine)."
+      },
+      "med": {
+        "tooltip": "Una prova di Saggezza (Medicina) consente di cercare di stabilizzare un compagno morente o di diagnosticare una malattia."
+      },
+      "nat": {
+        "tooltip": "Le prove di Intelligenza (Natura) misurano la tua capacità di ricordare le caratteristiche di terreni, piante e animali, il tempo e i cicli naturali."
+      },
+      "prc": {
+        "tooltip": "La prove di Saggezza (Percezione) ti consentono di individuare, ascoltare o rilevare in altro modo la presenza di qualcosa. Misurano la tua consapevolezza generale di ciò che ti circonda e l'acutezza dei tuoi sensi. Ad esempio, potresti provare a sentire una conversazione attraverso una porta chiusa, origliare sotto una finestra aperta o ascoltare i mostri che si muovono furtivamente nella foresta. Oppure potresti provare a individuare cose che sono oscurate o facili da perdere, che si tratti di orchi in agguato su una strada, delinquenti nascosti nell'ombra di un vicolo o a lume di candela sotto una porta segreta chiusa."
+      },
+      "prf": {
+        "tooltip": "La prove di Carisma (Intrattenere) determina quanto bene puoi deliziare un pubblico con musica, danza, recitazione, narrazione o qualche altra forma di intrattenimento."
+      },
+      "per": {
+        "tooltip": "Quando tenti di influenzare qualcuno o un gruppo di persone con tatto, portamento o buone maniere, il DM potrebbe chiederti di fare una prova di Carisma (Persuasione). In genere, usi la persuasione quando agisci in buona fede, per promuovere amicizie, fare richieste cordiali o esibire un'etichetta adeguata. Esempi di persuadere gli altri includono convincere un ciambellano a lasciare che il tuo gruppo veda il re, negoziare la pace tra tribù in guerra o ispirare una folla di cittadini."
+      },
+      "rel": {
+        "tooltip": "Le prove di Intelligenza (Religione) misurano la tua capacità di ricordare tradizioni su divinità, riti e preghiere, gerarchie religiose, simboli sacri e pratiche di culti segreti."
+      },
+      "slt": {
+        "tooltip": "Ogni volta che si tenta un atto di gioco di prestigio o un trucchetto manuale, come piantare qualcosa su qualcun altro o nascondere un oggetto sulla propria persona, si deve  effettuare una prova di Destrezza (Rapidità di Mano). Il DM potrebbe anche richiedere una prova di Destrezza (Rapidità di Mano) per determinare se è possibile sfilare un portamonete da un'altra persona o far scivolare qualcosa fuori dalla tasca di un'altra persona."
+      },
+      "ste": {
+        "tooltip": "Effettua una prova di Destrezza (Furtività) quando tenti di nasconderti dai nemici, sgattaiolare oltre le guardie, scivolare via senza essere notato o avvicinarti di soppiatto a qualcuno senza essere visto o sentito."
+      },
+      "sur": {
+        "tooltip": "Il DM potrebbe chiederti di effettuare una prova di Saggezza (Sopravvivenza) per seguire tracce, cacciare selvaggina, guidare il tuo gruppo attraverso terre desolate ghiacciate, identificare i segni che indicano che gli orsigufo vivono nelle vicinanze, prevedere il tempo o evitare le sabbie mobili e altri pericoli naturali."
+      }
+    },
+    "abilities": {
+      "str": {
+        "tooltip": "<p>La Forza misura la potenza corporea, la preparazione atletica e la misura in cui puoi esercitare la forza fisica.</p><p><strong>Prove di Forza</strong><br/>Una prova di Forza può modellare qualsiasi tentativo \nsollevare, spingere, tirare o rompere qualcosa, forzare il proprio corpo ad attraversare uno spazio o applicare in altro modo la forza bruta a una situazione. \nL'abilità Atletica riflette l'attitudine in certi tipi di prove di Forza.</p><p><strong>Altre prove di Forza</strong><br/>Il DM potrebbe anche richiedere una prova di Forza quando provi a svolgere compiti come \nseguente:<ul><li>Aprire con la forza una porta bloccata, chiusa a chiave o sbarrata</li><li>Liberarsi dai legami</li><li>Spingersi attraverso un tunnel troppo piccolo</li><li \n>Aggrappati a un carro mentre vieni trascinato dietro</li><li>Ribalta una statua</li><li>Evita che un masso rotoli</li></ul></p><p>< \nstrong>Sollevamento e trasporto</strong><br/> Il tuo punteggio di forza determina la quantità di peso che puoi sopportare. \nI seguenti termini definiscono cosa puoi sollevare o trasportare.</p><p><strong>Capacità di carico.</strong> La tua capacità di carico è il tuo punteggio di Forza moltiplicato per 15. Questo è il peso (in libbre) che puoi \ntrasportare, che è abbastanza alto da consentire alla maggior parte dei personaggi di non doversi preoccupare.</p><p><strong>Spingi, trascina o solleva.</strong> Puoi spingere, trascinare o sollevare un peso \nin libbre fino al doppio della tua capacità di carico (o 30 volte il tuo punteggio di Forza). \nMentre spingi o trascini un peso superiore alla tua capacità di carico, la tua velocità scende a 1,5 metri.</p><p><strong>Taglia e forza.</strong> Le creature più grandi possono sopportare più peso, mentre le creature Minuscole possono trasportarne meno \n. \nPer ogni categoria di taglia superiore alla Media, raddoppia la capacità di carico della creatura e la quantità che può spingere, trascinare o sollevare. \nPer una creatura Minuscola, dimezza questi pesi.</p>"
+      },
+      "dex": {
+        "tooltip": "<p>La Destrezza misura l'agilità, i riflessi e l'equilibrio.</p><p><strong>Prove di Destrezza</strong><br/>Una prova di Destrezza può modellare qualsiasi tentativo di muoversi agilmente, velocemente o silenziosamente, o di \nevitare di cadere su un terreno difficile. \nLe abilità Acrobazia, Rapidità di mano e Furtività riflettono l'attitudine in alcuni tipi di prove di Destrezza.</p><p><strong>Altre prove di Destrezza</strong><br/>Il DM potrebbe richiedere una prova di Destrezza quando tu \nprova a svolgere compiti come i seguenti:<ul><li>Controllare un carro pesantemente carico durante una discesa ripida</li><li>Guidare un carro attorno a una curva stretta</li><li>Scassinare una serratura</li \n><li>Disattiva una trappola</li><li>Lega saldamente un prigioniero</li><li>Liberati dai legami</li><li>Suona uno strumento a corda</li><li>Crea un \noggetto piccolo o dettagliato</li></ul></p><p><strong>Classe di armatura</strong><br/>A seconda dell'armatura che indossi, potresti aggiungere parte o tutto il tuo modificatore di Destrezza a \nla tua Classe Armatura, come descritto nel capitolo 5, <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Equipaggiamento.</a></p><p>< \nstrong>Iniziativa</strong><br/>All'inizio di ogni combattimento, tiri l'iniziativa effettuando una prova di Destrezza. \nL'iniziativa determina l'ordine dei turni delle creature in combattimento, come descritto nel capitolo 9, <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Combattimento.</a>"
+      },
+      "con": {
+        "tooltip": "<p>La Costituzione misura la salute, la resistenza e la forza vitale.</p><p><strong>Verifica di Costituzione</strong><br/>Le prove di Costituzione sono rare e nessuna abilità si applica alle prove di Costituzione, perché la resistenza \nL'abilità rappresenta è in gran parte passiva piuttosto che comportare uno sforzo specifico da parte di un personaggio o di un mostro. \nTuttavia, una prova di Costituzione può modellare il tuo tentativo di spingerti oltre i limiti normali.</p><p>Il DM potrebbe richiedere una prova di Costituzione quando provi a svolgere compiti come i seguenti:<ul><li>Trattenete il respiro< \n/li><li>Marcia o lavora per ore senza riposo</li><li>Vai senza dormire</li><li>Sopravvivi senza cibo né acqua</li><li>Bevi un intero boccale di birra in una volta \nvai</li></ul></p><p><strong>Punti ferita</strong><br/>Il tuo modificatore di Costituzione contribuisce ai tuoi punti ferita. \nSolitamente, aggiungi il tuo modificatore di Costituzione a ogni Dado Vita che tiri per i tuoi punti ferita.</p><p>Se il tuo modificatore di Costituzione cambia, cambia anche il tuo massimo di punti ferita, come se avessi il nuovo modificatore dal 1° livello. \nAd esempio, se aumenti il ​​tuo punteggio di Costituzione quando raggiungi il 4° livello e il tuo modificatore di Costituzione aumenta da 1 a 2, modifichi il tuo massimo di punti ferita come se il modificatore fosse sempre stato 2. Quindi aggiungi 3 punti ferita per i tuoi primi tre livelli \n, quindi tira i tuoi punti ferita per il 4° livello usando il tuo nuovo modificatore. \nOppure, se sei di 7° livello e qualche effetto abbassa il tuo punteggio di Costituzione tanto da ridurre il tuo modificatore di Costituzione di 1, i tuoi punti ferita massimi vengono ridotti di 7.</p>"
+      },
+      "int": {
+        "tooltip": "<p>L'intelligenza misura l'acutezza mentale, l'accuratezza della memoria e la capacità di ragionare.</p><p><strong>Verifica di Intelligenza</strong><br/>Una prova di Intelligenza entra in gioco quando è necessario attingere \nlogica, educazione, memoria o ragionamento deduttivo. \nLe abilità Arcano, Storia, Investigazione, Natura e Religione riflettono l'attitudine in certi tipi di prove di Intelligenza.</p><p><strong>Altre prove di Intelligenza</strong><br/>Il DM potrebbe richiedere una prova di Intelligenza \nquando provi a svolgere compiti come i seguenti:<ul><li>Comunicare con una creatura senza usare parole</li><li>Stimare il valore di un oggetto prezioso</li><li>Creare un travestimento per passare \ncome guardia cittadina</li><li>Forgia un documento</li><li>Ricorda la tradizione di un mestiere o di un mestiere</li><li>Vinci un gioco di abilità</li></ul></ \np>"
+      },
+      "wis": {
+        "tooltip": "<p>La saggezza riflette quanto sei in sintonia con il mondo che ti circonda e rappresenta la percettività e l'intuizione.</p><p><strong>Verifica di saggezza</strong>Una prova di saggezza potrebbe riflettere uno sforzo per leggere il linguaggio del corpo, comprendere il linguaggio di qualcuno \nsentimenti, notare cose sull'ambiente o prendersi cura di una persona ferita. \nLe abilità Addestramento Animali, Intuizione, Medicina, Percezione e Sopravvivenza riflettono l'attitudine in certi tipi di prove di Saggezza.</p><p><strong>Altre prove di Saggezza</strong></br>Il DM potrebbe richiedere una Saggezza \ncontrolla quando provi a svolgere attività come le seguenti:<ul><li>Avere un'idea di quale linea di condotta seguire</li><li>Capire se una creatura apparentemente morta o vivente è non morta</li>< \n/ul></p>"
+      },
+      "cha": {
+        "tooltip": "<p>Il carisma misura la tua capacità di interagire in modo efficace con gli altri. \nInclude fattori come sicurezza ed eloquenza e può rappresentare una personalità affascinante o imponente.</p><p><strong>Altre prove di Carisma</strong><br/>Il DM potrebbe richiedere una prova di Carisma quando tu \nprova a svolgere attività come le seguenti:<ul><li>Trova la persona migliore con cui parlare per notizie, voci e pettegolezzi</li><li>Mimetizzarsi tra la folla per comprendere il senso degli argomenti chiave di conversazione</ \nli></ul></p>"
+      }
+    },
+    "tooltip": {
+      "target": {
+        "name": "Bersaglio"
+      },
+      "range": {
+        "name": "Distanza"
+      },
+      "properties": {
+        "name": "Proprietà"
+      },
+      "toHit": {
+        "name": "Colpire"
+      },
+      "damage": {
+        "name": "Danno"
+      }
+    },
+    "itemconfig": {
+      "set1p": {
+        "text": ""
+      },
+      "set1s": {
+        "text": ""
+      },
+      "set2p": {
+        "text": ""
+      },
+      "set2s": {
+        "text": ""
+      },
+      "set3p": {
+        "text": ""
+      },
+      "set3s": {
+        "text": ""
+      },
+      "sets": {
+        "text": ""
+      }
     }
+  }
 }
