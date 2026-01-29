@@ -36,6 +36,13 @@
             "macroPanel": {
                 "name": "Macro Panel",
                 "hint": "Show a macro panel for each character that mirrors the hotbar macros"
+            },
+            "explodeItemActivities": {
+                "name": "Expand Items into Activities",
+                "hint": "Wether to treat each activity as a separate button in the HUD",
+                "only-weapons": "Only expand weapons",
+                "always": "Always expand",
+                "never": "Never expand"
             }
         },
         "hud": {

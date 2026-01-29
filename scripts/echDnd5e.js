@@ -1,6 +1,12 @@
 import { MODULE_ID } from "./main.js";
+import { getSetting } from "./settings.js";
 
 const ECHItems = {};
+
+let explodeItemActivities;
+export function setExplodeItemActivities() {
+    explodeItemActivities = getSetting("explodeItemActivities");
+}
 
 export function initConfig() {
 
@@ -11,6 +17,7 @@ export function initConfig() {
     Hooks.on("argonInit", (CoreHUD) => {
         if (game.system.id !== "dnd5e") return;
         registerItems();
+        setExplodeItemActivities();
         const ARGON = CoreHUD.ARGON;
 
         class DND5eTooltip extends ARGON.CORE.Tooltip {
@@ -28,6 +35,28 @@ export function initConfig() {
             const midiAction = value ? 0 : 1;
             return midiAction;
         };
+
+        function expandItemIntoActivities(item) {
+            if(explodeItemActivities === "never") return false;
+            if(explodeItemActivities === "always") return true;
+            if(explodeItemActivities === "only-weapons") return item.type === "weapon";
+        }
+
+        function expandActivities(itemList, activationType) {
+            const items = [];
+            const activities = []
+            for(const item of itemList) {
+                if(expandItemIntoActivities(item)) {
+                    activities.push(Array.from(item.system.activities).filter(activity => checkActivationType(activity, activationType) && activity.type !== "cast"));
+                } else {
+                    items.push(item);
+                }
+            }
+            const allElements = [...items, ...(activities.flat())];
+            const weapons = allElements.filter(item => (item.item ?? item).type === "weapon");
+            const nonWeapons = allElements.filter(item => (item.item ?? item).type !== "weapon");
+            return [...weapons, ...nonWeapons];
+        }
 
         const checkActivationType = (itemOrActivity, activationTypes) => {
             if (itemOrActivity.activation?.type) return activationTypes.includes(itemOrActivity.activation.type);
@@ -512,8 +541,10 @@ export function initConfig() {
 
             async _getButtons() {
                 const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
-                const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
-                const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
+                const featItems = expandActivities(this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)), actionTypes.action);
+                const consumableItems = expandActivities(this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)), actionTypes.action);
+                // const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
+                // const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
 
                 const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
@@ -566,9 +597,10 @@ export function initConfig() {
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
-                    const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.bonus));
-                    if (!activities.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items: activities, color: 1 });
+                    // const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.bonus));
+                    const itemsAndActivities = expandActivities(items, actionTypes.bonus);
+                    if (!itemsAndActivities.length) continue;
+                    const button = new DND5eButtonPanelButton({ type, items: itemsAndActivities, color: 1 });
                     if (button.hasContents) buttons.push(button);
                 }
 
@@ -612,9 +644,10 @@ export function initConfig() {
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
-                    const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.reaction));
-                    if (!activities.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items: activities, color: 3 });
+                    // const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.reaction));
+                    const itemsAndActivities = expandActivities(items, actionTypes.reaction);
+                    if (!itemsAndActivities.length) continue;
+                    const button = new DND5eButtonPanelButton({ type, items: itemsAndActivities, color: 3 });
                     if (button.hasContents) buttons.push(button);
                 }
 
@@ -658,9 +691,10 @@ export function initConfig() {
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
-                    const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.free));
-                    if (!activities.length) continue;
-                    const button = new DND5eButtonPanelButton({ type, items: activities, color: 2 });
+                    // const activities = items.map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.free));
+                    const itemsAndActivities = expandActivities(items, actionTypes.free);
+                    if (!itemsAndActivities.length) continue;
+                    const button = new DND5eButtonPanelButton({ type, items: itemsAndActivities, color: 2 });
                     if (button.hasContents) buttons.push(button);
                 }
 
@@ -822,6 +856,8 @@ export function initConfig() {
 
             async _onLeftClick(event) {
                 // ui.ARGON.interceptNextDialog(event.currentTarget);
+                // const used = await this.activity.use({event, legacy: false}, {event});
+                if(!this.isActivity) return this.item.use({event, legacy: false}, {event});
                 const used = await this.activity.use({event, legacy: false}, {event});
                 if (used) {
                     DND5eItemButton.consumeActionEconomy(this.activity);
@@ -836,6 +872,7 @@ export function initConfig() {
             }
 
             async _onRightClick(event) {
+                if(!this.isActivity) return this.item?.sheet?.render(true);
                 this.activity?.sheet?.render(true);
             }
 

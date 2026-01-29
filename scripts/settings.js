@@ -1,4 +1,5 @@
 import { MODULE_ID } from "./main.js";
+import { setExplodeItemActivities } from "./echDnd5e.js";
 
 export function registerSettings() {
     const settings = {
@@ -36,6 +37,23 @@ export function registerSettings() {
             type: Boolean,
             default: true,
             onChange: () => ui.ARGON.refresh(),
+        },
+        explodeItemActivities: {
+            name: game.i18n.localize("enhancedcombathud-dnd5e.settings.explodeItemActivities.name"),
+            hint: game.i18n.localize("enhancedcombathud-dnd5e.settings.explodeItemActivities.hint"),
+            scope: "world",
+            config: true,
+            type: String,
+            default: "only-weapons",
+            choices: {
+                "only-weapons": "enhancedcombathud-dnd5e.settings.explodeItemActivities.only-weapons",
+                "always": "enhancedcombathud-dnd5e.settings.explodeItemActivities.always",
+                "never": "enhancedcombathud-dnd5e.settings.explodeItemActivities.never",
+            },
+            onChange: () => {
+                setExplodeItemActivities();
+                ui.ARGON.refresh();
+            },
         },
         macroPanel: {
             name: game.i18n.localize("enhancedcombathud-dnd5e.settings.macroPanel.name"),
