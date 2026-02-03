@@ -540,11 +540,9 @@ export function initConfig() {
             }
 
             async _getButtons() {
-                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
+                const spellItems = this.actor.items.filter((item) => itemTypes.spell.includes(item.type) && actionTypes.action.includes(getActivationType(item)) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                 const featItems = expandActivities(this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)), actionTypes.action);
                 const consumableItems = expandActivities(this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)), actionTypes.action);
-                // const featItems = this.actor.items.filter((item) => itemTypes.feat.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
-                // const consumableItems = this.actor.items.filter((item) => itemTypes.consumable.includes(item.type) && checkActivationType(item, actionTypes.action) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value)).map(item => Array.from(item.system.activities)).flat().filter(activity => checkActivationType(activity, actionTypes.action) && activity.type !== "cast");
 
                 const spellButton = !spellItems.length ? [] : [new DND5eButtonPanelButton({ type: "spell", items: spellItems, color: 0 })].filter((button) => button.hasContents);
 
@@ -593,7 +591,8 @@ export function initConfig() {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && checkActivationType(item, actionTypes.bonus) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     if (type === "spell") {
-                        const button = new DND5eButtonPanelButton({ type, items: items, color: 1 });
+                        const itemsWithCorrectActionTypeAsMainActivity = items.filter(item => actionTypes.bonus.includes(getActivationType(item)));
+                        const button = new DND5eButtonPanelButton({ type, items: itemsWithCorrectActionTypeAsMainActivity, color: 1 });
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
@@ -640,7 +639,8 @@ export function initConfig() {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && checkActivationType(item, actionTypes.reaction) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     if (type === "spell") {
-                        const button = new DND5eButtonPanelButton({ type, items: items, color: 1 });
+                        const itemsWithCorrectActionTypeAsMainActivity = items.filter(item => actionTypes.reaction.includes(getActivationType(item)));
+                        const button = new DND5eButtonPanelButton({ type, items: itemsWithCorrectActionTypeAsMainActivity, color: 1 });
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
@@ -687,7 +687,8 @@ export function initConfig() {
                     const items = this.actor.items.filter((item) => types.includes(item.type) && checkActivationType(item, actionTypes.free) && !CoreHUD.DND5E.mainBarFeatures.includes(item.system.type?.value));
                     if (!items.length) continue;
                     if (type === "spell") {
-                        const button = new DND5eButtonPanelButton({ type, items: items, color: 1 });
+                        const itemsWithCorrectActionTypeAsMainActivity = items.filter(item => actionTypes.free.includes(getActivationType(item)));
+                        const button = new DND5eButtonPanelButton({ type, items: itemsWithCorrectActionTypeAsMainActivity, color: 1 });
                         if (button.hasContents) buttons.push(button);
                         continue;
                     }
