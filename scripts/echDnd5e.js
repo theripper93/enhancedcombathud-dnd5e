@@ -403,7 +403,7 @@ export function initConfig() {
             get categories() {
                 const abilities = this.actor.system.abilities;
                 const skills = this.actor.system.skills;
-                const tools = this.actor.itemTypes.tool;
+                const tools = this.actor.system.tools;
 
                 const addSign = (value) => {
                     if (value >= 0) return `+${value}`;
@@ -450,15 +450,31 @@ export function initConfig() {
                     );
                 });
 
-                const toolButtons = tools.map((tool) => {
+                function getToolLabel(key) {
+                    if (key in CONFIG.DND5E.toolProficiencies) return CONFIG.DND5E.toolProficiencies[key];
+                    if (key in CONFIG.DND5E.vehicleTypes) return CONFIG.DND5E.vehicleTypes[key];
+                    if (key in CONFIG.DND5E.tools) {
+                        const item = CONFIG.DND5E.tools[key];
+                        if (typeof item == "string") {
+                            const name = fromUuidSync(item)?.name;
+                            if (name) return name;
+                            return item;
+                        }
+                        const name = fromUuidSync(item?.id)?.name;
+                        if (name) return name;
+                    }
+                    return key.charAt(0).toUpperCase() + key.slice(1);
+                }
+
+                const toolButtons = Object.entries(tools).map(([key, tool]) => {
                     return new DND5eDrawerButton(
                         [
                             {
-                                label: getProficiencyIcon(tool.system.proficient) + tool.name,
-                                onClick: (event) => tool.rollToolCheck({ event }),
+                                label: getProficiencyIcon(tool.prof.multiplier) + getToolLabel(key, tool),
+                                onClick: (event) => this.actor.rollToolCheck({tool: key})
                             },
                             {
-                                label: addSign(abilities[tool.abilityMod].mod + tool.system.proficiencyMultiplier * this.actor.system.attributes.prof),
+                                label: addSign(tool.mod + tool.prof.multiplier * this.actor.system.attributes.prof),
                             },
                         ],
                         tool,
