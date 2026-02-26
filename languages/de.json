@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Vorbereitete Zauber",
-        "auto": "Automatische Erkennung",
+        "auto": "Automatische Erkennung (Regeln von 2014)",
         "preparedOnly": "Nur vorbereitet",
         "all": "Alle Zauber"
       }

@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "준비된 주문",
-        "auto": "자동 감지",
+        "auto": "자동 감지 (2014년 규정)",
         "preparedOnly": "준비된 것만",
         "all": "모든 주문"
       }

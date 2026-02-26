@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Hechizos preparados",
-        "auto": "Detección automática",
+        "auto": "Detección automática (normas de 2014)",
         "preparedOnly": "Sólo preparado",
         "all": "Todos los hechizos"
       }

@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Sorts préparés Spells",
-        "auto": "Auto Detection",
+        "auto": "Détection automatique (règles 2014)",
         "preparedOnly": "Préparés seulement",
         "all": "Tous les Sorts"
       }

@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Připravená kouzla",
-        "auto": "Automaticky detekovat",
+        "auto": "Automatická detekce (pravidla z roku 2014)",
         "preparedOnly": "Pouze připravená",
         "all": "Všechna kouzla"
       }

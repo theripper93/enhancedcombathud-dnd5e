@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Magias Preparadas",
-        "auto": "Detecção Automática",
+        "auto": "Detecção automática (regras de 2014)",
         "preparedOnly": "Apenas Preparadas",
         "all": "Todas as Magias"
       }

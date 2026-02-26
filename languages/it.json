@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Incantesimi preparati",
-        "auto": "Trovato automaticamente",
+        "auto": "Rilevamento automatico (regolamento 2014)",
         "preparedOnly": "Solo preparato",
         "all": "Tutti gli incantesimi"
       }

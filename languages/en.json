@@ -3,7 +3,7 @@
         "portraitConfig": {
             "prepared": {
                 "label": "Prepared Spells",
-                "auto": "Auto Detect",
+                "auto": "Auto Detect (2014 rules)",
                 "preparedOnly": "Prepared Only",
                 "all": "All Spells"
             }

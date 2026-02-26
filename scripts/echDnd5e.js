@@ -1010,11 +1010,14 @@ export function initConfig() {
             get showPreparedOnly() {
                 if (this.actor.type !== "character") return false;
                 const preparedFlag = this.actor.getFlag(MODULE_ID, "showPrepared");
+                if(preparedFlag === "auto") {
+                    const classes = Object.keys(this.actor.classes);
+                    const requiresPreparation = ["cleric", "druid", "paladin", "wizard", "artificer"].some((className) => classes.includes(className));
+                    return requiresPreparation;
+                }
                 if (preparedFlag === "all") return false;
-                if (preparedFlag === "preparedOnly") return true;
-                const classes = Object.keys(this.actor.classes);
-                const requiresPreparation = ["cleric", "druid", "paladin", "wizard", "artificer"].some((className) => classes.includes(className));
-                return requiresPreparation;
+                // default 2024 rules: all classes prepare spells
+                return true;
             }
 
             prePrepareSpells() {

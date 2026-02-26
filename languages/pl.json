@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "Przygotowane zaklęcia",
-        "auto": "Automatyczne wykrywanie",
+        "auto": "Automatyczne wykrywanie (zasady z 2014 r.)",
         "preparedOnly": "Tylko przygotowane",
         "all": "Wszystkie zaklęcia"
       }

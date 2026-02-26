@@ -3,7 +3,7 @@
     "portraitConfig": {
       "prepared": {
         "label": "準備された呪文",
-        "auto": "自動検出",
+        "auto": "自動検出（2014年ルール）",
         "preparedOnly": "準備済みのみ",
         "all": "すべての呪文"
       }
