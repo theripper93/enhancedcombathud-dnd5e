@@ -11,7 +11,9 @@ export function setExplodeItemActivities() {
 export function initConfig() {
 
     Hooks.on("updateItem", (item) => {
-        if(item.parent === ui.ARGON._actor && ui.ARGON.rendered) ui.ARGON.components.portrait.refresh()
+        if(item.parent !== ui.ARGON._actor || !ui.ARGON.rendered) return;
+        ui.ARGON.components.portrait.refresh();
+        if (item.type === "spell") ui.ARGON.refresh();
     })
 
     Hooks.on("argonInit", (CoreHUD) => {
