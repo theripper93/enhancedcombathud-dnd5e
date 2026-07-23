@@ -1052,7 +1052,7 @@ export function initConfig() {
                     const allowIfNotPrepared = ["atwill", "innate", "pact"];
                     this.items = this.items.filter((item) => {
                         if (allowIfNotPrepared.includes(item.system?.method)) return true;
-                        if (item.system?.level == 0) return true;
+                        // if (item.system?.level == 0) return true;
                         return item.system?.prepared > 0;
                     });
                 }
