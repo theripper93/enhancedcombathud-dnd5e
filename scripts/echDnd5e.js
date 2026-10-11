@@ -411,9 +411,17 @@ export function initConfig() {
                     if (value >= 0) return `+${value}`;
                     return value;
                 };
-
+                
                 const abilitiesButtons = Object.keys(abilities).map((ability) => {
                     const abilityData = abilities[ability];
+
+                    let checkBonus;
+                    if (foundry.utils.isNewerVersion(game.system.version, "6.0.0")) {
+                        checkBonus = abilityData.check?.bonus;
+                    } else {
+                        checkBonus = abilityData.checkBonus;
+                    }
+
                     return new DND5eDrawerButton(
                         [
                             {
@@ -421,7 +429,7 @@ export function initConfig() {
                                 onClick: (event) => this.actor.rollAbilityCheck({ ability, event }),
                             },
                             {
-                                label: addSign(abilityData.mod + (abilityData.checkBonus || 0)),
+                                label: addSign(abilityData.mod + (checkBonus || 0)),
                                 onClick: (event) => this.actor.rollAbilityCheck({ ability, event }),
                             },
                             {
