@@ -928,14 +928,6 @@ export function initConfig() {
                 }
             }
 
-            async render(...args) {
-                await super.render(...args);
-                if (this.activity) {
-                    const weapons = this.actor.items.filter((item) => item.consume?.target === this.activity.id);
-                    ui.ARGON.updateItemButtons(weapons);
-                }
-            }
-
             get quantity() {
                 if(!this.item) return null;
                 if (this.item.system.uses?.max) return this.item.system.uses.max - this.item.system.uses.spent;
