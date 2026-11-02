@@ -1,0 +1,256 @@
+{
+  "enhancedcombathud-dnd5e": {
+    "portraitConfig": {
+      "prepared": {
+        "label": "Vorbereitete Zauber",
+        "auto": "Automatisch erkennen (Regeln von 2014)",
+        "preparedOnly": "Nur vorbereitete",
+        "all": "Alle Zauber"
+      }
+    },
+    "settings": {
+      "switchEquip": {
+        "name": "Automatisch ausrüsten",
+        "hint": "Gegenstände beim Wechseln der Ausrüstungssätze automatisch an- bzw. ablegen"
+      },
+      "showWeaponsItems": {
+        "name": "Waffen im Abschnitt „Gegenstand benutzen“ anzeigen",
+        "hint": "Waffen im Abschnitt „Gegenstand benutzen“ anzeigen. Nützlich, wenn deine Waffenplätze nicht ausreichen"
+      },
+      "showClassActions": {
+        "name": "Klassenaktionen anzeigen",
+        "hint": "Klassenaktionen in den Leisten der Hauptaktion anzeigen"
+      },
+      "condenseClassActions": {
+        "name": "Klassenaktionen zusammenfassen",
+        "hint": "Wenn „Klassenaktionen anzeigen“ aktiviert ist, Klassenaktionen paarweise zusammenfassen, um Platz zu sparen"
+      },
+      "noAA": {
+        "name": "Aktive Effekte nicht anwenden",
+        "hint": "Aktive Effekte bei der Verwendung von Spezialaktionen nicht anwenden. (Erfordert eine Aktualisierung.)"
+      },
+      "showSpecialActions": {
+        "name": "Grundaktionen anzeigen",
+        "hint": "Grundaktionen im Abschnitt „Hauptaktion“ anzeigen. (Ausweichen, Spurt, Rückzug, Verstecken, Vorbereiten, Schubsen)"
+      },
+      "macroPanel": {
+        "name": "Makrobereich",
+        "hint": "Für jeden Charakter einen Makrobereich anzeigen, der die Hotbar-Makros widerspiegelt"
+      },
+      "explodeItemActivities": {
+        "name": "Gegenstände in Aktivitäten aufteilen",
+        "hint": "Ob jede Aktivität als eigener Button im HUD behandelt werden soll",
+        "only-weapons": "Nur Waffen aufteilen",
+        "always": "Immer aufteilen",
+        "never": "Nie aufteilen"
+      }
+    },
+    "hud": {
+      "mainactions": {
+        "name": "Hauptaktion"
+      },
+      "castspell": {
+        "name": "Zauber wirken"
+      },
+      "usepower": {
+        "name": "Merkmal benutzen"
+      },
+      "useitem": {
+        "name": "Gegenstand benutzen"
+      },
+      "bonusaction": {
+        "name": "Bonusaktion"
+      },
+      "reaction": {
+        "name": "Reaktion"
+      },
+      "specialaction": {
+        "name": "Freie Aktion"
+      },
+      "pass": {
+        "name": "Überspringen"
+      },
+      "endturn": {
+        "name": "Zug beenden"
+      },
+      "hp": {
+        "name": "TP"
+      },
+      "ac": {
+        "name": "RK"
+      },
+      "of": {
+        "name": "von"
+      },
+      "inventory": {
+        "name": "Charakterbogen"
+      },
+      "saves": {
+        "name": "Rettungswürfe"
+      },
+      "skills": {
+        "name": "Fertigkeiten"
+      },
+      "tools": {
+        "name": "Werkzeuge"
+      },
+      "spells": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "cantrip": "",
+        "innate": "",
+        "pact": "",
+        "will": ""
+      }
+    },
+    "items": {
+      "disengage": {
+        "name": "Rückzug",
+        "desc": "<p>Wenn du die Aktion Rückzug ausführst, provoziert deine Bewegung für den Rest des Zuges keine Gelegenheitsangriffe.</p>"
+      },
+      "hide": {
+        "name": "Verstecken",
+        "desc": "<p>Wenn du die Aktion Verstecken ausführst, legst du einen Geschicklichkeitswurf (Heimlichkeit) ab, um dich zu verbergen, und befolgst dabei die Regeln für das Verstecken. Wenn du Erfolg hast, erhältst du bestimmte Vorteile.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Kampfteilnehmer versuchen oft, sich der Aufmerksamkeit ihrer Feinde zu entziehen, indem sie sich verstecken, den Zauber <em>Unsichtbarkeit</em> wirken oder im Dunkeln lauern.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">Wenn du ein Ziel angreifst, das du nicht sehen kannst, hast du Nachteil beim Angriffswurf. Das gilt unabhängig davon, ob du die Position des Ziels errätst oder eine Kreatur angreifst, die du hören, aber nicht sehen kannst. Befindet sich das Ziel nicht an der von dir angegriffenen Stelle, verfehlst du automatisch. Der Spielleiter sagt normalerweise jedoch nur, dass der Angriff danebenging, nicht, ob du die Position des Ziels richtig erraten hast.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">Wenn eine Kreatur dich nicht sehen kann, hast du Vorteil bei Angriffswürfen gegen sie. Wenn du beim Angriff verborgen bist – also weder gesehen noch gehört wirst –, verrätst du deinen Standort, sobald der Angriff trifft oder verfehlt.</p>\n<p>&nbsp;</p>"
+      },
+      "shove": {
+        "name": "Schubsen",
+        "desc": "<p data-content-chunk-id=\"5242445d-e04b-437b-b1c4-4fef6622c350\">Wenn du eine Kreatur packen oder mit ihr ringen möchtest, kannst du die Angriffsaktion verwenden, um einen besonderen Nahkampfangriff auszuführen: einen Packen-Angriff. Wenn du mit der Angriffsaktion mehrere Angriffe ausführen kannst, ersetzt dieser Angriff einen davon.</p>\n<p data-content-chunk-id=\"55b5838a-271d-4cb3-b971-9769a49a921c\">Das Ziel deines Packen-Angriffs darf höchstens eine Größenkategorie größer sein als du und muss sich in deiner Reichweite befinden. Du verwendest mindestens eine freie Hand und versuchst, das Ziel zu ergreifen, indem du anstelle eines Angriffswurfs einen Packen-Wurf ablegst: einen Wurf auf Stärke (Athletik), der gegen einen Wurf des Ziels auf Stärke (Athletik) oder Geschicklichkeit (Akrobatik) vergleichend abgelegt wird; das Ziel entscheidet, welches Attribut es verwendet. Du hast automatisch Erfolg, wenn das Ziel handlungsunfähig ist. Bei Erfolg unterliegt das Ziel dem Zustand Gepackt. Der Zustand legt fest, wodurch er endet, und du kannst das Ziel jederzeit freigeben (ohne Aktion).</p>\n<p data-content-chunk-id=\"a5d87cfc-afcc-4ae2-99c4-b4ed2af6a439\">Einem Packen entkommen. Eine gepackte Kreatur kann ihre Aktion verwenden, um zu entkommen. Dazu muss sie einen Wurf auf Stärke (Athletik) oder Geschicklichkeit (Akrobatik) ablegen, der gegen deinen Wurf auf Stärke (Athletik) vergleichend abgelegt wird.</p>\n<p data-content-chunk-id=\"ea1b3c54-b95f-45cb-8c5c-1ed310d82ce2\">Eine gepackte Kreatur bewegen. Wenn du dich bewegst, kannst du die gepackte Kreatur mit dir ziehen oder tragen, aber deine Bewegungsrate wird halbiert, es sei denn, die Kreatur ist mindestens zwei Größenkategorien kleiner als du.</p>\n<h4 id=\"ShovingaCreature\" data-content-chunk-id=\"5b230975-10b4-4cd0-bd03-2770875c21e5\">Eine Kreatur schubsen</h4>\n<p data-content-chunk-id=\"f4e214a2-2779-43c0-b318-23f5e5c47a9f\">Mit der Angriffsaktion kannst du einen besonderen Nahkampfangriff ausführen, um eine Kreatur zu schubsen und sie entweder zu Boden zu werfen oder von dir wegzustoßen. Wenn du mit der Angriffsaktion mehrere Angriffe ausführen kannst, ersetzt dieser Angriff einen davon.</p>\n<p data-content-chunk-id=\"d6bd6c9e-bda0-4b45-a5be-f9425e23783c\">Das Ziel darf höchstens eine Größenkategorie größer sein als du und muss sich in deiner Reichweite befinden. Anstelle eines Angriffswurfs legst du einen Wurf auf Stärke (Athletik) ab, der gegen einen Wurf des Ziels auf Stärke (Athletik) oder Geschicklichkeit (Akrobatik) vergleichend abgelegt wird; das Ziel entscheidet, welches Attribut es verwendet. Du hast automatisch Erfolg, wenn das Ziel handlungsunfähig ist. Bei Erfolg wirfst du das Ziel entweder zu Boden oder stößt es 1,50 Meter von dir weg.</p>"
+      },
+      "dash": {
+        "name": "Spurt",
+        "desc": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">Wenn du die Aktion Spurt ausführst, erhältst du zusätzliche Bewegung für den aktuellen Zug. Die zusätzliche Bewegung entspricht deiner Bewegungsrate, nachdem alle Modifikatoren angewendet wurden. Bei einer Bewegungsrate von 9 Metern kannst du dich in deinem Zug beispielsweise bis zu 18 Meter weit bewegen, wenn du sprintest.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Jede Erhöhung oder Verringerung deiner Bewegungsrate verändert diese zusätzliche Bewegung um denselben Betrag. Wird deine Bewegungsrate beispielsweise von 9 auf 4,5 Meter reduziert, kannst du dich in diesem Zug höchstens 9 Meter weit bewegen, wenn du sprintest.</p>"
+      },
+      "dodge": {
+        "name": "Ausweichen",
+        "desc": "<p>Wenn du die Aktion Ausweichen ausführst, konzentrierst du dich vollständig darauf, Angriffen auszuweichen. Bis zum Beginn deines nächsten Zuges hat jeder Angriffswurf gegen dich Nachteil, wenn du den Angreifer sehen kannst, und du legst Geschicklichkeitsrettungswürfe mit Vorteil ab. Du verlierst diesen Vorteil, wenn du handlungsunfähig wirst oder deine Bewegungsrate auf 0 sinkt.</p>"
+      },
+      "ready": {
+        "name": "Vorbereiten",
+        "desc": "<p data-content-chunk-id=\"7cbedb62-3df7-482e-9bee-412289356aca\">Manchmal möchtest du einen Gegner überraschen oder auf eine bestimmte Situation warten, bevor du handelst. Dazu kannst du in deinem Zug die Aktion Vorbereiten ausführen. Dadurch kannst du vor Beginn deines nächsten Zuges mithilfe deiner Reaktion handeln.</p>\n<p data-content-chunk-id=\"ef9f90d3-f264-4278-a0f8-0684073c429f\">Zuerst legst du fest, welche wahrnehmbare Situation deine Reaktion auslöst. Dann wählst du die Aktion, die du als Reaktion auf diesen Auslöser ausführst, oder du entscheidest dich, dich als Reaktion darauf bis zu deiner Bewegungsrate weit zu bewegen. Beispiele: „Wenn der Kultist auf die Falltür tritt, ziehe ich den Hebel, der sie öffnet“, oder „Wenn der Goblin neben mich tritt, bewege ich mich weg.“</p>\n<p data-content-chunk-id=\"6c8b0166-9e42-42fa-9ef6-6c01381032c9\">Wenn der Auslöser eintritt, kannst du deine Reaktion entweder direkt nach dem Ende des Auslösers ausführen oder den Auslöser ignorieren. Denke daran, dass du pro Runde nur eine Reaktion ausführen kannst.</p>\n<p data-content-chunk-id=\"2783c1c8-74e2-4b36-8eb7-2a7c4ea671e3\">Wenn du einen Zauber vorbereitest, wirkst du ihn wie gewöhnlich, hältst seine Energie jedoch zurück und setzt sie mit deiner Reaktion frei, sobald der Auslöser eintritt. Ein vorbereiteter Zauber muss eine Zauberwirkungszeit von 1 Aktion haben, und das Zurückhalten der Magie des Zaubers erfordert Konzentration. Wenn deine Konzentration endet, löst sich der Zauber auf, ohne Wirkung zu entfalten. Wenn du dich beispielsweise auf den Zauber <em>Netz</em> konzentrierst und <em>Magisches Geschoss</em> vorbereitest, endet <em>Netz</em>. Wenn du Schaden erleidest, bevor du <em>Magisches Geschoss</em> mit deiner Reaktion freisetzt, kann deine Konzentration enden.</p>"
+      }
+    },
+    "skills": {
+      "acr": {
+        "tooltip": "Dein Geschicklichkeitswurf (Akrobatik) umfasst deinen Versuch, in einer schwierigen Situation auf den Beinen zu bleiben, etwa wenn du über eine Eisfläche läufst, auf einem Drahtseil balancierst oder auf dem Deck eines schwankenden Schiffs aufrecht bleibst. Der Spielleiter kann auch einen Geschicklichkeitswurf (Akrobatik) verlangen, um zu bestimmen, ob du akrobatische Kunststücke wie Sprünge, Rollen, Purzelbäume und Überschläge ausführen kannst."
+      },
+      "ani": {
+        "tooltip": "Wenn fraglich ist, ob du ein domestiziertes Tier beruhigen, verhindern kannst, dass ein Reittier scheut, oder die Absichten eines Tieres intuitiv erfassen kannst, kann der Spielleiter einen Weisheitswurf (Tierführung) verlangen. Du legst ebenfalls einen Weisheitswurf (Tierführung) ab, um dein Reittier zu kontrollieren, wenn du ein riskantes Manöver versuchst."
+      },
+      "arc": {
+        "tooltip": "Dein Intelligenzwurf (Arkane Kunde) misst deine Fähigkeit, dich an Wissen über Zauber, magische Gegenstände, okkulte Symbole, magische Traditionen, die Ebenen der Existenz und die Bewohner dieser Ebenen zu erinnern."
+      },
+      "ath": {
+        "tooltip": "<p>Dein Stärkewurf (Athletik) umfasst schwierige Situationen, denen du beim Klettern, Springen oder Schwimmen begegnest. Dazu gehören beispielsweise:</p><ul><li>Du versuchst, eine steile oder rutschige Klippe zu erklimmen, beim Klettern an einer Wand Gefahren zu vermeiden oder dich an einer Oberfläche festzuhalten, während etwas versucht, dich herunterzustoßen.</li><li>Du versuchst, ungewöhnlich weit zu springen oder während eines Sprungs ein Kunststück auszuführen.</li><li>Du hast Schwierigkeiten zu schwimmen oder dich in gefährlichen Strömungen, sturmgepeitschten Wellen oder dichtem Seetang über Wasser zu halten. Oder eine andere Kreatur versucht, dich unter Wasser zu drücken oder zu ziehen oder dein Schwimmen anderweitig zu behindern.</li></ul>"
+      },
+      "dec": {
+        "tooltip": "Dein Charismawurf (Täuschung) bestimmt, ob du die Wahrheit überzeugend verbergen kannst, verbal oder durch deine Handlungen. Diese Täuschung kann alles umfassen, von der Irreführung anderer durch Mehrdeutigkeit bis hin zu dreisten Lügen. Typische Situationen sind etwa der Versuch, einen Wächter zu überreden, einen Händler zu betrügen, durch Glücksspiel Geld zu verdienen, dich in einer Verkleidung als jemand anderes auszugeben, den Verdacht einer Person durch falsche Beteuerungen zu zerstreuen oder beim Erzählen einer offensichtlichen Lüge eine unbewegte Miene zu bewahren."
+      },
+      "his": {
+        "tooltip": "Dein Intelligenzwurf (Geschichte) misst deine Fähigkeit, dich an Wissen über historische Ereignisse, legendäre Personen, alte Königreiche, vergangene Streitigkeiten, jüngste Kriege und untergegangene Zivilisationen zu erinnern."
+      },
+      "ins": {
+        "tooltip": "Dein Weisheitswurf (Motiv erkennen) entscheidet, ob du die wahren Absichten einer Kreatur erkennen kannst, etwa wenn du eine Lüge aufdecken oder den nächsten Schritt einer Person vorhersehen möchtest. Dazu musst du Hinweise aus Körpersprache, Sprachgewohnheiten und Veränderungen im Verhalten gewinnen."
+      },
+      "itm": {
+        "tooltip": "Wenn du versuchst, jemanden durch offene Drohungen, feindselige Handlungen und körperliche Gewalt zu beeinflussen, kann der Spielleiter dich auffordern, einen Charismawurf (Einschüchtern) abzulegen. Beispiele sind der Versuch, einem Gefangenen Informationen zu entlocken, Straßenräuber davon zu überzeugen, eine Konfrontation zu vermeiden, oder einen höhnischen Wesir mithilfe der scharfen Kante einer zerbrochenen Flasche dazu zu bringen, eine Entscheidung zu überdenken."
+      },
+      "inv": {
+        "tooltip": "Wenn du nach Hinweisen suchst und anhand dieser Hinweise Schlussfolgerungen ziehst, legst du einen Intelligenzwurf (Nachforschungen) ab. Du könntest den Ort eines verborgenen Gegenstands erschließen, anhand des Aussehens einer Wunde erkennen, welche Art von Waffe sie verursacht hat, oder die schwächste Stelle eines Tunnels bestimmen, an der er einstürzen könnte. Auch das Durchsuchen alter Schriftrollen nach einem verborgenen Wissensfragment kann einen Intelligenzwurf (Nachforschungen) erfordern."
+      },
+      "med": {
+        "tooltip": "Ein Weisheitswurf (Heilkunde) ermöglicht es dir, zu versuchen, einen sterbenden Gefährten zu stabilisieren oder eine Krankheit zu diagnostizieren."
+      },
+      "nat": {
+        "tooltip": "Dein Intelligenzwurf (Naturkunde) misst deine Fähigkeit, dich an Wissen über Gelände, Pflanzen und Tiere, das Wetter und natürliche Zyklen zu erinnern."
+      },
+      "prc": {
+        "tooltip": "Dein Weisheitswurf (Wahrnehmung) ermöglicht es dir, die Anwesenheit von etwas zu sehen, zu hören oder anderweitig wahrzunehmen. Er misst dein allgemeines Bewusstsein für deine Umgebung und die Schärfe deiner Sinne. Du könntest beispielsweise versuchen, ein Gespräch durch eine geschlossene Tür zu hören, unter einem geöffneten Fenster zu lauschen oder sich heimlich bewegende Monster im Wald zu hören. Oder du könntest versuchen, Dinge zu sehen, die verborgen oder leicht zu übersehen sind, etwa Orks, die an einer Straße auf der Lauer liegen, Schläger, die sich im Schatten einer Gasse verstecken, oder Kerzenlicht unter einer verschlossenen Geheimtür."
+      },
+      "prf": {
+        "tooltip": "Dein Charismawurf (Auftreten) bestimmt, wie gut du ein Publikum mit Musik, Tanz, Schauspiel, Geschichtenerzählen oder einer anderen Form der Unterhaltung erfreuen kannst."
+      },
+      "per": {
+        "tooltip": "Wenn du versuchst, jemanden oder eine Gruppe von Menschen durch Taktgefühl, gesellschaftliche Umgangsformen oder Freundlichkeit zu beeinflussen, kann der Spielleiter dich auffordern, einen Charismawurf (Überzeugen) abzulegen. Normalerweise setzt du Überzeugen ein, wenn du in gutem Glauben handelst, Freundschaften fördern, höfliche Bitten äußern oder angemessene Umgangsformen zeigen möchtest. Beispiele sind, einen Kammerherrn davon zu überzeugen, deine Gruppe den König sehen zu lassen, Frieden zwischen verfeindeten Stämmen auszuhandeln oder eine Menge von Stadtbewohnern zu inspirieren."
+      },
+      "rel": {
+        "tooltip": "Dein Intelligenzwurf (Religion) misst deine Fähigkeit, dich an Wissen über Gottheiten, Riten und Gebete, religiöse Hierarchien, heilige Symbole und die Praktiken geheimer Kulte zu erinnern."
+      },
+      "slt": {
+        "tooltip": "Wenn du einen Taschenspielertrick oder eine andere manuelle Täuschung versuchst, etwa jemandem etwas unterzuschieben oder einen Gegenstand an deiner Person zu verbergen, legst du einen Geschicklichkeitswurf (Fingerfertigkeit) ab. Der Spielleiter kann auch einen Geschicklichkeitswurf (Fingerfertigkeit) verlangen, um zu bestimmen, ob du einer anderen Person einen Geldbeutel abnehmen oder etwas aus ihrer Tasche ziehen kannst."
+      },
+      "ste": {
+        "tooltip": "Lege einen Geschicklichkeitswurf (Heimlichkeit) ab, wenn du versuchst, dich vor Feinden zu verbergen, dich an Wachen vorbeizuschleichen, unbemerkt zu entkommen oder dich jemandem zu nähern, ohne gesehen oder gehört zu werden."
+      },
+      "sur": {
+        "tooltip": "Der Spielleiter kann dich auffordern, einen Weisheitswurf (Überleben) abzulegen, um Spuren zu verfolgen, Wild zu jagen, deine Gruppe durch gefrorene Einöden zu führen, Anzeichen dafür zu erkennen, dass in der Nähe Eulenbären leben, das Wetter vorherzusagen oder Treibsand und andere natürliche Gefahren zu vermeiden."
+      }
+    },
+    "abilities": {
+      "str": {
+        "tooltip": "<p>Stärke misst körperliche Kraft, athletisches Training und das Ausmaß, in dem du rohe körperliche Gewalt ausüben kannst.</p><p><strong>Stärkewürfe</strong><br/>Ein Stärkewurf kann jeden Versuch abbilden, etwas zu heben, zu schieben, zu ziehen oder zu zerbrechen, deinen Körper durch einen engen Raum zu zwängen oder anderweitig rohe Gewalt auf eine Situation anzuwenden. Die Fertigkeit Athletik spiegelt Begabung bei bestimmten Arten von Stärkewürfen wider.</p><p><strong>Andere Stärkewürfe</strong><br/>Der Spielleiter kann auch einen Stärkewurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Eine festsitzende, verschlossene oder verriegelte Tür aufdrücken</li><li>Dich aus Fesseln befreien</li><li>Dich durch einen zu engen Tunnel zwängen</li><li>Dich an einem Wagen festhalten, während du hinter ihm hergezogen wirst</li><li>Eine Statue umstoßen</li><li>Verhindern, dass ein Felsbrocken rollt</li></ul></p><p><strong>Heben und Tragen</strong><br/>Dein Stärkewert bestimmt, wie viel Gewicht du tragen kannst. Die folgenden Begriffe legen fest, was du heben oder tragen kannst.</p><p><strong>Traglast.</strong> Deine Traglast entspricht deinem Stärkewert multipliziert mit 15. Dies ist das Gewicht in Pfund, das du tragen kannst – genug, dass sich die meisten Charaktere normalerweise keine Gedanken darum machen müssen.</p><p><strong>Schieben, Ziehen oder Heben.</strong> Du kannst ein Gewicht in Pfund schieben, ziehen oder heben, das bis zum Doppelten deiner Traglast (oder dem 30-Fachen deines Stärkewerts) beträgt. Wenn du ein Gewicht schiebst oder ziehst, das deine Traglast übersteigt, sinkt deine Bewegungsrate auf 1,50 Meter.</p><p><strong>Größe und Stärke.</strong> Größere Kreaturen können mehr Gewicht tragen, während winzige Kreaturen weniger tragen können. Verdopple für jede Größenkategorie über Mittelgroß die Traglast der Kreatur sowie die Menge, die sie schieben, ziehen oder heben kann. Halbiere diese Gewichte bei einer winzigen Kreatur.</p>"
+      },
+      "dex": {
+        "tooltip": "<p>Geschicklichkeit misst Beweglichkeit, Reflexe und Gleichgewicht.</p><p><strong>Geschicklichkeitswürfe</strong><br/>Ein Geschicklichkeitswurf kann jeden Versuch abbilden, sich geschickt, schnell oder leise zu bewegen oder auf schwierigem Untergrund nicht zu stürzen. Die Fertigkeiten Akrobatik, Fingerfertigkeit und Heimlichkeit spiegeln Begabung bei bestimmten Arten von Geschicklichkeitswürfen wider.</p><p><strong>Andere Geschicklichkeitswürfe</strong><br/>Der Spielleiter kann einen Geschicklichkeitswurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Einen schwer beladenen Karren an einem steilen Abhang kontrollieren</li><li>Einen Streitwagen durch eine enge Kurve lenken</li><li>Ein Schloss knacken</li><li>Eine Falle entschärfen</li><li>Einen Gefangenen sicher fesseln</li><li>Dich aus Fesseln winden</li><li>Ein Saiteninstrument spielen</li><li>Einen kleinen oder detailreichen Gegenstand herstellen</li></ul></p><p><strong>Rüstungsklasse</strong><br/>Abhängig von der getragenen Rüstung addierst du möglicherweise deinen Geschicklichkeitsmodifikator ganz oder teilweise zu deiner Rüstungsklasse, wie in Kapitel 5 unter <a class='entity-link' data-pack='dnd5e.rules' data-id='ln4KF7662eP93keD'>Ausrüstung</a> beschrieben.</p><p><strong>Initiative</strong><br/>Zu Beginn jedes Kampfes würfelst du Initiative, indem du einen Geschicklichkeitswurf ablegst. Die Initiative bestimmt die Reihenfolge der Züge der Kreaturen im Kampf, wie in Kapitel 9 unter <a class='entity-link' data-pack='dnd5e.rules' data-id='3V8ywGHQEpbZpsIL'>Kampf</a> beschrieben.</p>"
+      },
+      "con": {
+        "tooltip": "<p>Konstitution misst Gesundheit, Ausdauer und Lebenskraft.</p><p><strong>Konstitutionswürfe</strong><br/>Konstitutionswürfe sind ungewöhnlich, und auf Konstitutionswürfe werden keine Fertigkeiten angewendet, da die von diesem Attribut dargestellte Ausdauer größtenteils passiv ist und keine bestimmte Anstrengung einer Figur oder eines Monsters erfordert. Ein Konstitutionswurf kann jedoch deinen Versuch abbilden, über normale Grenzen hinauszugehen.</p><p>Der Spielleiter kann einen Konstitutionswurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Den Atem anhalten</li><li>Stundenlang ohne Rast marschieren oder arbeiten</li><li>Ohne Schlaf auskommen</li><li>Ohne Nahrung oder Wasser überleben</li><li>Einen ganzen Krug Bier auf einmal trinken</li></ul></p><p><strong>Trefferpunkte</strong><br/>Dein Konstitutionsmodifikator trägt zu deinen Trefferpunkten bei. Normalerweise addierst du deinen Konstitutionsmodifikator zu jedem Trefferwürfel, den du für deine Trefferpunkte würfelst.</p><p>Wenn sich dein Konstitutionsmodifikator ändert, ändert sich auch dein Trefferpunktemaximum, als hättest du den neuen Modifikator bereits ab der 1. Stufe. Wenn du beispielsweise bei Erreichen der 4. Stufe deinen Konstitutionswert erhöhst und dein Konstitutionsmodifikator von +1 auf +2 steigt, passt du dein Trefferpunktemaximum an, als wäre der Modifikator immer +2 gewesen. Du addierst also 3 Trefferpunkte für deine ersten drei Stufen und würfelst dann deine Trefferpunkte für die 4. Stufe mit dem neuen Modifikator. Wenn du beispielsweise die 7. Stufe erreicht hast und ein Effekt deinen Konstitutionswert so weit senkt, dass sich dein Konstitutionsmodifikator um 1 verringert, sinkt dein Trefferpunktemaximum um 7.</p>"
+      },
+      "int": {
+        "tooltip": "<p>Intelligenz misst geistige Schärfe, Genauigkeit der Erinnerung und die Fähigkeit zu schlussfolgern.</p><p><strong>Intelligenzwürfe</strong><br/>Ein Intelligenzwurf kommt zum Einsatz, wenn du Logik, Bildung, Gedächtnis oder deduktives Denken benötigst. Die Fertigkeiten Arkane Kunde, Geschichte, Nachforschungen, Naturkunde und Religion spiegeln Begabung bei bestimmten Arten von Intelligenzwürfen wider.</p><p><strong>Andere Intelligenzwürfe</strong><br/>Der Spielleiter kann einen Intelligenzwurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Mit einer Kreatur kommunizieren, ohne Worte zu verwenden</li><li>Den Wert eines kostbaren Gegenstands schätzen</li><li>Eine Verkleidung zusammenstellen, mit der du dich als Stadtwache ausgeben kannst</li><li>Ein Dokument fälschen</li><li>Dich an Wissen über ein Handwerk oder Gewerbe erinnern</li><li>Ein Geschicklichkeitsspiel gewinnen</li></ul></p>"
+      },
+      "wis": {
+        "tooltip": "<p>Weisheit spiegelt wider, wie sehr du auf die Welt um dich herum eingestellt bist, und steht für Wahrnehmungsfähigkeit und Intuition.</p><p><strong>Weisheitswürfe</strong> Ein Weisheitswurf kann den Versuch widerspiegeln, Körpersprache zu lesen, die Gefühle einer Person zu verstehen, Dinge in der Umgebung zu bemerken oder eine verletzte Person zu versorgen. Die Fertigkeiten Tierführung, Motiv erkennen, Heilkunde, Wahrnehmung und Überleben spiegeln Begabung bei bestimmten Arten von Weisheitswürfen wider.</p><p><strong>Andere Weisheitswürfe</strong><br/>Der Spielleiter kann einen Weisheitswurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Ein Bauchgefühl dafür bekommen, welche Handlung du ausführen solltest</li><li>Erkennen, ob eine scheinbar tote oder lebende Kreatur untot ist</li></ul></p>"
+      },
+      "cha": {
+        "tooltip": "<p>Charisma misst deine Fähigkeit, effektiv mit anderen zu interagieren. Dazu gehören Faktoren wie Selbstvertrauen und Beredsamkeit; es kann auch eine charmante oder gebieterische Persönlichkeit darstellen.</p><p><strong>Andere Charismawürfe</strong><br/>Der Spielleiter kann einen Charismawurf verlangen, wenn du folgende Aufgaben versuchst:<ul><li>Die beste Person finden, mit der du über Neuigkeiten, Gerüchte und Klatsch sprechen kannst</li><li>Dich unter eine Menge mischen, um die wichtigsten Gesprächsthemen zu erfassen</li></ul></p>"
+      }
+    },
+    "tooltip": {
+      "target": {
+        "name": "Ziel"
+      },
+      "range": {
+        "name": "Reichweite"
+      },
+      "properties": {
+        "name": "Eigenschaften"
+      },
+      "toHit": {
+        "name": "Treffer"
+      },
+      "damage": {
+        "name": "Schaden"
+      }
+    },
+    "itemconfig": {
+      "set1p": {
+        "text": ""
+      },
+      "set1s": {
+        "text": ""
+      },
+      "set2p": {
+        "text": ""
+      },
+      "set2s": {
+        "text": ""
+      },
+      "set3p": {
+        "text": ""
+      },
+      "set3s": {
+        "text": ""
+      },
+      "sets": {
+        "text": ""
+      }
+    }
+  }
+}
